@@ -1,10 +1,12 @@
 <?php
 
-$score = $_POST["score"];
-$opponentscore = $_POST["opponentscore"];
+include(fifadbconn.php);
 
-$for = $_POST["yourgoals"];
-$against = $_POST["opponentgoals"];
+$homescore = $_POST["score"];
+$awayscore = $_POST["opponentscore"];
+
+$homegoals = $_POST["yourgoals"];
+$awaygoals = $_POST["opponentgoals"];
 
 echo "starting score: $score<br/>";
 echo "score of opponent: $opponentscore<br/>";

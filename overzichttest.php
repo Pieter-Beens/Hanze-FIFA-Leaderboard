@@ -14,7 +14,7 @@ mysqli_connect_errno() . ")" );
 
 $query = "SELECT * ";
 $query .= "FROM players ";
-$query .= "ORDER BY scores DESC"; 
+$query .= "ORDER BY scores DESC";
 $result = mysqli_query($db,$query) or die ('Error querying database');
 
 echo "<table border=1>
@@ -24,11 +24,11 @@ echo "<table border=1>
 <th>Username</th><th>Password</th><th>Student#</th><th>Mailaddress</th><th>Score</th></tr>";
 while ($row = mysqli_fetch_assoc($result)) { // Uitlezen van data opgehaald uit database
 echo "<tr>
-<td><b>".$row['Playernames']."</td>
-<td>".$row['Passwords']."</td>
-<td>".$row['Studentcodes']."</td>
-<td>".$row['Hanzemails']."</td>
-<td><b>".$row['Scores']."</b></td>
+<td><b>".$row['playernames']."</td>
+<td>".$row['passwords']."</td>
+<td>".$row['studentcodes']."</td>
+<td>".$row['hanzemails']."</td>
+<td><b>".$row['scores']."</b></td>
 </tr>";
 };
 
