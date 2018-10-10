@@ -1,0 +1,57 @@
+@font-face {
+  font-family: FIFA16;
+  src: url(EASPORTS15.ttf);
+}
+* {
+    box-sizing: border-box;
+}
+body{
+  background-image: url(blue.png);
+  background-repeat: repeat;
+  margin: 0;
+}
+header{
+  background-color: white;
+  height: 55px;
+  width: 100%;
+}
+footer{
+  background-color: #0D2D5B;
+  color: white;
+  height: 75px;
+  width: 100%;
+  text-align: center;
+  font-family: Arial, "sans-serif";
+  padding: 20px;
+}
+.menu {
+    background-color: white;
+    overflow: hidden;
+    height: 55px;
+    position: sticky;
+    top: 0;
+}
+.menu a{
+  float: left;
+  text-align: center;
+  padding: 16px;
+  font-size: 18px;
+  text-decoration: none;
+  font-family: FIFA16;
+  color: #0D2D5B;
+  height: 55px;
+}
+  a:hover {
+background-color: #000000;
+color: white;
+}
+.blue{
+  background-color: #0D2D5B;
+  height: 175px;
+  font-size: 50px;
+  font-family: FIFA16;
+  letter-spacing: 15px;
+  color: white;
+  padding: 30px;
+  width: 100%;
+}
