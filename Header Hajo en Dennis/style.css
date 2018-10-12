@@ -4,9 +4,9 @@
   src: url(EASPORTS15.ttf);
 }
 
-/* {
+* {
     box-sizing: border-box;
-}*/
+}
 body{
   background-image: url(blue.png);
   background-repeat: repeat;
@@ -17,14 +17,14 @@ body{
 .header{
   background-color: white; /* white */
   height: 60px;
-  width: 100%;
     min-width: 400px;
+  width: 100%;
   display: inline-block;
 }
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
     .header{
-        height: auto;
-        max-height: 96px;
+        height: 10vh;
+        max-height: 10vh;
     }
 }
 
@@ -34,7 +34,7 @@ body{
 	float: right;
 	background-color: white; /* white */
 }
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
     .headerRightDiv{
         height: auto;
     }
@@ -78,7 +78,7 @@ footer{
     float: left;
     text-align: center;
     padding: 20px;
-    height: 20px;
+    height: 100%;
     font-size: 18px;
     text-decoration: none;
     font-family: FIFA16;
@@ -93,14 +93,14 @@ footer{
     display: none;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
     .button{
         display: none;
     }
     .dropdownButton{
         display: inline-block;
         width: auto;
-        height: 96px;
+        height: 10vh;
         background-color: red;
     }
 }
@@ -110,25 +110,23 @@ footer{
 
 /* Blue maakt witte tekst */
 .blueBanner{
-  background-color: #0D2D5B;
-  height: 175px;
-  font-size: 64px;
-  font-family: FIFA16;
-  letter-spacing: 8px;
-  color: white;
-  padding: 30px;
-  width: 100%;
+    background-color: #0D2D5B;
+    height: auto;
+    font-size: 64px;
+    font-family: FIFA16;
+    letter-spacing: 8px;
+    color: white;
+    padding: 30px;
+    max-width: 100%;
+    min-width: 400px;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
     .blueBanner{
-        background-color: #0D2D5B;
-        height: 175px;
-        font-size: 80px;
-        font-family: FIFA16;
+        padding: 20px;
+        font-size: 100px;
         letter-spacing: 0px;
-        color: white;
-        padding: 30px;
         width: 100%;
+        overflow: hidden;
     }
 }
