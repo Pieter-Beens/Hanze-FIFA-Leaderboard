@@ -21,6 +21,7 @@ body{
   width: 100%;
   display: inline-block;
 }
+
 @media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
     .header{
         height: 10vh;
@@ -106,7 +107,21 @@ footer{
 }
 
 
+.hanzeLogo{
+    min-height: 60px;
+    height: 60px;
+    max-height: 10vh;
+}
 
+@media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
+    .hanzeLogo{
+        min-height: 16px;
+        display: inline-block;
+        width: auto;
+        height: 10vh;
+        background-color: red;
+    }
+}
 
 /* Blue maakt witte tekst */
 .blueBanner{
@@ -124,7 +139,7 @@ footer{
 @media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
     .blueBanner{
         padding: 20px;
-        font-size: 100px;
+        font-size: 10vw;
         letter-spacing: 0px;
         width: 100%;
         overflow: hidden;
