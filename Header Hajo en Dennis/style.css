@@ -4,9 +4,9 @@
   src: url(EASPORTS15.ttf);
 }
 
-* {
+/* {
     box-sizing: border-box;
-}
+}*/
 body{
   background-image: url(blue.png);
   background-repeat: repeat;
@@ -15,26 +15,27 @@ body{
 
 /* Header div */
 .header{
-  background-color: yellow; /* white */
+  background-color: white; /* white */
   height: 60px;
-  max-height: 96px;
   width: 100%;
+    min-width: 400px;
   display: inline-block;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     .header{
         height: auto;
+        max-height: 96px;
     }
 }
 
-.headerButtonWrapper{
+.headerRightDiv{
 	width: auto;
 	height: 60px;
 	float: right;
 	background-color: white; /* white */
 }
-@media only screen and (max-width: 600px) {
-    .headerButtonWrapper{
+@media only screen and (max-width: 700px) {
+    .headerRightDiv{
         height: auto;
     }
 }
@@ -50,26 +51,40 @@ footer{
   padding: 20px;
 }
 
-/* Menu button */
-.menuButton {
+.buttonBanner{
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
+
+.menuWrapper {
+    width: 100%;
+    background-color: white;
+    display: inline-block;
+    overflow: visible;
+    position: sticky;
+    top: 0;
+}
+
+/* Button button */
+.button {
 	display: inline-block;
     background-color: white;
-    overflow: hidden;
+    overflow: visible;
     height: 60px;
 	width: auto;
-    position: sticky;
 }
-.menuButton a{
+.button a{
     float: left;
     text-align: center;
     padding: 20px;
-    height: 100%;
+    height: 20px;
     font-size: 18px;
     text-decoration: none;
     font-family: FIFA16;
     color: #0D2D5B;
 }
-.menuButton>a:hover {
+.button>a:hover {
 	background-color: #000000;
 	color: white;
 }
@@ -78,15 +93,15 @@ footer{
     display: none;
 }
 
-@media only screen and (max-width: 600px) {
-    .menuButton{
+@media only screen and (max-width: 700px) {
+    .button{
         display: none;
     }
     .dropdownButton{
         display: inline-block;
+        width: auto;
+        height: 96px;
         background-color: red;
-        width: 30vw;
-        height: 100%;
     }
 }
 
@@ -94,13 +109,26 @@ footer{
 
 
 /* Blue maakt witte tekst */
-.blue{
+.blueBanner{
   background-color: #0D2D5B;
   height: 175px;
-  font-size: 50px;
+  font-size: 64px;
   font-family: FIFA16;
-  letter-spacing: 15px;
+  letter-spacing: 8px;
   color: white;
   padding: 30px;
   width: 100%;
+}
+
+@media only screen and (max-width: 700px) {
+    .blueBanner{
+        background-color: #0D2D5B;
+        height: 175px;
+        font-size: 80px;
+        font-family: FIFA16;
+        letter-spacing: 0px;
+        color: white;
+        padding: 30px;
+        width: 100%;
+    }
 }
