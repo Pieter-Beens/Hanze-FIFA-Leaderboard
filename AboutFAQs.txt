@@ -9,7 +9,7 @@ Not all players are equal. Beating up on players with a low Leaderboard Score wi
 
 FAQs
 Q: Cool. How do I sign up?
-A: Register here. You must be a student of Hanze University and have access to your Hanze mail account.
+A: Register here. Not that to sign up, you must be a student of Hanze University and have access to your Hanze email account.
 
 Q: I registered! How do I start playing?
 A: You can play anytime, anywhere. Once you've played a match, select ADD RESULTS from the menu and make your result public. For results to become official, you will need to enter both your own and your opponent's password!
@@ -19,3 +19,7 @@ A: When players cheat, or cause other trouble, you can give them a Yellow Card! 
 
 Q: I have more questions.
 A: Contact Form is right here! We'll be happy to answer any question you might still have. Suggestions are also welcome!
+
+
+
+add something about seasons

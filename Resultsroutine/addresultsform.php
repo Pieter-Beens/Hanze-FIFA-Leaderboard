@@ -1,16 +1,12 @@
 <?php
 
+session_start();
+$_SESSION['name'] = 'KabouterKlop77';
+
 include('fifadbconn.php');
 
-$query = "SELECT playernames ";
-$query .= "FROM players ";
-$query .= "WHERE playernames = 'KabouterKlop77'"; // username should be gathered from login info: $_SESSION['username']
-$result = mysqli_query($db,$query) or die ('Error querying database');
-
-$row = mysqli_fetch_assoc($result);
-
-$query = "SELECT playernames, passwords, scores ";
-$query .= "FROM players";
+$query = "SELECT `name`";
+$query .= "FROM `users`";
 $result = mysqli_query($db,$query) or die ('Error querying database');
 
 ?>
@@ -22,15 +18,15 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
 <div align="center"><img height=150 src="http://pluspng.com/img-png/fifa-logo-png-fifa-logo-685.png"></div>
 <table style=margin:auto>
   <tr><td></td><td><div align="center"><h2>HOME</h2></div></td><td><div align="center"><h2>AWAY</h2></div></td></tr>
-  <tr><td width=60><b>Players</b></td><td><input size=22 type="text" name='homeplayer' value=<?php echo $row['playernames']; ?> disabled></td>
+  <tr><td width=60><b>Players</b></td><td><input size=22 type="text" name='homeplayer' value=<?php echo $_SESSION['name']; ?> disabled></td>
     <td><select name='awayplayer'><option value="">SELECT AN OPPONENT</option>
     <?php
-    while ($namerow = mysqli_fetch_assoc($result)) {
-      if ($namerow['playernames'] != $row['playernames']) {
+    while ($row = mysqli_fetch_assoc($result)) {
+      if ($row['name'] != $_SESSION['name']) {
         echo "<option value=";
-        echo $namerow['playernames'];
+        echo $row['name'];
         echo ">";
-        echo $namerow['playernames'];
+        echo $row['name'];
         echo "</option>";
       };
     }

@@ -1,39 +1,47 @@
 <?php
-// Database connectie met localhost
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = ""; //alleen als er een wachtwoord is toegepast
-$dbname = "fifa"; //naam van de database
-$db = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-// Test of de verbinding werkt!
-if (mysqli_connect_errno()) {
-die("Failure connecting to the database: " .
-mysqli_connect_error() . " (" .
-mysqli_connect_errno() . ")" );
-};
+include('fifadbconn.php');
 
 $query = "SELECT * ";
-$query .= "FROM players ";
-$query .= "ORDER BY scores DESC";
+$query .= "FROM users ";
+$query .= "ORDER BY score DESC";
 $result = mysqli_query($db,$query) or die ('Error querying database');
 
-echo "<table border=1>
+
+
+echo "<table style=align:center border=1>
 <tr>
-<td colspan=5><h2 align=center>Leaderboard</h2></td>
-</tr><tr>
-<th>Username</th><th>Password</th><th>Student#</th><th>Mailaddress</th><th>Score</th></tr>";
+<td style=background-color:red;color:white colspan=7><h2 align=center>Leaderboard</h2></td>
+</tr><tr style=background-color:lightblue>
+<th></th><th>User</th><th>Pass</th><th>Email</th><th>GF</th><th>GA</th><th>Score</th></tr>";
 while ($row = mysqli_fetch_assoc($result)) { // Uitlezen van data opgehaald uit database
+
+  $query = "SELECT homegoals, awaygoals FROM results WHERE homeplayer = '".$row['id']."'";
+  $gfaresult = mysqli_query($db,$query) or die ('Error querying database: Homegames');
+  while ($gfa = mysqli_fetch_assoc($gfaresult)) {
+    $goalsfor = $gfa['homegoals'];
+    $goalsagainst = $gfa['awaygoals'];
+  }
+  $query = "SELECT homegoals, awaygoals FROM results WHERE awayplayer = '".$row['id']."'";
+  $gfaresult = mysqli_query($db,$query) or die ('Error querying database: Awaygames');
+  while ($gfa = mysqli_fetch_assoc($gfaresult)) {
+    $goalsfor += $gfa['awaygoals'];
+    $goalsagainst += $gfa['homegoals'];
+  }
+  $query = "SELECT id FROM cards WHERE accused = '".$row['id']."'";
+  $cardresult = mysqli_query($db,$query) or die ('Error counting cards');
+  if (mysqli_num_rows($cardresult) > 1) {$card = "<img height=18px src=red.png>";}
+  elseif (mysqli_num_rows($cardresult) == 1) {$card = "<img height=18px src=yellow.png>";}
+  else {$card = "";}
+
 echo "<tr>
-<td><b>".$row['playernames']."</td>
-<td>".$row['passwords']."</td>
-<td>".$row['studentcodes']."</td>
-<td>".$row['hanzemails']."</td>
-<td><b>".$row['scores']."</b></td>
+<td style=text-align:center><b><img height=36px src=".$row['avatar']."></td>
+<td><a href=profile.php?user=".$row['name'].">".$row['name'].$card."</td>
+<td><i>".$row['password']."</i></td>
+<td><u>".$row['email']."</u></td>
+<td style=text-align:right;color:green><b>".$goalsfor."</b></td>
+<td style=text-align:right;color:red><b>".$goalsagainst."</b></td>
+<td style=text-align:right;font-size:16pt><b>".round($row['score'],1)."</b></td>
 </tr>";
 };
-
-mysqli_free_result($result); // Maakt $result array leeg
-
-mysqli_close($db); // Verbreekt verbinding met database
 
 ?>

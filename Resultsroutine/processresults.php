@@ -16,31 +16,30 @@ if (!isset($_SESSION)) { // warning if session has somehow ended, likely when pl
 
 
 $query = "SELECT * ";
-$query .= "FROM players ";
-$query .= "WHERE playernames = 'KabouterKlop77'"; // username should be gathered from login info
+$query .= "FROM users ";
+$query .= "WHERE name = '".$_SESSION['name']."'"; // username gathered from SESSION element assigned on an earlier page
 $result = mysqli_query($db,$query) or die ('Error querying database');
 
 $home = mysqli_fetch_assoc($result);
 
 $query = "SELECT * ";
-$query .= "FROM players ";
-$query .= "WHERE playernames = '";
-$query .= $_SESSION['awayplayer']."'";
+$query .= "FROM users ";
+$query .= "WHERE name = '".$_SESSION['awayplayer']."'";
 $result = mysqli_query($db,$query) or die ('Error querying database:'.$query);
 
 $away = mysqli_fetch_assoc($result);
 
-$homescore = $home['scores'];
-$awayscore = $away['scores'];
+$homescore = $home['score'];
+$awayscore = $away['score'];
 
-$homeplayer = 'KabouterKlop77'; // SHOULD BE GATHERED FROM LOGIN DATA
+$homeplayer = $_SESSION['name']; // username gathered from SESSION element assigned on an earlier page
 $awayplayer = $_SESSION['awayplayer'];
 
 $homegoals = $_SESSION["homegoals"];
 $awaygoals = $_SESSION["awaygoals"]; // because arrays are unwieldy, the relevant elements are bound to regular vars
 
 echo "<div style=color:blue><i>You entered the following information:</i></div>";
-echo "<div style=align:center><b>$homeplayer  <text style=color:red>$homegoals - $awaygoals</text>  $awayplayer</b></div>";
+echo "<div style=align:center><b>$homeplayer <text style=color:red>$homegoals - $awaygoals</text> $awayplayer</b></div>";
 echo "<b>Comment:</b> ".$_SESSION["description"];
 echo "<div style=color:blue><i>Please enter both players' passwords to confirm this result:</i></div><br/>";
 
@@ -56,8 +55,8 @@ echo "<div style=color:blue><i>Please enter both players' passwords to confirm t
 
 
 <?php
-$homepass = $home['passwords'];
-$awaypass = $away['passwords'];
+$homepass = $home['password'];
+$awaypass = $away['password'];
 
 if(!isset($_POST['homepass'])) {die();}
 elseif($_POST['homepass'] != $homepass) {die('First password is not correct');}
@@ -89,6 +88,15 @@ else {
 	$newhomescore = $homescore + $change;
 	$newawayscore = $awayscore - $change;
 }
+
+$query = "INSERT INTO results (homeplayer,homegoals,awaygoals,awayplayer,`datetime`,`description`)"; // query to INSERT new match details
+$query .= "VALUES (`".$homeplayer."`,".$homegoals.",".$awaygoals.",`".$awayplayer."`,now(),`".$_SESSION['description']."`)";
+mysqli_query($db,$query) or die ('Error INSERTing results data. No changes have been written to the database.');
+$query = "UPDATE users SET score='". $newhomescore ."' WHERE name='". $homeplayer ."'";
+mysqli_query($db,$query) or die ('<b>Error UPDATING home player score. Match data has been saved but scores have not changed.');
+$query = "UPDATE users SET score='". $newawayscore ."' WHERE name='". $awayplayer ."'";
+mysqli_query($db,$query) or die ('<b>Error UPDATING away player score. Match data has been saved but only the home player score has been changed!');
+
 ?>
 
 <div border=1 align=center><h3><?php echo $homeplayer?></h3>
@@ -100,13 +108,5 @@ else {
 </div>
 
 <?php
-$query = "UPDATE players SET scores='". $newhomescore ."' WHERE playernames='". $homeplayer ."'";
-mysqli_query($db,$query) or die ('<b>Error querying database. Your results have not been saved!');
-$query = "UPDATE players SET scores='". $newawayscore ."' WHERE playernames='". $awayplayer ."'";
-mysqli_query($db,$query) or die ('<b>Error querying database. Your results have not been saved! away');
-$query = "INSERT INTO matches"; // query to INSERT new match details
-mysqli_query($db,$query) or die ('')
-$query .= "VALUES (now(),".$homeplayer.",".$homegoals.",".$awaygoals.",".$awayplayer.")"; //CHECK DATABASE FOR ACCURATE NAMES/ORDER (also matches) (also does now() work this way?)
-
-unset($_SESSION['awayplayer']);
+unset($_SESSION['awayplayer']); // prevents players from refreshing to send same result multiple times to boost score
 ?>
