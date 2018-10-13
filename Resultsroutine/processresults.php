@@ -100,19 +100,12 @@ else {
 </div>
 
 <?php
-$query = "UPDATE players"; // query to UPDATE home player's score
-$query .= "SET scores = '";
-$query .= $newhomescore."'";
-$query .= "WHERE playernames = '";
-$query .= $homeplayer."'";
+$query = "UPDATE players SET scores='". $newhomescore ."' WHERE playernames='". $homeplayer ."'";
 mysqli_query($db,$query) or die ('<b>Error querying database. Your results have not been saved!');
-$query = "UPDATE players"; // query to UPDATE away player's score
-$query .= "SET scores = '";
-$query .= $newawayscore."'";
-$query .= "WHERE playernames = '";
-$query .= $awayplayer."'";
+$query = "UPDATE players SET scores='". $newawayscore ."' WHERE playernames='". $awayplayer ."'";
 mysqli_query($db,$query) or die ('<b>Error querying database. Your results have not been saved! away');
 $query = "INSERT INTO matches"; // query to INSERT new match details
+mysqli_query($db,$query) or die ('')
 $query .= "VALUES (now(),".$homeplayer.",".$homegoals.",".$awaygoals.",".$awayplayer.")"; //CHECK DATABASE FOR ACCURATE NAMES/ORDER (also matches) (also does now() work this way?)
 
 unset($_SESSION['awayplayer']);
