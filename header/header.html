@@ -10,7 +10,7 @@
 <!-- header div -->
 <div class="header">
 	<a href="/"><img class="hanzeLogo" src="header/logo.png"></a>
-	
+
 	<!-- right div desktop -->
 	<div class="headerRightDiv">
 		<div class="button">
@@ -18,8 +18,8 @@
 
 		<!-- Oude code: style="float:right;margin-right:10px;position:relative;top:auto;"-->
 		<div class="button">
-		<a href="#idk">My Profile</a></div>
-	
+		<a href="href=profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a></div>
+
 		<!-- right div mobile-->
 		<a href="/"><img class="dropdownButton" src="header/images/button_dropdown.jpg"></a>
 	</div>
@@ -32,11 +32,11 @@
 
 <div class="menuWrapper">
 	<div class="button">
-		<a href="#idk">Leaderboard</a>
-		<a href="#idk">Add Match</a>
+		<a href="leaderboard.php">Leaderboard</a>
+		<a href="Resultsroutine/addresultsform.php">Add Match</a>
 		<a href="#idk">Award Card</a>
 		<a href="#idk">Contact</a>
-		<a href="#idk">About</a>
+		<a href="about.php">About</a>
 		<!--a href="#idk">Log Out</a-->
 	</div>
 </div>

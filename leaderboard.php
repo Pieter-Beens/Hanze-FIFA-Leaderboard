@@ -8,11 +8,19 @@ $query .= "FROM users ";
 $query .= "ORDER BY score DESC";
 $result = mysqli_query($db,$query) or die ('Error querying database');
 
-echo "<table style=align:center border=1>
+echo "<table style=align:center;color:white border=1>
 <tr>
-<td style=background-color:red;color:white colspan=7><h2 align=center>Leaderboard</h2></td>
-</tr><tr style=background-color:lightblue>
-<th></th><th>User</th><th>Pass</th><th>Email</th><th>GF</th><th>GA</th><th>Score</th></tr>";
+  <td style=background-color:red;color:white colspan=6><h2 align=center>Leaderboard</h2></td>
+</tr>
+<tr style=background-color:black>
+  <th>Rank</th>
+  <th></th>
+  <th>User</th>
+  <th>GF</th>
+  <th>GA</th>
+  <th>Score</th>
+</tr>";
+$rank=0;
 while ($row = mysqli_fetch_assoc($result)) { // Uitlezen van data opgehaald uit database
 
   $query = "SELECT homegoals, awaygoals FROM results WHERE homeplayer = '".$row['id']."'";
@@ -33,11 +41,12 @@ while ($row = mysqli_fetch_assoc($result)) { // Uitlezen van data opgehaald uit 
   elseif (mysqli_num_rows($cardresult) == 1) {$card = "<img height=18px src=yellow.png>";}
   else {$card = "";}
 
+$rank++;
+
 echo "<tr>
+<td><font size=18pt>$rank</font></td>
 <td style=text-align:center><b><img height=36px src=".$row['avatar']."></td>
-<td><a href=profile.php?user=".$row['name'].">".$row['name'].$card."</td>
-<td><i>".$row['password']."</i></td>
-<td><u>".$row['email']."</u></td>
+<td><b><a style=color:orange href=profile.php?user=".$row['id'].">".$row['name'].$card."</b></td>
 <td style=text-align:right;color:green><b>".$goalsfor."</b></td>
 <td style=text-align:right;color:red><b>".$goalsagainst."</b></td>
 <td style=text-align:right;font-size:16pt><b>".round($row['score'],1)."</b></td>
