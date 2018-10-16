@@ -1,0 +1,147 @@
+/* Import fonts */
+@font-face {
+  font-family: FIFA16;
+  src: url(EASPORTS15.ttf);
+}
+
+* {
+    box-sizing: border-box;
+}
+body{
+  background-image: url(blue.png);
+  background-repeat: repeat;
+  margin: 0;
+}
+
+/* Header div */
+.header{
+  background-color: white; /* white */
+  height: 60px;
+    min-width: 400px;
+  width: 100%;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
+    .header{
+        height: 10vh;
+        max-height: 10vh;
+    }
+}
+
+.headerRightDiv{
+	width: auto;
+	height: 60px;
+	float: right;
+	background-color: white; /* white */
+}
+@media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
+    .headerRightDiv{
+        height: auto;
+    }
+}
+
+/* Footer */
+footer{
+  background-color: #0D2D5B;
+  color: white;
+  height: 75px;
+  width: 100%;
+  text-align: center;
+  font-family: Arial, "sans-serif";
+  padding: 20px;
+}
+
+.buttonBanner{
+    width: 100%;
+    height: auto;
+    background-color: white;
+}
+
+.menuWrapper {
+    width: 100%;
+    background-color: white;
+    display: inline-block;
+    overflow: visible;
+    position: sticky;
+    top: 0;
+}
+
+/* Button button */
+.button {
+	display: inline-block;
+    background-color: white;
+    overflow: visible;
+    height: 60px;
+	width: auto;
+}
+.button a{
+    float: left;
+    text-align: center;
+    padding: 20px;
+    height: 100%;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: FIFA16;
+    color: #0D2D5B;
+}
+.button>a:hover {
+	background-color: #000000;
+	color: white;
+}
+
+.dropdownButton{
+    display: none;
+}
+
+@media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
+    .button{
+        display: none;
+    }
+    .dropdownButton{
+        display: inline-block;
+        width: auto;
+        height: 10vh;
+        background-color: red;
+    }
+}
+
+
+.hanzeLogo{
+    min-height: 60px;
+    height: 60px;
+    max-height: 10vh;
+}
+
+@media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
+    .hanzeLogo{
+        min-height: 16px;
+        display: inline-block;
+        width: auto;
+        height: 10vh;
+        background-color: red;
+    }
+}
+
+/* Blue maakt witte tekst */
+.blueBanner{
+    background-color: #0D2D5B;
+    height: auto;
+    font-size: 64px;
+    font-family: FIFA16;
+    letter-spacing: 8px;
+    color: white;
+    padding: 30px;
+    max-width: 100%;
+    min-width: 400px;
+}
+
+@media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
+    .blueBanner{
+        padding: 20px;
+        font-size: 10vw;
+        letter-spacing: 0px;
+        width: 100%;
+        overflow: hidden;
+    }
+}
