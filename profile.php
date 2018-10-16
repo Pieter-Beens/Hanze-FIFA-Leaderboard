@@ -1,7 +1,8 @@
 <?php
-include('header/header.html');
 
 include('fifadbconn.php');
+
+$_SESSION['id'] = 2; // test, should be retrieved from database and assigned to SESSION var at login
 
 $query = "SELECT name, avatar, realname, email, score FROM users WHERE id = ".$_GET['user'];
 $result = mysqli_query($db,$query) or die ('Error finding username');
@@ -17,10 +18,16 @@ if (mysqli_num_rows($cardresult) > 1) {$card = "<img align=right height=150px sr
 elseif (mysqli_num_rows($cardresult) == 1) {$card = "<img align=right height=150px src=yellow.png>";}
 else {$card = "";}
 
+echo "<title>Hanze FIFA Leaderboard - ".$user['name']."'s Profile</title>";
+
+include('header/header.html');
+
 echo "$card<br>";
 
 echo "<img height=100 src=".$user['avatar'].">";
-echo "<font style=color:white><font size=40><b>".$user['name']."</font><i> profile</i></h1><br>";
+echo "<font style=color:white><font size=40><b>".$user['name']."</font> ";
+if ($_GET['user'] == $_SESSION['id'] || $_SESSION['role'] == 'admin') echo "<i><a style=color:orange href=editdetails.php?user=".$_GET['user'].">edit details</a></i>";
+echo "<br>";
 echo "Score: ".$user['score']."<br>Ranking: #".$ranking."<br>Real name: ".$user['realname']."<br>Email: ".$user['email']."<br>";
 
 $goalsfor = 0;
@@ -57,14 +64,14 @@ $query .= "WHERE homeplayer = ".$_GET['user']." OR awayplayer = ".$_GET['user'];
 $query .= " ORDER BY `datetime` DESC";
 $result = mysqli_query($db,$query) or die ('Error querying database');
 
-echo "<table cellpadding=4 border=1 style=overflow:hidden;color:white;table-layout:fixed width=800>
+echo "<table cellpadding=4 border=1 style=overflow:hidden;color:white;table-layout:fixed width=1>
   <colgroup>
     <col style=width:90px>
     <col style=width:50px>
-    <col style=width:200px>
-    <col style=width:30px>
-    <col style=width:30px>
-    <col style=width:200px>
+    <col style=width:230px>
+    <col style=width:50px>
+    <col style=width:50px>
+    <col style=width:230px>
     <col style=width:140px>
   </colgroup>
 <tr>
@@ -97,3 +104,5 @@ while ($row = mysqli_fetch_assoc($result)) {
 echo "</table>";
 
 ?>
+
+<br><br><br><br>

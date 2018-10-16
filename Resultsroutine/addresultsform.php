@@ -1,7 +1,9 @@
+<title>Hanze FIFA Leaderboard - Add Results Form</title>
+
 <?php
 
 session_start();
-$_SESSION['name'] = 'KabouterKlop77';
+$_SESSION['name'] = 'KabouterKlop77'; // test, player info name be retrieved from database and set to SESSION var at login
 
 include('fifadbconn.php');
 

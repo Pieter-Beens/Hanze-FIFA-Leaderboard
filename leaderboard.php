@@ -1,3 +1,5 @@
+<title>Hanze FIFA Leaderboard</title>
+
 <?php
 include('header/header.html');
 
@@ -23,11 +25,14 @@ echo "<table style=align:center;color:white border=1>
 $rank=0;
 while ($row = mysqli_fetch_assoc($result)) { // Uitlezen van data opgehaald uit database
 
+  $goalsfor=0;
+  $goalsagainst=0;
+
   $query = "SELECT homegoals, awaygoals FROM results WHERE homeplayer = '".$row['id']."'";
   $gfaresult = mysqli_query($db,$query) or die ('Error querying database: Homegames');
   while ($gfa = mysqli_fetch_assoc($gfaresult)) {
-    $goalsfor = $gfa['homegoals'];
-    $goalsagainst = $gfa['awaygoals'];
+    $goalsfor += $gfa['homegoals'];
+    $goalsagainst += $gfa['awaygoals'];
   }
   $query = "SELECT homegoals, awaygoals FROM results WHERE awayplayer = '".$row['id']."'";
   $gfaresult = mysqli_query($db,$query) or die ('Error querying database: Awaygames');
@@ -46,7 +51,7 @@ $rank++;
 echo "<tr>
 <td><font size=18pt>$rank</font></td>
 <td style=text-align:center><b><img height=36px src=".$row['avatar']."></td>
-<td><b><a style=color:orange href=profile.php?user=".$row['id'].">".$row['name'].$card."</b></td>
+<td><b><a style=color:orange href=profile.php?user=".$row['id'].">".$card.$row['name']."</b></td>
 <td style=text-align:right;color:green><b>".$goalsfor."</b></td>
 <td style=text-align:right;color:red><b>".$goalsagainst."</b></td>
 <td style=text-align:right;font-size:16pt><b>".round($row['score'],1)."</b></td>

@@ -1,3 +1,5 @@
+<title>Hanze FIFA Leaderboard - Confirm Result</title>
+
 <?php
 
 session_start();
@@ -19,14 +21,12 @@ $query = "SELECT * ";
 $query .= "FROM users ";
 $query .= "WHERE name = '".$_SESSION['name']."'"; // username gathered from SESSION element assigned on an earlier page
 $result = mysqli_query($db,$query) or die ('Error querying database');
-
 $home = mysqli_fetch_assoc($result);
 
 $query = "SELECT * ";
 $query .= "FROM users ";
 $query .= "WHERE name = '".$_SESSION['awayplayer']."'";
 $result = mysqli_query($db,$query) or die ('Error querying database:'.$query);
-
 $away = mysqli_fetch_assoc($result);
 
 $homescore = $home['score'];
@@ -62,31 +62,7 @@ if(!isset($_POST['homepass'])) {die();}
 elseif($_POST['homepass'] != $homepass) {die('First password is not correct');}
 elseif($_POST['awaypass'] != $awaypass) {die('Second password is not correct');}
 else {
-	$rate = 1; // can be changed to increase or decrease rate at which score changes
-
-	$win = 2;
-	$loss = -2;
-
-	If ($homegoals >= $awaygoals) { // did player win or lose?
-		$winloss = $win;
-	} Else {
-		$winloss = $loss;
-	};
-
-	If ($homegoals == $awaygoals) { // points earned for draws
-		If ($homescore < $awayscore) {
-			$change = (1 * $rate) * ($awayscore / $homescore);
-		} Elseif ($homescore > $awayscore) {
-			$change = -(1 * $rate) * ($homescore / $awayscore);
-		} Else {
-			$change = 0;
-		};
-	} Else {
-		$change = (($homegoals - $awaygoals) + $winloss) * ($awayscore / $homescore); // points earned goal difference + win/loss
-	};
-
-	$newhomescore = $homescore + $change;
-	$newawayscore = $awayscore - $change;
+	include('algorithm.php');
 }
 
 $query = "INSERT INTO results (homeplayer,homegoals,awaygoals,awayplayer,`datetime`,`description`)"; // query to INSERT new match details
@@ -108,5 +84,5 @@ mysqli_query($db,$query) or die ('<b>Error UPDATING away player score. Match dat
 </div>
 
 <?php
-unset($_SESSION['awayplayer']); // prevents refreshes from submitting the same results multiple times to boost score
+unset($_SESSION['awayplayer']); // prevents an exploit where refreshing the page submits the same results over and over
 ?>
