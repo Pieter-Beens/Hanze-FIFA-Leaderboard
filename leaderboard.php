@@ -1,12 +1,12 @@
 <?php
+include('header/header.html');
+
 include('fifadbconn.php');
 
 $query = "SELECT * ";
 $query .= "FROM users ";
 $query .= "ORDER BY score DESC";
 $result = mysqli_query($db,$query) or die ('Error querying database');
-
-
 
 echo "<table style=align:center border=1>
 <tr>
