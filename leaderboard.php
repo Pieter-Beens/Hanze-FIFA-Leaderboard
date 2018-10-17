@@ -1,7 +1,7 @@
 <title>Hanze FIFA Leaderboard</title>
 
 <?php
-include('header/header.html');
+include('layouts/header.html');
 
 include('fifadbconn.php');
 

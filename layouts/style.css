@@ -8,6 +8,8 @@
     box-sizing: border-box;
 }
 body{
+  color:white;
+  font-family:FIFA16;
   background-image: url(blue.png);
   background-repeat: repeat;
   margin: 0;

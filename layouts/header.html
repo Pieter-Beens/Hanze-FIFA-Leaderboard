@@ -1,15 +1,15 @@
 <!-- head -->
 <head>
-  <link rel="stylesheet" type="text/css" href="header/style.css">
+  <link rel="stylesheet" type="text/css" href="layouts/style.css">
   <title>FIFA Leaderboard</title>
 </head>
 
 <!-- body -->
-<body>
+<body style=color:white;font-family:FIFA16>
 
 <!-- header div -->
 <div class="header">
-	<a href="/"><img class="hanzeLogo" src="header/logo.png"></a>
+	<a href="/"><img class="hanzeLogo" src="layouts/logo.png"></a>
 
 	<!-- right div desktop -->
 	<div class="headerRightDiv">
@@ -21,19 +21,19 @@
 		<a href="href=profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a></div>
 
 		<!-- right div mobile-->
-		<a href="/"><img class="dropdownButton" src="header/images/button_dropdown.jpg"></a>
+		<a href="/"><img class="dropdownButton" src="layouts/images/button_dropdown.jpg"></a>
 	</div>
 </div>
 <!-- ruimte tussen menu -->
 
-<div class="blueBanner">Fifa Leaderboard!</div>
+<div class="blueBanner"><?php echo $title ?></div>
 
 <!-- menu div -->
 
 <div class="menuWrapper">
 	<div class="button">
 		<a href="leaderboard.php">Leaderboard</a>
-		<a href="Resultsroutine/addresultsform.php">Add Match</a>
+		<a href="addresultsform.php">Add Match</a>
 		<a href="#idk">Award Card</a>
 		<a href="#idk">Contact</a>
 		<a href="about.php">About</a>

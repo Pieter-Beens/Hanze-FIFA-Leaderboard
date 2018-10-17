@@ -20,7 +20,7 @@ else {$card = "";}
 
 echo "<title>Hanze FIFA Leaderboard - ".$user['name']."'s Profile</title>";
 
-include('header/header.html');
+include('layouts/header.html');
 
 echo "$card<br>";
 

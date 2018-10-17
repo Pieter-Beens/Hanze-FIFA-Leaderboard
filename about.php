@@ -1,7 +1,7 @@
 <title>Hanze FIFA Leaderboard - About</title>
 
 <?php
-include ('header/header.html');
+include ('layouts/header.html');
 ?>
 
 <font color=white>
