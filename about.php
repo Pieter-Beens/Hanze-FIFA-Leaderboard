@@ -3,6 +3,9 @@
 <?php
 include ('layouts/header.html');
 ?>
+<head>
+  <link rel="stylesheet" type="text/css" href="layouts/style.css">
+</head>
 
 <font color=white>
 <h1>ABOUT</h1>
@@ -14,7 +17,7 @@ Every game, the winner takes 2 points plus 1 additional points for the goal diff
 
 <p>Not all players are equal. Beating up on players with a low Leaderboard Score will not help you, as the number of points you earn is further affected by the difference between your Scores. A player at 150 Score who beats a player at 75 Score will only receive half the usual number of points. Conversely, the number of points the player at 75 Score would take by beating the player at 150 Score is doubled! That means the only way to climb to the top is to find high-ranking players and defeat them!</p>
 
-<font size=24pt color=red>FAQs</font><br>
+<font size=24pt color=red>FAQ's</font><br>
 <b>Q: Cool. How do I sign up?</b><br>
 A: Register here. Not that to sign up, you must be a student of Hanze University and have access to your Hanze email account.
 <br><br>
@@ -27,7 +30,7 @@ A: When players cheat, or cause other trouble, you can give them a Yellow Card! 
 <b>Q: I have more questions.</b><br>
 A: The contact form is <a href=contactform.php style=color:orange>right here</a>! We'll be happy to answer any question you might still have. Suggestions are also welcome!
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+<img src="layouts/dannis.bmp">
 
 <?php // add something about seasons
 include ('layouts/footer.html');

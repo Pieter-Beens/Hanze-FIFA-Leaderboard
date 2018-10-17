@@ -21,12 +21,54 @@
 		<a href="href=profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a></div>
 
 		<!-- right div mobile-->
-		<a href="/"><img class="dropdownButton" src="layouts/images/button_dropdown.jpg"></a>
+		<div onclick="test();"><img class="dropdownButton" src="layouts/images/button_dropdown.jpg"></div>
 	</div>
 </div>
-<!-- ruimte tussen menu -->
 
-<div class="blueBanner"><?php echo $title ?></div>
+<script>
+var dropdown = false;
+function test() {
+    if (dropdown == false) {
+        document.getElementById("mobile-menu").style.display = "inline-block";
+        dropdown = true;
+    } else {
+        document.getElementById("mobile-menu").style.display = "none";
+        dropdown = false;
+	}
+}
+
+window.onresize = dropdownCheck;
+
+function dropdownCheck() {
+    if (window.innerWidth > 800) {
+        document.getElementById("mobile-menu").style.display = "none";
+	} else if (dropdown == true) {
+        document.getElementById("mobile-menu").style.display = "inline-block";
+    }
+
+}
+
+</script>
+
+<!-- menu mobile -->
+<div class="mobile-menu" id="mobile-menu">
+	<a href="leaderboard.php">Leaderboard</a>
+	<a href="addresultsform.php">Add Match</a>
+	<a href="#idk">Award Card</a>
+	<a href="#idk">Contact</a>
+	<a href="about.php">About</a>
+	<a href="href=profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a>
+	<a href="about.php">Log Out</a>
+</div>
+
+<!-- ruimte tussen menu -->
+<div class="blueBanner"><?php
+ if (isset($title)){
+ 	echo $title;
+ } else {
+ 	echo "titel";
+ }
+?></div>
 
 <!-- menu div -->
 

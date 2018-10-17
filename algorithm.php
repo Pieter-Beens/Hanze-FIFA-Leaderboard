@@ -4,14 +4,13 @@ $rate = 1; // can be changed to increase or decrease rate at which score changes
 
 $win = 2;
 $loss = -2;
+$goaldif = $homegoals - $awaygoals;
+if ($goaldif>5) $goaldif = 5;
+if ($goaldif<-5) $goaldif = -5;
 
-If ($homegoals >= $awaygoals) { // did player win or lose?
-  $winloss = $win;
-} Else {
-  $winloss = $loss;
-};
-
-If ($homegoals == $awaygoals) { // points earned for draws
+if ($homegoals > $awaygoals) {$change = $win + ($goaldif) * ($awayscore/$homescore);}
+elseif ($homegoals < $awaygoals) {$change = $loss + ($goaldif) * ($homescore/$awayscore);}
+else { // points earned for draws
   If ($homescore < $awayscore) {
     $change = (1 * $rate) * ($awayscore / $homescore);
   } Elseif ($homescore > $awayscore) {
@@ -19,9 +18,7 @@ If ($homegoals == $awaygoals) { // points earned for draws
   } Else {
     $change = 0;
   };
-} Else {
-  $change = (($homegoals - $awaygoals) + $winloss) * ($awayscore / $homescore); // points earned = goal difference + win/loss
-};
+}
 
 $newhomescore = $homescore + $change;
 $newawayscore = $awayscore - $change;
