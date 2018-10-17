@@ -26,8 +26,8 @@ echo "$card<br>";
 
 echo "<img height=100 src=".$user['avatar'].">";
 echo "<font style=color:white><font size=40><b>".$user['name']."</font> ";
-if (isset($_SESSION['id'])) {
-if ($_GET['user'] == $_SESSION['id'] || $_SESSION['role'] == 'admin')
+if (isset($_SESSION['id']) && isset($_SESSION['role'])) {
+if ($_GET['user'] == $_SESSION['id'] || $_SESSION['role'] == 'admin') // ik gebruik hier || en && want Joppe is mijn grote voorbeeld
 echo "<i><a style=color:orange href=editdetails.php?user=".$_GET['user'].">edit details</a></i>";
 }
 echo "<br>";
