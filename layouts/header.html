@@ -26,7 +26,13 @@
 </div>
 <!-- ruimte tussen menu -->
 
-<div class="blueBanner"><?php echo $title ?></div>
+<div class="blueBanner"><?php
+ if (isset($title)){
+ 	echo $title;
+ } else {
+ 	echo "error no. wortelsju titel niet gevonden";
+ }
+?></div>
 
 <!-- menu div -->
 
