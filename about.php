@@ -1,7 +1,7 @@
 <title>Hanze FIFA Leaderboard - About</title>
 
 <?php
-include ('header/header.html');
+include ('layouts/header.html');
 ?>
 
 <font color=white>
@@ -30,3 +30,5 @@ A: The contact form is <a href=contactform.php style=color:orange>right here</a>
 
 
 <?php // add something about seasons
+include ('layouts/footer.html');
+?>
