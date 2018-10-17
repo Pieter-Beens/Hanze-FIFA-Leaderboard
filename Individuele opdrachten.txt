@@ -1,0 +1,29 @@
+Djurre
+Formulier: Registreren
+Formulier: Inloggen
+Overzicht: Player pagina stats
+Overzicht: wedstrijden
+
+Pieter
+Formulier: Klacht indienen
+Formulier: leaderboard admin
+Overzicht: Klacht indienen
+Overzicht: Leaderboard
+
+Daniël
+Formulier: Resultaten aanpassen (admin)
+Formulier: Gebruikers aanpassen (admin)
+Overzicht: Resultaten
+Overzicht: Gebruikers
+
+Hayo
+Formulier: Resultaat toevoegen
+Formulier: wachtwoord vergeten
+Overzicht: Resultaat toevoegen
+Overzicht: user overzicht
+
+Dennis
+Formulier: Contact
+Formulier: Klachten aanpassen (admin)
+Overzicht: Klachten selectie
+Overzicht: Contact
