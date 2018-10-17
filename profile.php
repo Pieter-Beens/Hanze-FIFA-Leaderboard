@@ -2,7 +2,7 @@
 
 include('fifadbconn.php');
 
-$_SESSION['id'] = 2; // test, should be retrieved from database and assigned to SESSION var at login
+include('temp/sessiontest.php');
 
 $query = "SELECT name, avatar, realname, email, score FROM users WHERE id = ".$_GET['user'];
 $result = mysqli_query($db,$query) or die ('Error finding username');
@@ -14,11 +14,13 @@ $ranking = mysqli_num_rows($result) + 1;
 
 $query = "SELECT id FROM cards WHERE accused = ".$_GET['user'];
 $cardresult = mysqli_query($db,$query) or die ('Error counting cards');
-if (mysqli_num_rows($cardresult) > 1) {$card = "<img align=right height=150px src=red.png>";}
-elseif (mysqli_num_rows($cardresult) == 1) {$card = "<img align=right height=150px src=yellow.png>";}
+if (mysqli_num_rows($cardresult) > 1) {$card = "<img align=right height=150px src=layouts/images/redcard.png>";}
+elseif (mysqli_num_rows($cardresult) == 1) {$card = "<img align=right height=150px src=layouts/images/yellowcard.png>";}
 else {$card = "";}
 
 echo "<title>Hanze FIFA Leaderboard - ".$user['name']."'s Profile</title>";
+
+$title = "<img height=80 align=center src=".$user['avatar']."> ".$user['name']." <font style=font-family:sans-serif;font-size:12pt><i>Profile</i><font>";
 
 include('layouts/header.html');
 

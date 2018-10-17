@@ -1,6 +1,11 @@
 <title>Hanze FIFA Leaderboard</title>
 
 <?php
+
+$title = "LEADERBOARD";
+
+include('temp/sessiontest.php');
+
 include('layouts/header.html');
 
 include('fifadbconn.php');
@@ -42,8 +47,8 @@ while ($row = mysqli_fetch_assoc($result)) { // Uitlezen van data opgehaald uit 
   }
   $query = "SELECT id FROM cards WHERE accused = '".$row['id']."'";
   $cardresult = mysqli_query($db,$query) or die ('Error counting cards');
-  if (mysqli_num_rows($cardresult) > 1) {$card = "<img height=18px src=red.png>";}
-  elseif (mysqli_num_rows($cardresult) == 1) {$card = "<img height=18px src=yellow.png>";}
+  if (mysqli_num_rows($cardresult) > 1) {$card = "<img height=18px src=layouts/images/redcard.png>";}
+  elseif (mysqli_num_rows($cardresult) == 1) {$card = "<img height=18px src=layouts/images/yellowcard.png>";}
   else {$card = "";}
 
 $rank++;
@@ -60,5 +65,5 @@ echo "<tr>
 
 ?>
 <?php
-include ('layouts/header.html');
+include ('layouts/footer.html');
 ?>

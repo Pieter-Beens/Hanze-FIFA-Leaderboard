@@ -5,20 +5,20 @@
 </head>
 
 <!-- body -->
-<body style=color:white;font-family:FIFA16>
+<body style=color:white;font-family:sans-serif>
 
 <!-- header div -->
 <div class="header">
-	<a href="/"><img class="hanzeLogo" src="layouts/logo.png"></a>
+	<a href="/"><img class="hanzeLogo" src="layouts/images/logo.png"></a>
 
 	<!-- right div desktop -->
 	<div class="headerRightDiv">
 		<div class="button">
-    		<a href="about.php">Log Out</a>
+    		<a href="about.php">Login</a>
     </div>
 
 		<div class="button">
-		<a href="href=profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a></div>
+		<a href="profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a></div>
 
 		<!-- right div mobile-->
 		<div onclick="test();"><img class="dropdownButton" src="layouts/images/button_dropdown.jpg"></div>
@@ -53,12 +53,12 @@ function dropdownCheck() {
 <!-- menu mobile -->
 <div class="mobile-menu" id="mobile-menu">
 	<a href="leaderboard.php">Leaderboard</a>
-	<a href="addresultsform.php">Add Match</a>
+	<a href="addresultsform.php">Add Result</a>
 	<a href="#idk">Award Card</a>
 	<a href="#idk">Contact</a>
 	<a href="about.php">About</a>
-	<a href="href=profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a>
-	<a href="about.php">Log Out</a>
+	<a href="profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a>
+	<a href="idk">Login</a>
 </div>
 
 <!-- ruimte tussen menu -->
@@ -75,7 +75,7 @@ function dropdownCheck() {
 <div class="menuWrapper">
 	<div class="button">
 		<a href="leaderboard.php">Leaderboard</a>
-		<a href="addresultsform.php">Add Match</a>
+		<a href="addresultsform.php">Add Result</a>
 		<a href="#idk">Award Card</a>
 		<a href="#idk">Contact</a>
 		<a href="about.php">About</a>

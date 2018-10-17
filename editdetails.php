@@ -1,5 +1,9 @@
 <?php
 
+$title = "EDIT DETAILS";
+
+include('temp/sessiontest.php');
+
 include('layouts/header.html');
 
 include('fifadbconn.php');

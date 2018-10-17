@@ -2,6 +2,12 @@
 
 <?php
 
+$title = "ADD RESULTS";
+
+include('temp/sessiontest.php');
+
+include('layouts/header.html');
+
 session_start();
 
 include('fifadbconn.php'); // database connection
@@ -11,7 +17,7 @@ if (isset($_POST['awayplayer'])) { // binds POST vars from last page to global S
 	$_SESSION["homegoals"] = $_POST["homegoals"];
 	$_SESSION["awaygoals"] = $_POST["awaygoals"];
 	$_SESSION["description"] = $_POST["description"];
-};
+} else {die('ERROR: Data from the last page did not make it here. Are you sure you entered all fields correctly? If you tried to refresh this page after confirming your results, your data was thrown out to prevent cheating.');}
 if (!isset($_SESSION)) { // warning if session has somehow ended, likely when players are trying to cheat by F5'ing the INSERT query...
 	die ('Session data has been lost. If you think your results have not been registered, please reload the ADD RESULTS form to try again.');
 };
@@ -77,7 +83,7 @@ mysqli_query($db,$query) or die ('<b>Error UPDATING away player score. Match dat
 
 <div border=1 align=center><h3><?php echo $homeplayer?></h3>
 	<h1><?php if($change <= 0) {echo "<div style=color:red>".round($newhomescore,1)."</style>";} else {echo "<div style=color:green>".round($newhomescore,1)."</style>";}?></h1>
-	<div style=position:relative><img width=200px src=<?php if($change >= 0) {echo "arrowup";} else {echo "arrowdown";}?>.png><div style=font-size:70pt;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);><?php echo "<b>".abs(round($change,1))."</b>"?></div></div>
+	<div style=position:relative><img width=200px src=layouts/images<?php if($change >= 0) {echo "arrowup";} else {echo "arrowdown";}?>.png><div style=font-size:70pt;color=black;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);><?php echo "<b>".abs(round($change,1))."</b>"?></div></div>
 	<h1><?php if($change >= 0) {echo "<div style=color:red>".round($newawayscore,1)."</style>";} else {echo "<div style=color:green>".round($newawayscore,1)."</style>";}?></h1>
 	<h3><?php echo $awayplayer?></h3>
 	<a href=../leaderboard.php>Return to the Leaderboard</a>
