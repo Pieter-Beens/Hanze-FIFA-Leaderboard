@@ -3,6 +3,7 @@
   font-family: FIFA16;
   src: url(EASPORTS15.ttf);
 }
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 * {
     box-sizing: border-box;
@@ -22,6 +23,10 @@ body{
     min-width: 400px;
   width: 100%;
   display: inline-block;
+}
+p{
+  letter-spacing: 2px;
+    font-family: 'Roboto', sans-serif;
 }
 
 @media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {

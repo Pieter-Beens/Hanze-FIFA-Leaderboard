@@ -3,6 +3,9 @@
 <?php
 include ('layouts/header.html');
 ?>
+<head>
+  <link rel="stylesheet" type="text/css" href="layouts/style.css">
+</head>
 
 <font color=white>
 <h1>ABOUT</h1>
