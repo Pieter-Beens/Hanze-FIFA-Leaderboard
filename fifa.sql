@@ -59,6 +59,7 @@ CREATE TABLE `results` (
   `awayplayer` int(11) NOT NULL,
   `homegoals` int(11) NOT NULL,
   `awaygoals` int(11) NOT NULL,
+  `scorechange` decimal(11) DEFAULT NULL,
   `description` varchar(60) DEFAULT NULL,
   `datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -105,9 +106,12 @@ CREATE TABLE `users` (
   `realname` varchar(45) DEFAULT NULL,
   `password` varchar(45) NOT NULL,
   `score` int(11) NOT NULL,
+  `highscore` INT(11) DEFAULT NULL,
   `email` varchar(45) NOT NULL,
   `confirmation` varchar(45) DEFAULT NULL,
-  `avatar` varchar(256) DEFAULT NULL,
+  `joindate` datetime NOT NULL,
+  `avatar` varchar(512) DEFAULT NULL,
+  `favteam` varchar(28) DEFAULT NULL,
   `roles_id` int(11) NOT NULL,
   `datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

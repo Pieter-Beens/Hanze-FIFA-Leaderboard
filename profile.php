@@ -26,7 +26,10 @@ echo "$card<br>";
 
 echo "<img height=100 src=".$user['avatar'].">";
 echo "<font style=color:white><font size=40><b>".$user['name']."</font> ";
-if ($_GET['user'] == $_SESSION['id'] || $_SESSION['role'] == 'admin') echo "<i><a style=color:orange href=editdetails.php?user=".$_GET['user'].">edit details</a></i>";
+if (isset($_SESSION['id'])) {
+if ($_GET['user'] == $_SESSION['id'] || $_SESSION['role'] == 'admin')
+echo "<i><a style=color:orange href=editdetails.php?user=".$_GET['user'].">edit details</a></i>";
+}
 echo "<br>";
 echo "Score: ".$user['score']."<br>Ranking: #".$ranking."<br>Real name: ".$user['realname']."<br>Email: ".$user['email']."<br>";
 
