@@ -79,6 +79,26 @@ p{
     top: 0;
 }
 
+/* mobile menu */
+.mobile-menu {
+    display: none;
+    background-color: white;
+    overflow: visible;
+    height: auto;
+    width: 100%;
+}
+.mobile-menu a{
+    float: left;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: FIFA16;
+    width: 100%;
+    color: #0D2D5B;
+    border: solid rgba(128, 128, 128, 0.11) 1px;
+}
+
 /* Button button */
 .button {
 	display: inline-block;
