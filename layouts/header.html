@@ -21,10 +21,19 @@
 		<a href="href=profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a></div>
 
 		<!-- right div mobile-->
-		<a href="/"><img class="dropdownButton" src="layouts/images/button_dropdown.jpg"></a>
+		<div onclick="test();"><img class="dropdownButton" src="layouts/images/button_dropdown.jpg"></div>
 	</div>
 </div>
+
+<script>
+function test() {
+    console.log("test");
+}
+</script>
+
 <!-- ruimte tussen menu -->
+<div >
+
 
 <div class="blueBanner"><?php
  if (isset($title)){
