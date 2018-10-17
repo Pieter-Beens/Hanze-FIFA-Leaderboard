@@ -1,9 +1,12 @@
 <?php
+//Dit is de Validatie class hier staat alle functionaliteit die met validatie te maken heeft
 class Validate {
+    //Hier worden een aantal globale variabelen aangegeven die binnen de class gebruikt worden
     private $_passed = false,
             $_errors = array(),
             $_db = null;
 
+    //Deze functie word automatisch uitgevoerd wanneer de class word aangeroepen
     public function __construct(){
         $this->_db = new mysqli('localhost', 'root', '', 'fifa-project');
     }
