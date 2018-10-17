@@ -59,3 +59,6 @@ echo "<tr>
 };
 
 ?>
+<?php
+include ('layouts/header.html');
+?>
