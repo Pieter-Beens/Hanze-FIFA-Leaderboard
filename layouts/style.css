@@ -53,6 +53,11 @@ body{
   font-family: Arial, "sans-serif";
   padding: 20px;
 }
+@media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
+    .footer{
+        height: auto;
+    }
+}
 
 .buttonBanner{
     width: 100%;
