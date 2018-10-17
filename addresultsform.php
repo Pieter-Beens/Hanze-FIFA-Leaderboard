@@ -47,3 +47,6 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
 </fieldset>
 </body>
 </html>
+<?php
+include ('layouts/footer.html');
+?>
