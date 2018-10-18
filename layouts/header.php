@@ -9,7 +9,7 @@
 
 <!-- header div -->
 <div class="header">
-	<a href="/"><img class="hanzeLogo" src="layouts/images/logo.png"></a>
+	<a href="./"><img class="hanzeLogo" src="layouts/images/logo.png"></a>
 
 	<!-- right div desktop -->
 	<div class="headerRightDiv">
