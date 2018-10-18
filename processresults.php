@@ -84,8 +84,9 @@ mysqli_query($db,$query) or die ('<b>Error UPDATING away player score. Match dat
 	<div style=position:relative><img width=200px src=layouts/images/<?php if($change >= 0) {echo "arrowup";} else {echo "arrowdown";}?>.png><div style=font-size:70pt;color=black;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);><?php echo "<b>".abs(round($change,1))."</b>"?></div></div>
 	<h1><?php if($change >= 0) {echo "<div style=color:red>".round($newawayscore,1)."</style>";} else {echo "<div style=color:green>".round($newawayscore,1)."</style>";}?></h1>
 	<h3><?php echo $awayplayer?></h3>
-	<a href=leaderboard.php>Return to the Leaderboard</a>
+	<a style=color:orange href=leaderboard.php>Return to the Leaderboard</a>
 </div>
+<br><br>
 
 <?php
 unset($_SESSION['awayplayer']); // prevents an exploit where refreshing the page submits the same results over and over

@@ -59,7 +59,7 @@ CREATE TABLE `results` (
   `awayplayer` int(11) NOT NULL,
   `homegoals` int(11) NOT NULL,
   `awaygoals` int(11) NOT NULL,
-  `scorechange` decimal(11,0) DEFAULT NULL,
+  `scorechange` decimal(11,3) DEFAULT NULL,
   `description` varchar(60) DEFAULT NULL,
   `datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

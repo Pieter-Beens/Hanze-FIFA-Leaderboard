@@ -102,7 +102,7 @@ while ($row = mysqli_fetch_assoc($result)) {
   <td style=text-align:center;font-size:28pt><b>".$row['homegoals']."</b></td>
   <td style=text-align:center;font-size:28pt><b>".$row['awaygoals']."</b></td>";
   echo "<td cellpadding style=overflow:hidden;font-size:18pt;text-align:right><b><a style=color:orange href=profile.php?user=".$row['awayplayer'].">".$awayplayer['name']."</b></td>
-  <td style=overflow:hidden>".$row['description']."</td>
+  <td style=font-family:sans-serif;overflow:hidden>".$row['description']."</td>
   </tr>";
 }
 
