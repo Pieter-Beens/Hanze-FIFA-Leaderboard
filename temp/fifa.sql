@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2018 at 06:58 PM
+-- Generation Time: Oct 18, 2018 at 02:34 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -59,21 +59,10 @@ CREATE TABLE `results` (
   `awayplayer` int(11) NOT NULL,
   `homegoals` int(11) NOT NULL,
   `awaygoals` int(11) NOT NULL,
-  `scorechange` decimal(11) DEFAULT NULL,
+  `scorechange` decimal(11,0) DEFAULT NULL,
   `description` varchar(60) DEFAULT NULL,
   `datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `results`
---
-
-INSERT INTO `results` (`id`, `homeplayer`, `awayplayer`, `homegoals`, `awaygoals`, `description`, `datetime`) VALUES
-(1, 2, 5, 5, 0, 'What\'s in a name.', '2018-10-01 03:00:00'),
-(2, 3, 5, 5, 0, NULL, '2018-10-19 06:00:00'),
-(3, 6, 3, 0, 5, 'Wie stopt deze man???', '2018-10-19 14:00:00'),
-(4, 6, 2, 0, 3, NULL, '2018-10-22 11:19:00'),
-(5, 4, 3, 0, 1, 'Maar serieus, waar is Hayo\'s fiets?', '2018-10-26 10:14:25');
 
 -- --------------------------------------------------------
 
@@ -105,27 +94,26 @@ CREATE TABLE `users` (
   `name` varchar(45) NOT NULL,
   `realname` varchar(45) DEFAULT NULL,
   `password` varchar(45) NOT NULL,
-  `score` int(11) NOT NULL,
-  `highscore` INT(11) DEFAULT NULL,
+  `score` decimal(11,0) NOT NULL,
+  `highscore` int(11) DEFAULT NULL,
   `email` varchar(45) NOT NULL,
   `confirmation` varchar(45) DEFAULT NULL,
-  `joindate` datetime NOT NULL,
   `avatar` varchar(512) DEFAULT NULL,
   `favteam` varchar(28) DEFAULT NULL,
   `roles_id` int(11) NOT NULL,
-  `datetime` datetime NOT NULL
+  `joindate` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `realname`, `password`, `score`, `email`, `confirmation`, `avatar`, `roles_id`, `datetime`) VALUES
-(2, 'KabouterKlop77', 'Pieter Beens', 'quidproquo', 130, 'p.beens@st.hanze.nl', '1', 'https://argylesuperstore.co.uk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/f/o/football_gnome_web_only.jpg', 2, '2018-10-13 01:32:23'),
-(3, 'TheMenace', 'Dennis Smid', '1337', 150, 'd.smid@st.hanze.nl', '1', 'https://images-na.ssl-images-amazon.com/images/I/41y4FyN73kL._SX425_.jpg', 1, '0000-00-00 00:00:00'),
-(4, 'Hayonnaise', 'Hayo Riem', 'sinatra', 100, 'h.riem@st.hanze.nl', '1', 'http://i.imgur.com/KbqTG.jpg', 1, '0000-00-00 00:00:00'),
-(5, 'Aikematig', 'Djurre Aikema', 'ladygaga', 50, 'd.aikema@st.hanze.nl', '1', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Illuminati_triangle_eye.png/576px-Illuminati_triangle_eye.png', 1, '1918-10-24 00:00:00'),
-(6, 'DoelpuntjesDamien', 'Daniel Windstra', 'ultimarulez', 70, 'd.windstra@st.hanze.nl', '1', 'https://www.vlaggenmasten.nl/media/catalog/product/cache/2/image/800x800/9df78eab33525d08d6e5fb8d27136e95/v/l/vlag-friesland_1_3.jpg', 1, '1203-10-31 03:30:12');
+INSERT INTO `users` (`id`, `name`, `realname`, `password`, `score`, `highscore`, `email`, `confirmation`, `avatar`, `favteam`, `roles_id`, `joindate`) VALUES
+(2, 'KabouterKlop77', 'Pieter Beens', 'quidproquo', '100', 100, 'p.beens@st.hanze.nl', '1', 'https://argylesuperstore.co.uk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/f/o/football_gnome_web_only.jpg', 'Arsenal', 2, '2018-10-18 11:58:40'),
+(3, 'TheMenace', 'Dennis Smid', '1337', '100', 100, 'd.smid@st.hanze.nl', '1', 'https://t6.rbxcdn.com/1c725527bf7cbabb9c1202e090c8bf88', 'VV Musselkanaal', 1, '2018-10-18 11:58:40'),
+(4, 'Hayonnaise', 'Hayo Riem', 'sinatra', '100', 100, 'h.riem@st.hanze.nl', '1', 'https://vignette.wikia.nocookie.net/r2da/images/2/24/Zilla_mayonnaise_transparent.png', 'Ajax', 1, '2018-10-18 11:58:40'),
+(5, 'Aikematig', 'Djurre Aikema', 'ladygaga', '100', 100, 'd.aikema@st.hanze.nl', '1', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Illuminati_triangle_eye.png/576px-Illuminati_triangle_eye.png', 'SC Heerenveen', 1, '2018-10-18 11:58:40'),
+(6, 'DoelpuntjesDamien', 'Daniel Windstra', 'ultimarulez', '100', 100, 'd.windstra@st.hanze.nl', '1', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Pompebled.svg/600px-Pompebled.svg.png', 'Lokomotiv Moscow', 1, '2018-10-18 11:58:40');
 
 -- --------------------------------------------------------
 
@@ -191,7 +179,7 @@ ALTER TABLE `cards`
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `roles`
