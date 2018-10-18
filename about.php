@@ -12,7 +12,6 @@ include ('layouts/header.php');
   <link rel="stylesheet" type="text/css" href="layouts/style.css">
 </head>
 
-<font color=white>
 <h1>Welcome to the Hanze FIFA Leaderboard!</h1>
 
 <p>Philosophy blabla.</p>

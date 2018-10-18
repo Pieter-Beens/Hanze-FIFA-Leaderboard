@@ -59,7 +59,7 @@ echo "<tr>
 <td><b><a style=color:orange href=profile.php?user=".$row['id'].">".$card.$row['name']."</b></td>
 <td style=text-align:right;color:green><b>".$goalsfor."</b></td>
 <td style=text-align:right;color:red><b>".$goalsagainst."</b></td>
-<td style=text-align:right;font-size:16pt><b>".round($row['score'],1)."</b></td>
+<td style=text-align:right;font-size:16pt><b>".round($row['score'])."</b></td>
 </tr>";
 };
 

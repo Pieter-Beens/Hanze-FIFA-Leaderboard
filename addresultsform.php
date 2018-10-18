@@ -20,7 +20,7 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
 <body>
 
 <form action="processresults.php" method="POST">
-<div align="center"><img height=150 src="http://pluspng.com/img-png/fifa-logo-png-fifa-logo-685.png"></div>
+<div align="center"><img height=150 src="layouts/images/awesomelogo.png"></div>
 <table style=margin:auto>
   <tr><td></td><td><div align="center"><h2>HOME</h2></div></td><td><div align="center"><h2>AWAY</h2></div></td></tr>
   <tr><td width=60>Players</td><td><input size=22 type="text" name='homeplayer' value=<?php echo $_SESSION['name']; ?> disabled></td>
@@ -41,7 +41,7 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
     <td><div align=center><input min=0 max=99 value=0 style=width:100px;text-align:center;font-size:48pt type="number" name="awaygoals"></div></td></tr>
   <tr><td></td><td colspan=2 style=text-align:center><font style=font-size:8pt;font-family:arial><i>Note that you will not receive any additional points for goal differences above 5.</i></font></td></tr>
   <tr><td>Comment</td><td colspan=2><div align=center><input maxlength=55 style=width:350px type="text" name="description"></div></td><td><i>max. 55ch</i></td></tr>
-  <tr><td></td><td colspan=2><div align=center><input style=height:40px type="submit" value="That's how it is!"></div></td></tr>
+  <tr><td></td><td colspan=2><div align=center><input style=height:40px type="submit" value="That's the score!"></div></td></tr>
 </table>
 </form>
 </body>

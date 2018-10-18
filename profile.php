@@ -71,13 +71,13 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
 
 echo "<table cellpadding=4 border=1 style=overflow:hidden;color:white;table-layout:fixed width=1>
   <colgroup>
-    <col style=width:90px>
-    <col style=width:50px>
+    <col style=width:100px>
+    <col style=width:60px>
     <col style=width:230px>
     <col style=width:50px>
     <col style=width:50px>
     <col style=width:230px>
-    <col style=width:140px>
+    <col style=width:160px>
   </colgroup>
 <tr>
 <td style=font-size:22pt;text-align:center;background-color:green colspan=7>MATCH HISTORY</td>
