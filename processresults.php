@@ -4,7 +4,7 @@
 
 $title = "ADD RESULTS";
 
-include('layouts/header.html');
+include('layouts/header.php');
 
 session_start();
 

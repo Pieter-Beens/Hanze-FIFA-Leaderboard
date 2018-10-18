@@ -6,7 +6,7 @@ session_start();
 
 $title = "LEADERBOARD";
 
-include('layouts/header.html');
+include('layouts/header.php');
 
 include('fifadbconn.php');
 

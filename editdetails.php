@@ -4,7 +4,7 @@ session_start();
 
 $title = "EDIT DETAILS";
 
-include('layouts/header.html');
+include('layouts/header.php');
 
 include('fifadbconn.php');
 

@@ -4,7 +4,7 @@ session_start();
 
 include('fifadbconn.php');
 
-$query = "SELECT name, avatar, realname, email, score FROM users WHERE id = ".$_GET['user'];
+$query = "SELECT name, avatar, realname, email, highscore, joindate, favteam, score FROM users WHERE id = ".$_GET['user'];
 $result = mysqli_query($db,$query) or die ('Error finding username');
 $user = mysqli_fetch_assoc($result);
 
@@ -22,7 +22,7 @@ echo "<title>Hanze FIFA Leaderboard - ".$user['name']."'s Profile</title>";
 
 $title = "<img height=80 align=center src=".$user['avatar']."> ".$user['name']." <font style=font-family:sans-serif;font-size:12pt><i>Profile</i><font>";
 
-include('layouts/header.html');
+include('layouts/header.php');
 
 echo "$card<br>";
 
@@ -33,7 +33,7 @@ if ($_GET['user'] == $_SESSION['id'] || $_SESSION['roles_id'] == 2) // ik gebrui
 echo "<i><a style=color:orange href=editdetails.php?user=".$_GET['user'].">edit details</a></i>";
 }
 echo "<br>";
-echo "Score: ".$user['score']."<br>Ranking: #".$ranking."<br>Real name: ".$user['realname']."<br>Email: ".$user['email']."<br>";
+echo "Ranking: #".$ranking."<br>Score: ".$user['score']."<br>Historic high: ".$user['highscore']."<br>Real name: ".$user['realname']."<br>Email: ".$user['email']."<br>Join date: ".$user['joindate']."<br>Favoured team: ".$user['favteam']."<br><br>";
 
 $goalsfor = 0;
 $goalsagainst = 0;

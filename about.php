@@ -6,7 +6,7 @@ session_start();
 
 $title = "ABOUT";
 
-include ('layouts/header.html');
+include ('layouts/header.php');
 ?>
 <head>
   <link rel="stylesheet" type="text/css" href="layouts/style.css">

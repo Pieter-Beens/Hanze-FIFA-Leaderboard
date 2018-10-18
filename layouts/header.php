@@ -16,10 +16,10 @@
 		<div class="button">
     		<a href="temp/sessiontest.php"><?php if (isset($_SESSION['name'])) {echo $_SESSION['name'];} else {echo "LOGIN";} ?></a>
     </div>
-
-		<div class="button">
-		<a href="profile.php?user=<?php echo $_SESSION['id'] ?>">MY PROFILE</a></div>
-
+<?php if (isset($_SESSION['id'])) {
+echo "<div class=button>";
+echo "<a href=profile.php?user=".$_SESSION['id'].">MY PROFILE</a></div>";
+} ?>
 		<!-- right div mobile-->
 		<div onclick="test();"><img class="dropdownButton" src="layouts/images/button_dropdown.jpg"></div>
 	</div>
