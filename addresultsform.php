@@ -4,13 +4,9 @@
 
 $title = "ADD RESULTS";
 
-include('temp/sessiontest.php');
-
 include('layouts/header.html');
 
 session_start();
-
-$_SESSION['name'] = 'KabouterKlop77'; // test, player info name be retrieved from database and set to SESSION var at login
 
 include('fifadbconn.php');
 

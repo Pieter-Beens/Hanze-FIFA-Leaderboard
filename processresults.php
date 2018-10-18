@@ -4,8 +4,6 @@
 
 $title = "ADD RESULTS";
 
-include('temp/sessiontest.php');
-
 include('layouts/header.html');
 
 session_start();

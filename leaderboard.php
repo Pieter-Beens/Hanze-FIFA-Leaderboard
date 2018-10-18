@@ -2,9 +2,9 @@
 
 <?php
 
-$title = "LEADERBOARD";
+session_start();
 
-include('temp/sessiontest.php');
+$title = "LEADERBOARD";
 
 include('layouts/header.html');
 

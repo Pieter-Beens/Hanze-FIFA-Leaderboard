@@ -2,9 +2,9 @@
 
 <?php
 
-$title = "ABOUT";
+session_start();
 
-include('temp/sessiontest.php');
+$title = "ABOUT";
 
 include ('layouts/header.html');
 ?>

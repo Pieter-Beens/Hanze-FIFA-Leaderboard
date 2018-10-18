@@ -5,7 +5,7 @@
 </head>
 
 <!-- body -->
-<body style=color:white;font-family:sans-serif>
+<body style=color:white;font-family:FIFA16>
 
 <!-- header div -->
 <div class="header">
@@ -14,11 +14,11 @@
 	<!-- right div desktop -->
 	<div class="headerRightDiv">
 		<div class="button">
-    		<a href="about.php">LOGIN</a>
+    		<a href="temp/sessiontest.php"><?php if (isset($_SESSION['name'])) {echo $_SESSION['name'];} else {echo "LOGIN";} ?></a>
     </div>
 
 		<div class="button">
-		<a href="profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a></div>
+		<a href="profile.php?user=<?php echo $_SESSION['id'] ?>">MY PROFILE</a></div>
 
 		<!-- right div mobile-->
 		<div onclick="test();"><img class="dropdownButton" src="layouts/images/button_dropdown.jpg"></div>
@@ -58,7 +58,7 @@ function dropdownCheck() {
 	<a href="#idk">Contact</a>
 	<a href="about.php">About</a>
 	<a href="profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a>
-	<a href="idk">Login</a>
+	<a href="temp/sessiontest.php">Login</a>
 </div>
 
 <!-- ruimte tussen menu -->
@@ -74,11 +74,11 @@ function dropdownCheck() {
 
 <div class="menuWrapper">
 	<div class="button">
-		<a href="leaderboard.php">Leaderboard</a>
-		<a href="addresultsform.php">Add Result</a>
-		<a href="#idk">Award Card</a>
-		<a href="#idk">Contact</a>
-		<a href="about.php">About</a>
+		<a href="leaderboard.php">LEADERBOARD</a>
+		<a href="addresultsform.php">ADD RESULT</a>
+		<a href="#idk">AWARD CARD</a>
+		<a href="#idk">CONTACT</a>
+		<a href="about.php">ABOUT</a>
 		<!--a href="#idk">Log Out</a-->
 	</div>
 </div>

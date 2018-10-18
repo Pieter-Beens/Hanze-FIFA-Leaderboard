@@ -1,8 +1,8 @@
 <?php
 
-$title = "EDIT DETAILS";
+session_start();
 
-include('temp/sessiontest.php');
+$title = "EDIT DETAILS";
 
 include('layouts/header.html');
 
