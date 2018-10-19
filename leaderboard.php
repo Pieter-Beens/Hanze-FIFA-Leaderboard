@@ -63,7 +63,6 @@ echo "<tr>
 </tr>";
 };
 
-?>
-<?php
-include ('layouts/footer.html');
+
+include_once ('layouts/footer.html');
 ?>
