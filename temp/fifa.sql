@@ -95,7 +95,7 @@ CREATE TABLE `users` (
   `realname` varchar(45) DEFAULT NULL,
   `password` varchar(45) NOT NULL,
   `score` decimal(11,3) NOT NULL,
-  `highscore` int(11,3) DEFAULT NULL,
+  `highscore` int(11) DEFAULT NULL,
   `email` varchar(45) NOT NULL,
   `confirmation` varchar(45) DEFAULT NULL,
   `avatar` varchar(512) DEFAULT NULL,
