@@ -14,8 +14,9 @@ $query = "SELECT * ";
 $query .= "FROM users ";
 $query .= "ORDER BY score DESC";
 $result = mysqli_query($db,$query) or die ('Error querying database');
+?>
 
-echo "<table style=align:center;color:white border=1>
+<table style=align:center;color:white border=1>
 <tr>
   <td style=background-color:red;color:white colspan=6><h2 align=center>Leaderboard</h2></td>
 </tr>
@@ -26,7 +27,9 @@ echo "<table style=align:center;color:white border=1>
   <th>GF</th>
   <th>GA</th>
   <th>Score</th>
-</tr>";
+</tr>
+
+<?php
 $rank=0;
 while ($row = mysqli_fetch_assoc($result)) { // Uitlezen van data opgehaald uit database
 
@@ -53,16 +56,23 @@ while ($row = mysqli_fetch_assoc($result)) { // Uitlezen van data opgehaald uit 
 
 $rank++;
 
-echo "<tr>
-<td><font size=18pt>$rank</font></td>
-<td style=text-align:center><b><img height=36px src=".$row['avatar']."></td>
-<td><b><a style=color:orange href=profile.php?user=".$row['id'].">".$card.$row['name']."</b></td>
-<td style=text-align:right;color:green><b>".$goalsfor."</b></td>
-<td style=text-align:right;color:red><b>".$goalsagainst."</b></td>
-<td style=text-align:right;font-size:16pt><b>".round($row['score'])."</b></td>
-</tr>";
+?>
+<tr>
+<td><font size=18pt><?php echo $rank ?></font></td>
+<td style=text-align:center><b><img height=36px src=<?php echo $row['avatar']?>></td>
+<td><b><a style=color:orange href=profile.php?user=<?php echo $row['id']?>><?php echo $card.$row['name']?></b></td>
+<td style=text-align:right;color:green><b><?php echo $goalsfor ?></b></td>
+<td style=text-align:right;color:red><b><?php echo $goalsagainst ?></b></td>
+<td style=text-align:right;font-size:16pt><b><?php echo round($row['score']) ?></b></td>
+</tr>
+
+<?php
 };
+?>
 
+</table>
+<br><br><br><br><br><br><br><br>
 
+<?php
 include_once ('layouts/footer.html');
 ?>
