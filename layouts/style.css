@@ -89,7 +89,6 @@ p{
     text-align: center;
     padding: 20px;
 	font-size: 60px;
-    text-decoration: none;
     font-family: FIFA16;
     width: 100%;
     color: #0D2D5B;
@@ -110,7 +109,6 @@ p{
     padding: 20px;
     height: 100%;
     font-size: 20px;
-    text-decoration: none;
     font-family: FIFA16;
     color: #0D2D5B;
 }
@@ -121,6 +119,9 @@ p{
 
 .dropdownButton{
     display: none;
+}
+a {
+  text-decoration: none;
 }
 table{
   border-collapse: collapse;

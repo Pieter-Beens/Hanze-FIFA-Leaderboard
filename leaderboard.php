@@ -54,7 +54,7 @@ $rank++;
 <tr>
 <td ><font size=18pt><?php echo $rank ?></font></td>
 <td ><b><img height=36px src=<?php echo $row['avatar']?>></td>
-<td style="text-align:left"><a style="color:orange;text-decoration: none;padding-left: 20px" href=profile.php?user=<?php echo $row['id']?>><?php echo $row['name']?><span style="float: right; padding-right: 20px"><?php echo $card ?></span></td>
+<td style="text-align:left"><a style="color:orange;padding-left: 20px" href=profile.php?user=<?php echo $row['id']?>><?php echo $row['name']?><span style="float: right; padding-right: 20px"><?php echo $card ?></span></td>
 <td style="color:green"><b><?php echo $goalsfor ?></b></td>
 <td style="color:red;"><b><?php echo $goalsagainst ?></b></td>
 <td style="font-size:16pt;"><b><?php echo round($row['score']) ?></b></td>
