@@ -1,13 +1,10 @@
 <title>Hanze FIFA Leaderboard</title>
+<link rel="stylesheet" type="text/css" href="layouts/style.css">
 
 <?php
-
 session_start();
-
 $title = "LEADERBOARD";
-
 include('layouts/header.php');
-
 include('fifadbconn.php');
 
 $query = "SELECT * ";
@@ -16,14 +13,11 @@ $query .= "ORDER BY score DESC";
 $result = mysqli_query($db,$query) or die ('Error querying database');
 ?>
 
-<table style=align:center;color:white border=1>
-<tr>
-  <td style=background-color:red;color:white colspan=6><h2 align=center>Leaderboard</h2></td>
-</tr>
-<tr style=background-color:black>
+<table>
+<tr style="background-color:black;">
   <th>Rank</th>
   <th></th>
-  <th>User</th>
+  <th style="text-align:left">User</th>
   <th>GF</th>
   <th>GA</th>
   <th>Score</th>
@@ -58,12 +52,12 @@ $rank++;
 
 ?>
 <tr>
-<td><font size=18pt><?php echo $rank ?></font></td>
-<td style=text-align:center><b><img height=36px src=<?php echo $row['avatar']?>></td>
-<td><b><a style=color:orange href=profile.php?user=<?php echo $row['id']?>><?php echo $card.$row['name']?></b></td>
-<td style=text-align:right;color:green><b><?php echo $goalsfor ?></b></td>
-<td style=text-align:right;color:red><b><?php echo $goalsagainst ?></b></td>
-<td style=text-align:right;font-size:16pt><b><?php echo round($row['score']) ?></b></td>
+<td ><font size=18pt><?php echo $rank ?></font></td>
+<td ><b><img height=36px src=<?php echo $row['avatar']?>></td>
+<td style="text-align:left"><b><a style="color:orange" href=profile.php?user=<?php echo $row['id']?>><?php echo $card.$row['name']?></b></td>
+<td style="color:green"><b><?php echo $goalsfor ?></b></td>
+<td style="color:red;"><b><?php echo $goalsagainst ?></b></td>
+<td style="font-size:16pt;"><b><?php echo round($row['score']) ?></b></td>
 </tr>
 
 <?php
@@ -71,6 +65,7 @@ $rank++;
 ?>
 
 </table>
+
 <br><br><br><br><br><br><br><br>
 
 <?php

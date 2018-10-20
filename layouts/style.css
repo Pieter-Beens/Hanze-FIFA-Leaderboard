@@ -122,7 +122,14 @@ p{
 .dropdownButton{
     display: none;
 }
-
+table{
+  border-collapse: collapse;
+  width: 100% ;
+}
+td {
+    border: 1px solid black;
+    text-align:center;
+}
 @media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
     .button{
         display: none;
