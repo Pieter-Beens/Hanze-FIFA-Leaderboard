@@ -120,6 +120,9 @@ p{
 .dropdownButton{
     display: none;
 }
+.text{
+  padding-left: 20px;
+}
 a {
   text-decoration: none;
 }

@@ -1,5 +1,4 @@
 <title>Hanze FIFA Leaderboard</title>
-<link rel="stylesheet" type="text/css" href="layouts/style.css">
 
 <?php
 session_start();

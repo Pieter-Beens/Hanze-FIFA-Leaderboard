@@ -20,7 +20,7 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
 <body>
 
 <form action="processresults.php" method="POST">
-<div align="center"><img height=150 src="layouts/images/awesomelogo.png"></div>
+<!-- <div align="center"><img height=150 src="layouts/images/awesomelogo.png"></div> -->
 <table style=margin:auto>
   <tr><td></td><td><div align="center"><h2>HOME</h2></div></td><td><div align="center"><h2>AWAY</h2></div></td></tr>
   <tr><td width=60>Players</td><td><input size=22 type="text" name='homeplayer' value=<?php echo $_SESSION['name']; ?> disabled></td>
