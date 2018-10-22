@@ -58,6 +58,7 @@ p{
 @media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
     .footer{
         height: auto;
+        font-size: 76px !important;
     }
 }
 

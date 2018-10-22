@@ -40,11 +40,11 @@ include_once('fifadbconn.php');
         border-radius: 3px;
         background-color: rgba(0, 0, 0, 0.30);
         padding: 20px;
-        max-width: 768px;
         margin: 0 auto;
         font-size: 24px;
         height: auto;
     }
+
 
     .sButton{
         margin-top: -50px;
@@ -54,18 +54,18 @@ include_once('fifadbconn.php');
             width: 100%;
             margin-top: 16px;
         }
+        input {
+            font-size: 76px;
+        }
+        input[type=submit] {
+            font-size: 76px;
+         }
         .container {
              padding-bottom: 70px;
+             width: 100%;
+             max-width: 100%;
+             font-size: 76px;
          }
-    }
-    #g-recaptcha-response {
-        display: block !important;
-        position: absolute;
-        margin: -78px 0 0 0 !important;
-        width: 302px !important;
-        height: 76px !important;
-        z-index: -999999;
-        opacity: 0;
     }
 
 </style>

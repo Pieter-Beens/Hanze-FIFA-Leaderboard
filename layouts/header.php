@@ -55,7 +55,7 @@ function dropdownCheck() {
 	<a href="leaderboard.php">Leaderboard</a>
 	<a href="addresultsform.php">Add Result</a>
 	<a href="#idk">Award Card</a>
-	<a href="#idk">Contact</a>
+	<a href="contact.php">Contact</a>
 	<a href="about.php">About</a>
 	<a href="profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a>
 	<a href="temp/sessiontest.php">Login</a>
