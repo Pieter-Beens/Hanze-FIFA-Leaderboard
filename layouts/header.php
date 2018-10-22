@@ -77,7 +77,7 @@ function dropdownCheck() {
 		<a href="leaderboard.php">LEADERBOARD</a>
 		<a href="addresultsform.php">ADD RESULT</a>
 		<a href="#idk">AWARD CARD</a>
-		<a href="#idk">CONTACT</a>
+		<a href="contact.php">CONTACT</a>
 		<a href="about.php">ABOUT</a>
 		<!--a href="#idk">Log Out</a-->
 	</div>
