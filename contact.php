@@ -39,6 +39,7 @@ include_once('fifadbconn.php');
     .container {
         border-radius: 3px;
         background-color: rgba(0, 0, 0, 0.30);
+        max-width: 768px;
         padding: 20px;
         margin: 0 auto;
         font-size: 24px;
