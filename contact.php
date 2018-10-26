@@ -74,16 +74,14 @@ include_once('fifadbconn.php');
  <div class="container">
 
      <?php
-     // grab recaptcha library
+     // recaptcha library
      require_once "recaptchalib.php";
-     // your secret key
+     // captcha secret key
      $secret = "6Lc7UXYUAAAAAPWfhV4q0Tqjpc9XwPwOX5KLWVkB";
-     // empty response
+     // response
      $response = null;
-     // check secret key
+     // validate secret key
      $reCaptcha = new ReCaptcha($secret);
-
-
 
      if (isset($_POST["firstname"])){
          // if submitted check response
@@ -93,8 +91,21 @@ include_once('fifadbconn.php');
                  $_POST["g-recaptcha-response"]
              );
 
+             // Result message
+             $result = "MESSAGE SUBMITTED!";
+
+             $tnow = time();
+             // Submit message
+             $query = "INSERT INTO contact ";
+             $query .= "VALUES(NULL, '" . $_POST["firstname"] . "', '" . $_POST["lastname"] . "', '". $_POST["email"] . "', '" .  $_POST["subject_topic"] ."', '" .  $_POST["subject"] . "', $tnow)";
+             mysqli_query($db, $query) or ($result = "ERROR: Can't Connect to database");
+             while (mysqli_fetch_assoc($query_result)) {
+                 echo "$query_result";
+             }
+             mysqli_close($db);
+
              echo "
-                 MESSAGE SUBMITTED!<br><br>
+                 $result<br><br>
                  REDIRECTING IN <div id=\"rDSec\">8</div>
                  
                  <script>
@@ -112,6 +123,8 @@ include_once('fifadbconn.php');
                 startRedirect();
                 </script>
             ";
+
+
          } else {
              echo "
                  reCAPTCHA HAS BEEN SKIPPED, MESSAGE HAS BEEN DROPPED!<br><br>
@@ -147,6 +160,9 @@ include_once('fifadbconn.php');
             E-mail:
             <input type=\"email\" id=\"email\" name=\"email\" placeholder=\"E-mail\" maxlength=\"150\" required>
         
+            Subject title:
+            <input type=\"text\" id=\"subject_topic\" name=\"subject_topic\" placeholder=\"Subject title\" maxlength=\"100\" required>
+            
             Subject:
             <textarea id=\"subject\" name=\"subject\" style=\"height:192px\" maxlength=\"500\" required></textarea>
             
@@ -156,7 +172,7 @@ include_once('fifadbconn.php');
             
             </form>
             <script src='https://www.google.com/recaptcha/api.js'></script>
-            
+ 
             <script>
             document.getElementById(\"sbmtform\").addEventListener(\"click\", function(event){
             if(grecaptcha.getResponse().length == 0){
