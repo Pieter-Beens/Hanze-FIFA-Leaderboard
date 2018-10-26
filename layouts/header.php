@@ -14,7 +14,29 @@
 	<!-- right div desktop -->
 	<div class="headerRightDiv">
 		<div class="button">
-    		<a href="temp/sessiontest.php"><?php if (isset($_SESSION['name'])) {echo $_SESSION['name'];} else {echo "LOGIN";} ?></a>
+    		<a href="temp/sessiontest.php">
+                <?php
+                include_once("fifadbconn.php");
+
+                if (isset($_SESSION['name'])) {
+                    // Check of user admin is
+
+
+
+                    $query = "SELECT roles_id FROM users WHERE name= '" . $_SESSION['name'] . "'";
+                    $query_result = mysqli_query($db, $query) or die("ERROR: Can't Connect to database");
+                    $queryrow = mysqli_fetch_assoc($query_result);
+                    mysqli_close($db);
+                    if ($queryrow[roles_id] == 2) {
+                        echo "<div style=\"color: red\">" . $_SESSION['name'] . "</div>";
+                    } else {
+                        echo $_SESSION['name'];
+                    }
+                } else {
+                    echo "LOGIN";
+                }
+
+                ?></a>
     </div>
 <?php if (isset($_SESSION['id'])) {
 echo "<div class=button>";
