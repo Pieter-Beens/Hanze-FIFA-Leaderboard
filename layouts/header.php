@@ -17,21 +17,26 @@
     		<a href="temp/sessiontest.php">
                 <?php
                 include_once("fifadbconn.php");
+                //session_start();
+                //$_SESSION["is_admin"] = false;
+                $is_admin = false;
 
                 if (isset($_SESSION['name'])) {
+
                     // Check of user admin is
-
-
-
                     $query = "SELECT roles_id FROM users WHERE name= '" . $_SESSION['name'] . "'";
                     $query_result = mysqli_query($db, $query) or die("ERROR: Can't Connect to database");
                     $queryrow = mysqli_fetch_assoc($query_result);
                     mysqli_close($db);
+
                     if ($queryrow[roles_id] == 2) {
+                        $is_admin = true;
                         echo "<div style=\"color: red\">" . $_SESSION['name'] . "</div>";
+
                     } else {
                         echo $_SESSION['name'];
                     }
+
                 } else {
                     echo "LOGIN";
                 }
@@ -77,7 +82,13 @@ function dropdownCheck() {
 	<a href="leaderboard.php">Leaderboard</a>
 	<a href="addresultsform.php">Add Result</a>
 	<a href="#idk">Award Card</a>
-	<a href="contact.php">Contact</a>
+    <?php
+    if ($is_admin == false){
+        echo "<a href=\"contact.php\">CONTACT</a>";
+    } else {
+        echo "<a href=\"contact.php\">VIEW CONTACT FORMS</a>";
+    }
+    ?>
 	<a href="about.php">About</a>
 	<a href="profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a>
 	<a href="temp/sessiontest.php">Login</a>
@@ -99,7 +110,13 @@ function dropdownCheck() {
 		<a href="leaderboard.php">LEADERBOARD</a>
 		<a href="addresultsform.php">ADD RESULT</a>
 		<a href="#idk">AWARD CARD</a>
-		<a href="contact.php">CONTACT</a>
+        <?php
+        if ($is_admin == false){
+            echo "<a href=\"contact.php\">CONTACT</a>";
+        } else {
+            echo "<a href=\"contact.php\">VIEW CONTACT FORMS</a>";
+        }
+        ?>
 		<a href="about.php">ABOUT</a>
 		<!--a href="#idk">Log Out</a-->
 	</div>
