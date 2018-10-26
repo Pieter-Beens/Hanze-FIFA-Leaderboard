@@ -23,7 +23,7 @@ Overzicht: Resultaat toevoegen
 Overzicht: user overzicht
 
 Dennis
-Formulier: Contact :)
+Formulier: Contact
+Overzicht: Contact
 Formulier: Klachten aanpassen (admin)
 Overzicht: Klachten selectie
-Overzicht: Contact
