@@ -139,16 +139,16 @@ include_once('fifadbconn.php');
              <form method=\"post\" action=\"\">
         
             First Name:
-            <input type=\"text\" id=\"firstname\" name=\"firstname\" placeholder=\"First name\" required>
+            <input type=\"text\" id=\"firstname\" name=\"firstname\" placeholder=\"First name\" maxlength=\"80\" required>
         
             Last Name:
-            <input type=\"text\" id=\"lastname\" name=\"lastname\" placeholder=\"Last name\" required>
+            <input type=\"text\" id=\"lastname\" name=\"lastname\" placeholder=\"Last name\" maxlength=\"80\" required>
         
             E-mail:
-            <input type=\"email\" id=\"email\" name=\"email\" placeholder=\"E-mail\" required>
+            <input type=\"email\" id=\"email\" name=\"email\" placeholder=\"E-mail\" maxlength=\"150\" required>
         
             Subject:
-            <textarea id=\"subject\" name=\"subject\" style=\"height:192px\" required></textarea>
+            <textarea id=\"subject\" name=\"subject\" style=\"height:192px\" maxlength=\"500\" required></textarea>
             
             <div class=\"g-recaptcha\" data-sitekey=\"6Lc7UXYUAAAAAOfs1OziuZBed-PJYAOYdpiTdrsQ\"></div>
             
