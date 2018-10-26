@@ -72,7 +72,8 @@ include_once('fifadbconn.php');
  <div class="container">
 
      <?php
-     // recaptcha library
+     echo "KOMT NOG RUSTIG";
+     /*// recaptcha library
      require_once "recaptchalib.php";
      // captcha secret key
      $secret = "6Lc7UXYUAAAAAPWfhV4q0Tqjpc9XwPwOX5KLWVkB";
@@ -97,9 +98,7 @@ include_once('fifadbconn.php');
              $query = "INSERT INTO contact ";
              $query .= "VALUES(NULL, '" . $_POST["firstname"] . "', '" . $_POST["lastname"] . "', '". $_POST["email"] . "', '" .  $_POST["subject_topic"] ."', '" .  $_POST["subject"] . "', $tnow)";
              mysqli_query($db, $query) or ($result = "ERROR: Can't Connect to database");
-             /*while (mysqli_fetch_assoc($query_result)) {
-                 echo "$query_result";
-             }*/
+
              mysqli_close($db);
 
              echo "
@@ -183,7 +182,7 @@ include_once('fifadbconn.php');
      }
 
 
-     ?>
+     */?>
 
 
 </div>

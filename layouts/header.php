@@ -86,7 +86,7 @@ function dropdownCheck() {
     if ($is_admin == false){
         echo "<a href=\"contact.php\">CONTACT</a>";
     } else {
-        echo "<a href=\"contact.php\">VIEW CONTACT FORMS</a>";
+        echo "<a href=\"contact_view.php\">VIEW CONTACT FORMS</a>";
     }
     ?>
 	<a href="about.php">About</a>
@@ -114,7 +114,7 @@ function dropdownCheck() {
         if ($is_admin == false){
             echo "<a href=\"contact.php\">CONTACT</a>";
         } else {
-            echo "<a href=\"contact.php\">VIEW CONTACT FORMS</a>";
+            echo "<a href=\"contact_view.php\">VIEW CONTACT FORMS</a>";
         }
         ?>
 		<a href="about.php">ABOUT</a>
