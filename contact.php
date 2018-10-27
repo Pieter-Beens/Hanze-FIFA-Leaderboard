@@ -95,7 +95,7 @@ include_once('fifadbconn.php');
              $tnow = time();
              // Submit message
              $query = "INSERT INTO contact ";
-             $query .= "VALUES(NULL, '" . $_POST["firstname"] . "', '" . $_POST["lastname"] . "', '". $_POST["email"] . "', '" .  $_POST["subject_topic"] ."', '" .  $_POST["subject"] . "', $tnow)";
+             $query .= "VALUES(NULL, '" . $_POST["firstname"] . "', '" . $_POST["lastname"] . "', '". $_POST["email"] . "', '" .  $_POST["subject"] ."', '" .  $_POST["message"] . "', $tnow)";
              mysqli_query($db, $query) or ($result = "ERROR: Can't Connect to database");
              /*while (mysqli_fetch_assoc($query_result)) {
                  echo "$query_result";
@@ -158,11 +158,11 @@ include_once('fifadbconn.php');
             E-mail:
             <input type=\"email\" id=\"email\" name=\"email\" placeholder=\"E-mail\" maxlength=\"150\" required>
         
-            Subject title:
-            <input type=\"text\" id=\"subject_topic\" name=\"subject_topic\" placeholder=\"Subject title\" maxlength=\"100\" required>
-            
             Subject:
-            <textarea id=\"subject\" name=\"subject\" style=\"height:192px\" maxlength=\"500\" required></textarea>
+            <input type=\"text\" id=\"subject\" name=\"subject\" placeholder=\"Subject\" maxlength=\"100\" required>
+            
+            Message:
+            <textarea id=\"message\" name=\"message\" style=\"height:192px\" maxlength=\"500\" required></textarea>
             
             <div class=\"g-recaptcha\" data-sitekey=\"6Lc7UXYUAAAAAOfs1OziuZBed-PJYAOYdpiTdrsQ\"></div>
             
