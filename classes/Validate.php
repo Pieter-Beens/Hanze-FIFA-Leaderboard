@@ -8,7 +8,7 @@ class Validate {
 
     //Deze functie word automatisch uitgevoerd wanneer de class word aangeroepen
     public function __construct(){
-        $this->_db = new mysqli('localhost', 'root', '', 'fifa-project');
+        $this->_db = DB::conn();
     }
 
     public function check($input, $items = array()){
