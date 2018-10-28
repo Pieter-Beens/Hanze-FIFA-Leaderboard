@@ -1,7 +1,7 @@
 <!-- head -->
 <head>
-  <link rel="stylesheet" type="text/css" href="layouts/style.css">
-  <title>FIFA Leaderboard</title>
+    <link rel="stylesheet" type="text/css" href="layouts/style.css">
+    <title>FIFA Leaderboard</title>
 </head>
 
 <!-- body -->
@@ -9,117 +9,142 @@
 
 <!-- header div -->
 <div class="header">
-	<a href="./"><img class="hanzeLogo" src="layouts/images/logo.png"></a>
+    <a href="./"><img class="hanzeLogo" src="layouts/images/logo.png"></a>
 
-	<!-- right div desktop -->
-	<div class="headerRightDiv">
-		<div class="button">
-    		<a href="temp/sessiontest.php">
-                <?php
-                include_once("fifadbconn.php");
-                //session_start();
-                //$_SESSION["is_admin"] = false;
-                $is_admin = false;
+    <!-- right div desktop -->
+    <div class="headerRightDiv">
+        <div class="button">
+            <?php
+            require_once 'core/init.php';
 
-                if (isset($_SESSION['name'])) {
-
-                    // Check of user admin is
-                    $query = "SELECT roles_id FROM users WHERE name= '" . $_SESSION['name'] . "'";
-                    $query_result = mysqli_query($db, $query) or die("ERROR: Can't Connect to database");
-                    $queryrow = mysqli_fetch_assoc($query_result);
-                    mysqli_close($db);
-
-                    if ($queryrow[roles_id] == 2) {
-                        $is_admin = true;
-                        echo "<div style=\"color: red\">" . $_SESSION['name'] . "</div>";
-
-                    } else {
-                        echo $_SESSION['name'];
-                    }
-
+            $user = new User;
+            if ($user->isLoggedIn()) {
+                if ($user->hasPermission('admin')) {
+                    $is_admin = true;
+                    ?>
+                        <div style="color: red"><?php echo escape($user->data()->name); ?></div>
+                    <?php
                 } else {
-                    echo "LOGIN";
+                    $is_admin = false;
+                    ?>
+                        <div style="color: green"><?php echo escape($user->data()->name); ?><br>
+                        <a href="logout.php">Logout</a></div>
+                    <?php
                 }
 
-                ?></a>
+            } else {
+                echo '<a href="login.php">Login</a> or <a href="register.php">Register</a>';
+            }
+            ?>
+
+            <!--            <a href="temp/sessiontest.php">-->
+            <!--                --><?php
+            //                include_once("fifadbconn.php");
+            //                //session_start();
+            //                //$_SESSION["is_admin"] = false;
+            //                $is_admin = false;
+            //
+            //                if (isset($_SESSION['name'])) {
+            //
+            //                    // Check of user admin is
+            //                    $query = "SELECT roles_id FROM users WHERE name= '" . $_SESSION['name'] . "'";
+            //                    $query_result = mysqli_query($db, $query) or die("ERROR: Can't Connect to database");
+            //                    $queryrow = mysqli_fetch_assoc($query_result);
+            //                    mysqli_close($db);
+            //
+            //                    if ($queryrow[roles_id] == 2) {
+            //                        $is_admin = true;
+            //                        echo "<div style=\"color: red\">" . $_SESSION['name'] . "</div>";
+            //
+            //                    } else {
+            //                        echo $_SESSION['name'];
+            //                    }
+            //
+            //                } else {
+            //                    echo "LOGIN";
+            //                }
+            //
+            //                ?>
+            <!--            </a>-->
+        </div>
+        <?php if (isset($_SESSION['id'])) {
+            echo "<div class=button>";
+            echo "<a href=profile.php?user=" . $_SESSION['id'] . ">MY PROFILE</a></div>";
+        } ?>
+        <!-- right div mobile-->
+        <div onclick="test();"><img class="dropdownButton" src="layouts/images/button_dropdown.jpg"></div>
     </div>
-<?php if (isset($_SESSION['id'])) {
-echo "<div class=button>";
-echo "<a href=profile.php?user=".$_SESSION['id'].">MY PROFILE</a></div>";
-} ?>
-		<!-- right div mobile-->
-		<div onclick="test();"><img class="dropdownButton" src="layouts/images/button_dropdown.jpg"></div>
-	</div>
 </div>
 
 <script>
-var dropdown = false;
-function test() {
-    if (dropdown == false) {
-        document.getElementById("mobile-menu").style.display = "inline-block";
-        dropdown = true;
-    } else {
-        document.getElementById("mobile-menu").style.display = "none";
-        dropdown = false;
-	}
-}
+    var dropdown = false;
 
-window.onresize = dropdownCheck;
-
-function dropdownCheck() {
-    if (window.innerWidth > 800) {
-        document.getElementById("mobile-menu").style.display = "none";
-	} else if (dropdown == true) {
-        document.getElementById("mobile-menu").style.display = "inline-block";
+    function test() {
+        if (dropdown == false) {
+            document.getElementById("mobile-menu").style.display = "inline-block";
+            dropdown = true;
+        } else {
+            document.getElementById("mobile-menu").style.display = "none";
+            dropdown = false;
+        }
     }
 
-}
+    window.onresize = dropdownCheck;
+
+    function dropdownCheck() {
+        if (window.innerWidth > 800) {
+            document.getElementById("mobile-menu").style.display = "none";
+        } else if (dropdown == true) {
+            document.getElementById("mobile-menu").style.display = "inline-block";
+        }
+
+    }
 
 </script>
 
 <!-- menu mobile -->
 <div class="mobile-menu" id="mobile-menu">
-	<a href="leaderboard.php">Leaderboard</a>
-	<a href="addresultsform.php">Add Result</a>
-	<a href="#idk">Award Card</a>
+    <a href="leaderboard.php">Leaderboard</a>
+    <a href="addresultsform.php">Add Result</a>
+    <a href="#idk">Award Card</a>
     <?php
-    if ($is_admin == false){
+    if ($is_admin == false) {
         echo "<a href=\"contact.php\">CONTACT</a>";
     } else {
         echo "<a href=\"contact_view.php\">VIEW CONTACT FORMS</a>";
     }
     ?>
-	<a href="about.php">About</a>
-	<a href="profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a>
-	<a href="temp/sessiontest.php">Login</a>
+    <a href="about.php">About</a>
+    <a href="profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a>
+    <a href="temp/sessiontest.php">Login</a>
 </div>
 
 <!-- ruimte tussen menu -->
 <div class="blueBanner"><?php
- if (isset($title)){
- 	echo $title;
- } else {
- 	echo "titel";
- }
-?></div>
+    if (isset($title)) {
+        echo $title;
+    } else {
+        echo "titel";
+    }
+    ?></div>
 
 <!-- menu div -->
 
 <div class="menuWrapper">
-	<div class="button">
-		<a href="leaderboard.php">LEADERBOARD</a>
-		<a href="addresultsform.php">ADD RESULT</a>
-		<a href="#idk">AWARD CARD</a>
+    <div class="button">
+        <a href="leaderboard.php">LEADERBOARD</a>
+        <a href="addresultsform.php">ADD RESULT</a>
+        <a href="#idk">AWARD CARD</a>
         <?php
-        if ($is_admin == false){
+        if ($is_admin == false) {
             echo "<a href=\"contact.php\">CONTACT</a>";
         } else {
             echo "<a href=\"contact_view.php\">VIEW CONTACT FORMS</a>";
         }
         ?>
-		<a href="about.php">ABOUT</a>
-		<!--a href="#idk">Log Out</a-->
-	</div>
+        <a href="about.php">ABOUT</a>
+        <!--a href="#idk">Log Out</a-->
+    </div>
 </div>
 <!-- einde header -->
 </body>

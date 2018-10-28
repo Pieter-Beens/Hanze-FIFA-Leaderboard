@@ -12,7 +12,7 @@ class User
     public function __construct($user = null)
     {
         //Hier word verbinding met de database gemaakt
-        $this->_db = new mysqli('localhost', 'root', '', 'fifa-project');
+        $this->_db = DB::conn();
 
         //Als de user niet bestaat
         if (!$user) {
@@ -24,7 +24,7 @@ class User
                 if ($this->find($user)) {
                     $this->_isLoggedIn = true;
                 } else {
-                    //logout
+                    self::logout();
                 }
             }
         } else {
@@ -72,7 +72,7 @@ class User
         }
 
         //De querry word hier uigevoerd en de user word in de database gezet
-        if (!$this->_db->query("INSERT INTO users (username, password, salt, name, permission) VALUES (" . $values . ")")) {
+        if (!$this->_db->query("INSERT INTO users (name, password, salt, realname, email, confirmation, roles_id, joindate) VALUES (" . $values . ")")) {
             throw new Exception('There was a problem creating an account');
         }
     }
@@ -82,7 +82,7 @@ class User
     {
         if ($user) {
             //Kijkt of de value een nummer is, als het een nummer is zoek hij op id anders op username
-            $field = (is_numeric($user)) ? 'id' : 'username';
+            $field = (is_numeric($user)) ? 'id' : 'name';
             //Hier word de query uitgevoerd om de user uit de database te halen
             $data = $this->_db->query("SELECT * FROM users WHERE " . $field . "='$user'");
 
@@ -115,14 +115,14 @@ class User
                     if ($remember) {
                         //Er word voor de user een unieke hash gemaakt
                         $hash = Hash::unique();
-                        $hashCheck = $this->_db->query("SELECT * FROM users_session WHERE user_id='" . $this->data()->id . "'");
+                        $hashCheck = $this->_db->query("SELECT * FROM user_sessions WHERE user_id='" . $this->data()->id . "'");
 
                         //er word gekeken of de user in de database al een unieke hash heeft
                         //Wanneer dit niet het geval is worde een nieuwe aangemaakt en opgeslagen
                         //Als de user nu de pagina sluit en weer opent en de hash in de cookie komt overeen met die in de database dan word
                         //de user automatisch ingelogged
                         if ($hashCheck->num_rows <= 0) {
-                            $this->_db->query("INSERT INTO users_session (user_id, hash) VALUES ('" . $this->data()->id . "', '$hash')");
+                            $this->_db->query("INSERT INTO user_sessions (user_id, hash) VALUES ('" . $this->data()->id . "', '$hash')");
                         } else {
                             $value = $hashCheck->fetch_array();
                             $hash = $value['hash'];
@@ -142,12 +142,13 @@ class User
     public function hasPermission($key)
     {
         //Hier worden de rechten van de user uit de database gehaald
-        $group = $this->_db->query("SELECT * FROM permissions WHERE id='" . $this->data()->permission . "'")->fetch_object();
+        $group = $this->_db->query("SELECT * FROM roles WHERE id='" . $this->data()->roles_id . "'")->fetch_object();
 
         //Als de user rechten heeft word hier gekeken of deze overeen komen met de rechten die gevraag worden in de $key variable
         if ($group) {
-            $permissions = json_decode($group->level, true);
+            $permissions = json_decode($group->name, true);
 
+            print_r($permissions);
             if ($permissions[$key] == true) {
                 return true;
             }
@@ -164,7 +165,7 @@ class User
     //User::logout, deze functie logt de user uit
     public function logout()
     {
-        $this->_db->query("DELETE FROM users_session WHERE user_id='" . $this->data()->id . "'");
+        $this->_db->query("DELETE FROM user_sessions WHERE user_id='" . $this->data()->id . "'");
 
         //De user sessie word hier opgeheven den de cookie word zowel uit de browser als de database verwijdert
         Session::delete('user');
