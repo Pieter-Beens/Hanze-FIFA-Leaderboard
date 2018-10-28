@@ -1,5 +1,19 @@
 <title>Hanze FIFA Leaderboard</title>
-
+<style>
+table{
+  border-collapse: collapse;
+  width: 100% ;
+}
+td,tr {
+    text-align:center;
+}
+tr:nth-child(even){
+  background-color: rgba(0, 0, 0, 0.40);
+}
+tr:hover td{
+  background-color: black;
+}
+</style>
 <?php
 session_start();
 $title = "LEADERBOARD";
@@ -11,16 +25,16 @@ $query .= "FROM users ";
 $query .= "ORDER BY score DESC";
 $result = mysqli_query($db,$query) or die ('Error querying database');
 ?>
-
-<table>
-<tr style="background-color:black;">
+<div style="margin: 40px; background-color: rgba(0, 0, 0, 0.30); padding: 20px; min-width: 500px">
+<table class="leaderboard">
+<tr style="background-color:white;color: black;">
   <th>Rank</th>
   <th></th>
   <th style="text-align:left">User</th>
   <th>GF</th>
   <th>GA</th>
   <th>Score</th>
-</tr>
+</tr></div>
 
 <?php
 $rank=0;
@@ -50,7 +64,7 @@ while ($row = mysqli_fetch_assoc($result)) { // Uitlezen van data opgehaald uit 
 $rank++;
 
 ?>
-<tr>
+<tr style="cursor:pointer;" onclick="document.location='profile.php?user=<?php echo $row['id']?>'">
 <td ><font size=18pt><?php echo $rank ?></font></td>
 <td ><b><img height=36px src=<?php echo $row['avatar']?>></td>
 <td style="text-align:left"><a style="color:orange;padding-left: 20px" href=profile.php?user=<?php echo $row['id']?>><?php echo $row['name']?><span style="float: right; padding-right: 20px"><?php echo $card ?></span></td>
@@ -64,7 +78,7 @@ $rank++;
 ?>
 
 </table>
-
+</div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <?php
