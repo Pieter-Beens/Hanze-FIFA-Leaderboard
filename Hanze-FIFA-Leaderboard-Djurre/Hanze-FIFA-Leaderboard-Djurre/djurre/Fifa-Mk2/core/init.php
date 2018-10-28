@@ -26,8 +26,8 @@
     if (Cookie::exists('hash') && !Session::exists('user')) {
         $hash = Cookie::get('hash');
 
-        $conn = DB::conn();
-        $hashCheck = $conn->query("SELECT * FROM user_sessions WHERE hash='$hash'");
+        $conn = new mysqli('localhost', 'root', '', 'fifa-project');
+        $hashCheck = $conn->query("SELECT * FROM users_session WHERE hash='$hash'");
 
         if ($hashCheck->num_rows > 0) {
             $hashCheck = $hashCheck->fetch_object();

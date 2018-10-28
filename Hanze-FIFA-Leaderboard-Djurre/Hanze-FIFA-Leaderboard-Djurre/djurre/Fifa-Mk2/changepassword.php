@@ -58,14 +58,9 @@ if (Input::exists()) {
 </head>
 <body>
 <form action="" method="post">
-    <label for="password_current">Current password</label><br>
-    <input type="password" id="password_current" name="password_current"><br><br>
-
-    <label for="password_new">New password</label><br>
-    <input type="password" id="password_new" name="password_new"><br><br>
-
-    <label for="password_cnew">Repeat new password</label><br>
-    <input type="password" id="password_cnew" name="password_cnew">
+    <input type="password" name="password_current"><br>
+    <input type="password" name="password_new"><br>
+    <input type="password" name="password_cnew">
     <hr>
     <input type="submit" name="submit" value="submit">
     <input type="hidden" name="token" value="<?php echo Token::generate() ?>">

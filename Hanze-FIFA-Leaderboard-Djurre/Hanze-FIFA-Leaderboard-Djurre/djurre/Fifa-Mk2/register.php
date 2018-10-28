@@ -25,11 +25,6 @@
                     'min' => 3,
                     'max' => 50,
                 ),
-                'email' => array(
-                    'required' => true,
-                    'min' => 3,
-                    'unique' => 'users',
-                ),
             ));
 
             if ($validation->passed()) {
@@ -43,10 +38,7 @@
                         'password' => Hash::make(Input::get('password'), $salt),
                         'salt' => $salt,
                         'name' => Input::get('name'),
-                        'email' => Input::get('email'),
-                        'confirmation' => 0,
-                        'roles_id' => 1,
-                        'joindate' => date("Y-m-d h:i:sa"),
+                        'permission' => 1,
                     ));
 
                     Session::flash('home', 'You have been registered');
@@ -74,21 +66,10 @@
 </head>
 <body>
     <form action="" method="post">
-        <label for="username">Username</label><br>
-        <input type="text" id="username" name="username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off"><br><br>
-
-        <label for="password">Password</label><br>
-        <input type="password" id="password" name="password"><br><br>
-
-        <label for="cpassword">Repeat password</label><br>
-        <input type="password" id="cpassword" name="cpassword"><br><br>
-
-        <label for="name">Name</label><br>
-        <input type="text" id="name" name="name" value="<?php echo escape(Input::get('name')); ?>"><br><br>
-
-        <label for="email">Email</label><br>
-        <input type="email" id="email" name="email" value="<?php echo escape(Input::get('email')); ?>"><br><br>
-
+        <input type="text" name="username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off"><br>
+        <input type="password" name="password"><br>
+        <input type="password" name="cpassword"><br>
+        <input type="text" name="name" value="<?php echo escape(Input::get('name')); ?>">
         <input type="hidden" name="token" value="<?php echo Token::generate() ?>">
         <hr>
         <input type="submit" name="submit" value="submit">

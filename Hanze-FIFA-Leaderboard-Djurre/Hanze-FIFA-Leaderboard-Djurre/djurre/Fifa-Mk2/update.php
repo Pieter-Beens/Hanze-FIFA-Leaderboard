@@ -21,7 +21,7 @@
             if ($validation->passed()) {
                 try {
                     $user->update(array(
-                        'realname' => Input::get('name'),
+                        'name' => Input::get('name'),
                     ));
 
                     Session::flash('home', 'Updated');
@@ -49,8 +49,7 @@
 </head>
 <body>
     <form action="" method="post">
-        <label for="name">Name</label><br>
-        <input type="text" id="name" name="name" value="<?php echo escape($user->data()->name); ?>">
+        <input type="text" name="name" value="<?php echo escape($user->data()->name); ?>">
         <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
         <hr>
         <input type="submit" value="submit">

@@ -40,11 +40,8 @@
 </head>
 <body>
 <form action="" method="post">
-    <label for="username">Username</label><br>
-    <input type="text" id="username" name="username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off"><br><br>
-
-    <label for="password">Password</label><br>
-    <input type="password" id="password" name="password"><br>
+    <input type="text" name="username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off"><br>
+    <input type="password" name="password"><br>
     <input type="hidden" name="token" value="<?php echo Token::generate() ?>">
     <label for="remember">
         <input type="checkbox" name="remember" id="remember"> Remember me
