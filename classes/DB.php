@@ -14,10 +14,9 @@
             $this->_db = mysqli_connect('localhost', 'root', '', 'fifa');
             if (mysqli_connect_errno()) {
                 echo "<script>console.log(\"Usbwebserver proberen\")</script>";
-                $db = mysqli_connect('localhost', 'root', 'usbw', 'fifa');
+                $this->_db = mysqli_connect('localhost', 'root', 'usbw', 'fifa');
                 if (mysqli_connect_errno()) {
                     echo "<script>console.log(\"Niks werkt :(\")</script>";
-                    $db = mysqli_connect('localhost', 'root', 'usbw', 'fifa');
                 };
             };
         }
