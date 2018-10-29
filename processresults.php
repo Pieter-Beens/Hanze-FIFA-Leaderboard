@@ -2,11 +2,11 @@
 
 <?php
 
+session_start();
+
 $title = "ADD RESULTS";
 
 include('layouts/header.php');
-
-session_start();
 
 include('fifadbconn.php'); // database connection
 
@@ -72,9 +72,13 @@ else {
 $query = "INSERT INTO results (homeplayer,homegoals,awaygoals,awayplayer,scorechange,`datetime`,`description`)"; // query to INSERT new match details
 $query .= "VALUES (".$home['id'].",".$homegoals.",".$awaygoals.",".$away['id'].",$change,now(),'".$_SESSION['description']."')";
 mysqli_query($db,$query) or die ('Error INSERTing results data. No changes have been written to the database.');
-$query = "UPDATE users SET score='". $newhomescore ."' WHERE name='". $homeplayer ."'";
+$query = "UPDATE users SET score=".$newhomescore;
+if ($newhomescore > $home['highscore']) {$query .= " highscore=".$newhomescore;}
+$query .= " WHERE name='". $homeplayer ."'";
 mysqli_query($db,$query) or die ('<b>Error UPDATING home player score. Match data has been saved but scores have not changed.');
-$query = "UPDATE users SET score='". $newawayscore ."' WHERE name='". $awayplayer ."'";
+$query = "UPDATE users SET score=".$newawayscore;
+if ($newawayscore > $away['awayscore']) {$query .= " highscore=".$newawayscore;}
+$query .= " WHERE name='". $awayplayer ."'";
 mysqli_query($db,$query) or die ('<b>Error UPDATING away player score. Match data has been saved but only the home player score has been changed!');
 
 ?>
