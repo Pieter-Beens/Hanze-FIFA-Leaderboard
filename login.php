@@ -53,11 +53,16 @@
   .login{
      width:25%;
      margin: 90px auto;
-     background-color: white;
+      background-color: rgba(0, 0, 0, 0.30);
      padding: 20px;
      padding-bottom: 15%;
      border-radius: 15px;
      border: 2px solid grey;
+  }
+  body{
+    background-image: url(layouts/images/blue.png);
+    background-repeat: repeat;
+    color: white;
   }
 </style>
 <body>
