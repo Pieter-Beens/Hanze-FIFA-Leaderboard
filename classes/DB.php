@@ -10,13 +10,13 @@
 
         public function __construct()
         {
-            echo "<script>console.log(\"XAMP proberem\")";
+            echo "<script>console.log(\"XAMP proberem\")</script>";
             $this->_db = mysqli_connect('localhost', 'root', 'usbw', 'fifa');
             if (mysqli_connect_errno()) {
-                echo "<script>console.log(\"Usbwebserver proberen\")";
+                echo "<script>console.log(\"Usbwebserver proberen\")</script>";
                 $db = mysqli_connect('localhost', 'root', 'usbw', 'fifa');
                 if (mysqli_connect_errno()) {
-                    echo "<script>console.log(\"Niks werkt :(\")";
+                    echo "<script>console.log(\"Niks werkt :(\")</script>";
                     $db = mysqli_connect('localhost', 'root', 'usbw', 'fifa');
                 };
             };
