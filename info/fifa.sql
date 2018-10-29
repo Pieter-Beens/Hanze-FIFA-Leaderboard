@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2018 at 02:34 PM
+-- Generation Time: Oct 29, 2018 at 03:44 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -50,6 +50,29 @@ INSERT INTO `cards` (`id`, `accuser`, `accused`, `description`, `datetime`) VALU
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `ID` int(11) NOT NULL,
+  `firstname` varchar(80) NOT NULL,
+  `lastname` varchar(80) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  `message` varchar(500) NOT NULL,
+  `submit_date` int(14) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`ID`, `firstname`, `lastname`, `email`, `subject`, `message`, `submit_date`) VALUES
+(1, 'Jongeman', 'Badpak', 'badpack@gov.ru', 'First!', 'Hallo jongeman', 1540823212);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `results`
 --
 
@@ -81,7 +104,7 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`) VALUES
 (1, 'user'),
-(2, 'admin');
+(2, '{\"admin\": 1}');
 
 -- --------------------------------------------------------
 
@@ -93,7 +116,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
   `realname` varchar(45) DEFAULT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(64) NOT NULL,
   `score` decimal(11,3) NOT NULL,
   `highscore` int(11) DEFAULT NULL,
   `email` varchar(45) NOT NULL,
@@ -101,19 +124,20 @@ CREATE TABLE `users` (
   `avatar` varchar(512) DEFAULT NULL,
   `favteam` varchar(28) DEFAULT NULL,
   `roles_id` int(11) NOT NULL,
-  `joindate` datetime NOT NULL
+  `joindate` datetime NOT NULL,
+  `salt` varchar(64) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `realname`, `password`, `score`, `highscore`, `email`, `confirmation`, `avatar`, `favteam`, `roles_id`, `joindate`) VALUES
-(2, 'KabouterKlop77', 'Pieter Beens', 'quidproquo', '100', 100, 'p.beens@st.hanze.nl', '1', 'https://argylesuperstore.co.uk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/f/o/football_gnome_web_only.jpg', 'Arsenal', 2, '2018-10-18 11:58:40'),
-(3, 'TheMenace', 'Dennis Smid', '1337', '100', 100, 'd.smid@st.hanze.nl', '1', 'https://t6.rbxcdn.com/1c725527bf7cbabb9c1202e090c8bf88', 'VV Musselkanaal', 1, '2018-10-18 11:58:40'),
-(4, 'Hayonnaise', 'Hayo Riem', 'sinatra', '100', 100, 'h.riem@st.hanze.nl', '1', 'https://vignette.wikia.nocookie.net/r2da/images/2/24/Zilla_mayonnaise_transparent.png', 'Ajax', 1, '2018-10-18 11:58:40'),
-(5, 'Aikematig', 'Djurre Aikema', 'ladygaga', '100', 100, 'd.aikema@st.hanze.nl', '1', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Illuminati_triangle_eye.png/576px-Illuminati_triangle_eye.png', 'SC Heerenveen', 1, '2018-10-18 11:58:40'),
-(6, 'DoelpuntjesDamien', 'Daniel Windstra', 'ultimarulez', '100', 100, 'd.windstra@st.hanze.nl', '1', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Pompebled.svg/600px-Pompebled.svg.png', 'Lokomotiv Moscow', 1, '2018-10-18 11:58:40');
+INSERT INTO `users` (`id`, `name`, `realname`, `password`, `score`, `highscore`, `email`, `confirmation`, `avatar`, `favteam`, `roles_id`, `joindate`, `salt`) VALUES
+(2, 'KabouterKlop77', 'Pieter Beens', 'quidproquo', '100.000', 100, 'p.beens@st.hanze.nl', '1', 'https://argylesuperstore.co.uk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/f/o/football_gnome_web_only.jpg', 'Arsenal', 2, '2018-10-18 11:58:40', NULL),
+(3, 'TheMenace', 'Dennis Smid', '1337', '100.000', 100, 'd.smid@st.hanze.nl', '1', 'https://t6.rbxcdn.com/1c725527bf7cbabb9c1202e090c8bf88', 'VV Musselkanaal', 1, '2018-10-18 11:58:40', NULL),
+(4, 'Hayonnaise', 'Hayo Riem', 'sinatra', '100.000', 100, 'h.riem@st.hanze.nl', '1', 'https://vignette.wikia.nocookie.net/r2da/images/2/24/Zilla_mayonnaise_transparent.png', 'Ajax', 1, '2018-10-18 11:58:40', NULL),
+(5, 'Aikematig', 'Djurre Aikema', 'ladygaga', '100.000', 100, 'd.aikema@st.hanze.nl', '1', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Illuminati_triangle_eye.png/576px-Illuminati_triangle_eye.png', 'SC Heerenveen', 1, '2018-10-18 11:58:40', NULL),
+(6, 'DoelpuntjesDamien', 'Daniel Windstra', 'ultimarulez', '100.000', 100, 'd.windstra@st.hanze.nl', '1', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Pompebled.svg/600px-Pompebled.svg.png', 'Lokomotiv Moscow', 1, '2018-10-18 11:58:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -137,6 +161,12 @@ ALTER TABLE `cards`
   ADD PRIMARY KEY (`id`,`accuser`,`accused`),
   ADD KEY `fk_cards_users1_idx` (`accused`),
   ADD KEY `fk_cards_users2_idx` (`accuser`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `results`
@@ -176,10 +206,16 @@ ALTER TABLE `cards`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `roles`
