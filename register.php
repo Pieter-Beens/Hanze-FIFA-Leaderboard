@@ -87,7 +87,6 @@
       background-color: rgba(0, 0, 0, 0.50);
      padding: 20px;
      border-radius: 15px;
-     border: 2px solid grey;
      min-height: 200px;
   }
 </style>

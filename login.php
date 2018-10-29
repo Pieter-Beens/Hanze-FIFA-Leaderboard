@@ -50,7 +50,7 @@
      padding: 20px;
      padding-bottom: 15%;
      border-radius: 15px;
-     border: 2px solid grey;
+
   }
 </style>
 <body>
