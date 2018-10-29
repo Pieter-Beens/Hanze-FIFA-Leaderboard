@@ -11,6 +11,9 @@
         public function __construct()
         {
             $this->_db = mysqli_connect('localhost', 'root', '', 'fifa');
+            if (mysqli_connect_errno()) {
+                $db = mysqli_connect('localhost', 'root', 'usbw', 'fifa');
+            };
         }
 
         public static function conn()
