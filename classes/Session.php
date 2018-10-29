@@ -1,6 +1,6 @@
 <?php
 
-//Dit is de redirect class hier staat alle functionaliteit die met redirect te maken heeft
+//Dit is de session class hier staat alle functionaliteit die met sessions te maken heeft
 class Session
 {
     //Session::exists, in deze function geef je de naam van een sessie op vervolgens checkt hij of deze bestaat
