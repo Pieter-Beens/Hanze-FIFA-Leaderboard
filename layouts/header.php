@@ -9,7 +9,7 @@
 
 <!-- header div -->
 <div class="header">
-    <a href="./"><img class="hanzeLogo" src="layouts/images/logo.png"></a>
+    <a href="./"><img class="hanzeLogo" src="layouts/images/headerlogo.png"></a>
 
     <!-- right div desktop -->
     <div class="headerRightDiv">
@@ -107,18 +107,19 @@
 <!-- menu mobile -->
 <div class="mobile-menu" id="mobile-menu">
     <a href="leaderboard.php">Leaderboard</a>
-    <a href="addresultsform.php">Add Result</a>
-    <a href="#idk">Award Card</a>
-    <?php
+    <?php if ($user->isLoggedIn()) {
+      echo "<a href=profile.php?user=" .escape($user->data()->id). ">My Profile</a>
+      <a href=addresultsform.php>Add Result</a>
+      <a href=#idk>Award Card</a>";
+    }
     if ($is_admin == false) {
-        echo "<a href=contact.php>CONTACT</a>";
+        echo "<a href=contact.php>Contact</a>";
     } else {
-        echo "<a href=contact_view.php>VIEW CONTACT FORMS</a>";
+        echo "<a href=contact_view.php>View Contact Forms</a>";
     }
     ?>
     <a href="about.php">About</a>
-    <a href="profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a>
-    <a href="temp/sessiontest.php">Login</a>
+    <a href="login.php">Login</a>
 </div>
 
 <!-- ruimte tussen menu -->
