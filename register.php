@@ -42,6 +42,7 @@
                         'username' => Input::get('username'),
                         'password' => Hash::make(Input::get('password'), $salt),
                         'salt' => $salt,
+                        'score' => 100,
                         'name' => Input::get('name'),
                         'email' => Input::get('email'),
                         'confirmation' => 0,
