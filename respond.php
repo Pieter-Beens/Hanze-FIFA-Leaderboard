@@ -37,47 +37,17 @@ include_once('fifadbconn.php');
     .container {
         border-radius: 3px;
         background-color: rgba(0, 0, 0, 0.30);
-        max-width: 95%;
-        width: auto;
+        max-width: 768px;
         padding: 20px;
         margin: 0 auto;
         font-size: 24px;
         height: auto;
     }
 
-     table {
-         border: 1px solid white;
-     }
-     th {
-         border: 1px solid white;
-         border-top: 0px solid white;
-     }
-
-    tbody td{
-        border-right: 1px solid white;
-        font-size: 20px;
-    }
-
-    tbody tr:nth-child(odd){
-        border-right: 1px solid white;
-        background-color: rgba(67, 161, 255, 0.22);
-        font-size: 20px;
-    }
-
-    tbody tr:nth-child(even){
-        border-right: 1px solid white;
-        background-color: rgba(198, 214, 255, 0.22);
-        font-size: 20px;
-    }
 
     .sButton{
         margin-top: -50px;
     }
-
-    a {
-        color: #aaffd9;
-    }
-
     @media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
         .sButton{
             width: 100%;
@@ -102,76 +72,10 @@ include_once('fifadbconn.php');
  <div class="container">
 
      <?php
-
-
-     $user = new User;
-     if ($user->isLoggedIn()) {
-         if ($user->hasPermission('admin')) {
-
-             $conn = DB::conn();
-             $result = $conn->query("SELECT * FROM contact ORDER BY submit_date DESC");
-
-             if ($result->num_rows <= 0) {
-                 die("Database is leeg");
-             }
-
-             echo "<h3>Aantal contact formulieren: " . $result->num_rows . "</h3>";
-
-
-             echo "
-             <table style=\"width:100%\">
-              <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>E-mail</th>
-                <th>Subject</th>
-                <th>Submit date</th>
-                <th>Action</th>
-              </tr>";
-
-
-            if ($result->num_rows > 50) {
-                $count = 50;
-            } else {
-                $count = $result->num_rows;
-            }
-
-
-            for ($i=0; $i<$count; $i++) {
-                $row = mysqli_fetch_assoc($result);
-
-                echo "<tr>
-                <td>" . $row["firstname"] . "</td>
-                <td>" . $row["lastname"] . "</td>
-                <td>" . $row["email"] . "</td>
-                <td>" . $row["subject"] . "</td>
-                <td style='text-align: center'>" . date('[H:i:s] d-m-Y', $row["submit_date"]) . "</td>
-                <td style='text-align: center'><a href='respond.php'>" . "Read & respond" . "</a></td>
-                </tr>
-                ";
-            }
-            echo "</table><br>";
+     echo "Komt nog";
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-         } else {
-             echo "No admin rights";
-         }
-     }
      /*// recaptcha library
      require_once "recaptchalib.php";
      // captcha secret key
@@ -195,7 +99,7 @@ include_once('fifadbconn.php');
              $tnow = time();
              // Submit message
              $query = "INSERT INTO contact ";
-             $query .= "VALUES(NULL, '" . $_POST["firstname"] . "', '" . $_POST["lastname"] . "', '". $_POST["email"] . "', '" .  $_POST["subject_topic"] ."', '" .  $_POST["subject"] . "', $tnow)";
+             $query .= "VALUES(NULL, '" . $_POST["firstname"] . "', '" . $_POST["lastname"] . "', '". $_POST["email"] . "', '" .  $_POST["subject"] ."', '" .  $_POST["message"] . "', $tnow)";
              mysqli_query($db, $query) or ($result = "ERROR: Can't Connect to database");
 
              mysqli_close($db);
@@ -256,11 +160,11 @@ include_once('fifadbconn.php');
             E-mail:
             <input type=\"email\" id=\"email\" name=\"email\" placeholder=\"E-mail\" maxlength=\"150\" required>
         
-            Subject title:
-            <input type=\"text\" id=\"subject_topic\" name=\"subject_topic\" placeholder=\"Subject title\" maxlength=\"100\" required>
-            
             Subject:
-            <textarea id=\"subject\" name=\"subject\" style=\"height:192px\" maxlength=\"500\" required></textarea>
+            <input type=\"text\" id=\"subject\" name=\"subject\" placeholder=\"Subject\" maxlength=\"100\" required>
+            
+            Message:
+            <textarea id=\"message\" name=\"message\" style=\"height:192px\" maxlength=\"500\" required></textarea>
             
             <div class=\"g-recaptcha\" data-sitekey=\"6Lc7UXYUAAAAAOfs1OziuZBed-PJYAOYdpiTdrsQ\"></div>
             
@@ -280,8 +184,7 @@ include_once('fifadbconn.php');
         ";
      }
 
-
-     */
+*/
      ?>
 
 
@@ -290,5 +193,5 @@ include_once('fifadbconn.php');
 <br><br>
 
 <?php
-    include_once ('layouts/footer.html');
+include_once ('layouts/footer.html');
 ?>
