@@ -22,17 +22,19 @@
                 if ($user->hasPermission('admin')) {
                     $is_admin = true;
                     ?>
-                        <div style="color: red"><?php echo escape($user->data()->name); ?></div>
+                        <a style="color: red" href=profile.php?user=<?php echo escape($user->data()->id).">".escape($user->data()->name); ?></a>
+                        <a href="logout.php">Logout</a></div>
                     <?php
                 } else {
                     $is_admin = false;
                     ?>
-                        <div style="color: green"><?php echo escape($user->data()->name); ?><br>
+                        <a style="color: green" href=profile.php?user=<?php echo escape($user->data()->id).">".escape($user->data()->name); ?></a>
                         <a href="logout.php">Logout</a></div>
                     <?php
                 }
 
             } else {
+                $is_admin = false;
                 echo '<a href="login.php">Login</a> or <a href="register.php">Register</a>';
             }
             ?>
@@ -109,9 +111,9 @@
     <a href="#idk">Award Card</a>
     <?php
     if ($is_admin == false) {
-        echo "<a href=\"contact.php\">CONTACT</a>";
+        echo "<a href=contact.php>CONTACT</a>";
     } else {
-        echo "<a href=\"contact_view.php\">VIEW CONTACT FORMS</a>";
+        echo "<a href=contact_view.php>VIEW CONTACT FORMS</a>";
     }
     ?>
     <a href="about.php">About</a>
@@ -133,13 +135,13 @@
 <div class="menuWrapper">
     <div class="button">
         <a href="leaderboard.php">LEADERBOARD</a>
-        <a href="addresultsform.php">ADD RESULT</a>
-        <a href="#idk">AWARD CARD</a>
-        <?php
+        <?php if ($user->isLoggedIn()) echo "
+          <a href=addresultsform.php>ADD RESULT</a>
+          <a href=#idk>AWARD CARD</a>";
         if ($is_admin == false) {
-            echo "<a href=\"contact.php\">CONTACT</a>";
+            echo "<a href=contact.php>CONTACT</a>";
         } else {
-            echo "<a href=\"contact_view.php\">VIEW CONTACT FORMS</a>";
+            echo "<a href=contact_view.php>VIEW CONTACT FORMS</a>";
         }
         ?>
         <a href="about.php">ABOUT</a>
