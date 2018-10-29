@@ -43,11 +43,12 @@
                         'password' => Hash::make(Input::get('password'), $salt),
                         'salt' => $salt,
                         'score' => 100,
+                        'highscore' => 100,
                         'name' => Input::get('name'),
                         'email' => Input::get('email'),
                         'confirmation' => 0,
                         'roles_id' => 1,
-                        'joindate' => date("Y-m-d h:i:sa"),
+                        'joindate' => date("Y-m-d H:i:s"),
                     ));
 
                     Session::flash('home', 'You have been registered');
