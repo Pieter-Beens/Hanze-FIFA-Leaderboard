@@ -10,9 +10,15 @@
 
         public function __construct()
         {
-            $this->_db = mysqli_connect('localhost', 'root', '', 'fifa');
+            echo "<script>console.log(\"XAMP proberem\")";
+            $this->_db = mysqli_connect('localhost', 'root', 'usbw', 'fifa');
             if (mysqli_connect_errno()) {
+                echo "<script>console.log(\"Usbwebserver proberen\")";
                 $db = mysqli_connect('localhost', 'root', 'usbw', 'fifa');
+                if (mysqli_connect_errno()) {
+                    echo "<script>console.log(\"Niks werkt :(\")";
+                    $db = mysqli_connect('localhost', 'root', 'usbw', 'fifa');
+                };
             };
         }
 
