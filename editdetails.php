@@ -10,7 +10,7 @@ include('fifadbconn.php');
 
 // old:   if ($_SESSION['id'] != $_GET['user'] and $_SESSION['role'] != 'admin') die('You do not have permission to view this page.');
 
-if (!($user->hasPermission('admin') || $_GET['user']->isLoggedIn())) die('You do not have permission to view this page.');
+if (!($user->hasPermission('admin') || $_GET['user'] == escape($user->data()->id))) die('You do not have permission to view this page.');
 
 if (isset($_POST['name'])) {
 $query = "UPDATE users ";
