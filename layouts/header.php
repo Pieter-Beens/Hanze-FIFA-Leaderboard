@@ -22,18 +22,18 @@
                 if ($user->hasPermission('admin')) {
                     $is_admin = true;
                     ?>
-                        <a style="color: red;"href="#profile"><?php echo escape($user->data()->name); ?></a>
+                        <div style="color: red"><?php echo escape($user->data()->name); ?></div>
                     <?php
                 } else {
                     $is_admin = false;
                     ?>
-                        <a style="color: green;"href="#profile"><?php echo escape($user->data()->name); ?></a>
-                        <a href="logout.php">Logout</a>
+                        <div style="color: green"><?php echo escape($user->data()->name); ?><br>
+                        <a href="logout.php">Logout</a></div>
                     <?php
                 }
 
             } else {
-                echo '<a href="login.php">Login</a> <a href="register.php">Register</a>';
+                echo '<a href="login.php">Login</a> or <a href="register.php">Register</a>';
             }
             ?>
 
@@ -115,25 +115,8 @@
     }
     ?>
     <a href="about.php">About</a>
-    <?php
-    if ($user->isLoggedIn()) {
-        if ($user->hasPermission('admin')) {
-            $is_admin = true;
-            ?>
-                <a style="color: red;"href="#profile"><?php echo escape($user->data()->name); ?></a>
-            <?php
-        } else {
-            $is_admin = false;
-            ?>
-                <a style="color: green;"href="#profile"><?php echo escape($user->data()->name); ?></a>
-                <a href="logout.php">Logout</a>
-            <?php
-        }
-
-    } else {
-        echo '<a href="login.php">Login</a><a href="register.php">Register</a>';
-    }
-    ?>
+    <a href="profile.php?user=<?php echo $_SESSION['id'] ?>">My Profile</a>
+    <a href="temp/sessiontest.php">Login</a>
 </div>
 
 <!-- ruimte tussen menu -->
