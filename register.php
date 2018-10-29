@@ -74,7 +74,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registreer</title>
 </head>
+<style>
+  input{
+    width: 100%;
+    margin-top: 5%;
+  }
+  .register{
+     width:25%;
+     margin: 90px auto;
+     background-color: white;
+     padding: 20px;
+     border-radius: 15px;
+     border: 2px solid grey;
+     min-height: 200px;
+  }
+</style>
 <body>
+  <div class="register">
     <form action="" method="post">
         <label for="username">Username</label><br>
         <input type="text" id="username" name="username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off"><br><br>
@@ -93,7 +109,7 @@
 
         <input type="hidden" name="token" value="<?php echo Token::generate() ?>">
         <hr>
-        <input type="submit" name="submit" value="submit">
+        <input style="height:30px;width:60px;"type="submit" name="submit" value="submit">
     </form>
 </body>
 </html>
