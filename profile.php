@@ -15,7 +15,7 @@ tr:hover td{
 </style>
 <?php
 
-session_start();
+require_once 'core/init.php';
 
 include('fifadbconn.php');
 
@@ -41,14 +41,10 @@ include('layouts/header.php');
 
 echo "$card<br>";
 
-echo "<img height=100 src=".$player['avatar'].">";
-echo "<font style=color:white><font size=40><b>".$player['name']."</font> ";
-if (isset($_SESSION['id']) && isset($_SESSION['roles_id'])) {
-if ($_GET['user'] == $_SESSION['id'] || $_SESSION['roles_id'] == 2) // ik gebruik hier || en && want Joppe is mijn grote voorbeeld
-echo "<i><a style=color:orange href=editdetails.php?user=".$_GET['user'].">edit details</a></i>";
+echo "Ranking: #".$ranking."<br>Score: ".$player['score']."<br>Historic high: ".$player['highscore']."<br>Real name: ".$player['realname']."<br>Email: ".$player['email']."<br>Join date: ".$player['joindate']."<br>Favoured team: ".$player['favteam']."<br>";
+if ($user->hasPermission('admin') || $_GET['user']->isLoggedIn()) { // ik gebruik hier || en && want Joppe is mijn grote voorbeeld
+echo "<i><a style=color:orange;font-size:16pt href=editdetails.php?user=".$_GET['user'].">edit details</a></i><br>";
 }
-echo "<br>";
-echo "Ranking: #".$ranking."<br>Score: ".$player['score']."<br>Historic high: ".$player['highscore']."<br>Real name: ".$player['realname']."<br>Email: ".$player['email']."<br>Join date: ".$player['joindate']."<br>Favoured team: ".$player['favteam']."<br><br>";
 
 $goalsfor = 0;
 $goalsagainst = 0;

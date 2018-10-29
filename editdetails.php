@@ -8,7 +8,9 @@ include('layouts/header.php');
 
 include('fifadbconn.php');
 
-if ($_SESSION['id'] != $_GET['user'] and $_SESSION['role'] != 'admin') die('You do not have permission to view this page.');
+// old:   if ($_SESSION['id'] != $_GET['user'] and $_SESSION['role'] != 'admin') die('You do not have permission to view this page.');
+
+if (!($user->hasPermission('admin') || $_GET['user']->isLoggedIn())) die('You do not have permission to view this page.');
 
 if (isset($_POST['name'])) {
 $query = "UPDATE users ";
@@ -16,7 +18,7 @@ $query .= "SET name = '".$_POST['name']."', realname = '".$_POST['realname']."',
 $query .= "WHERE id = ".$_GET['user'];
 mysqli_query($db,$query) or die ('Error writing to database. Changes were not saved.');
 
-echo "Changes were saved successfully!<br><a style=color:orange href=profile.php?user=".$_SESSION['id'].">Return to your Profile.</a>";
+echo "Changes were saved successfully!<br><a style=color:orange href=profile.php?user=".escape($user->data()->id).">Return to your Profile.</a>";
 }
 
 $query = "SELECT `name`, email, `realname`, favteam, avatar FROM users WHERE id =".$_GET['user'];
@@ -34,7 +36,7 @@ $row = mysqli_fetch_assoc($result);
   Favoured team:<br>
   <input type=text value="<?php echo $row['favteam'] ?>" name=favteam><br>
   Avatar URL:<br>
-  <input type=text value=<?php echo $row['avatar'] ?> name=avatar><br>
+  <input type=text value="<?php echo $row['avatar'] ?>" name=avatar><br>
   <img height=100px src=<?php echo $row['avatar'] ?>><br>
   <input type=submit value="Save Changes">
 </form><br>
