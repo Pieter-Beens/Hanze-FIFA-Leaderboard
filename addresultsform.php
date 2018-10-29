@@ -6,7 +6,7 @@ $title = "ADD RESULTS";
 
 include('layouts/header.php');
 
-session_start();
+require_once 'core/init.php';
 
 include('fifadbconn.php');
 
@@ -21,13 +21,14 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
 
 <form action="processresults.php" method="POST">
 <!-- <div align="center"><img height=150 src="layouts/images/awesomelogo.png"></div> -->
+<br>
 <table style=margin:auto>
   <tr><td></td><td><div align="center"><h2>HOME</h2></div></td><td><div align="center"><h2>AWAY</h2></div></td></tr>
-  <tr><td width=60>Players</td><td><input size=22 type="text" name='homeplayer' value=<?php echo $_SESSION['name']; ?> disabled></td>
+  <tr><td width=60>Players</td><td><input size=22 type="text" name='homeplayer' value=<?php echo escape($user->data()->name); ?> disabled></td>
     <td><select name='awayplayer'><option value="">SELECT AN OPPONENT</option>
     <?php
     while ($row = mysqli_fetch_assoc($result)) {
-      if ($row['name'] != $_SESSION['name']) {
+      if ($row['name'] != escape($user->data()->name)) {
         echo "<option value=";
         echo $row['name'];
         echo ">";

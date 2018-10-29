@@ -14,7 +14,7 @@ if (!($user->hasPermission('admin') || $_GET['user']->isLoggedIn())) die('You do
 
 if (isset($_POST['name'])) {
 $query = "UPDATE users ";
-$query .= "SET name = '".$_POST['name']."', realname = '".$_POST['realname']."', avatar= '".$_POST['avatar']."'";
+$query .= "SET name = '".$_POST['name']."', realname = '".$_POST['realname']."', avatar = '".$_POST['avatar']."', favteam = '".$_POST['favteam']."'";
 $query .= "WHERE id = ".$_GET['user'];
 mysqli_query($db,$query) or die ('Error writing to database. Changes were not saved.');
 

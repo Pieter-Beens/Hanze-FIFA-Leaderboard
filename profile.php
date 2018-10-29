@@ -41,7 +41,8 @@ include('layouts/header.php');
 
 echo "$card<br>";
 
-echo "Ranking: #".$ranking."<br>Score: ".$player['score']."<br>Historic high: ".$player['highscore']."<br>Real name: ".$player['realname']."<br>Email: ".$player['email']."<br>Join date: ".$player['joindate']."<br>Favoured team: ".$player['favteam']."<br>";
+echo "<h1 style=font-color:gold;font-size:32pt>#".$ranking."</h1>";
+echo "Score: ".$player['score']."<br>Historic high: ".$player['highscore']."<br>Real name: ".$player['realname']."<br>Email: ".$player['email']."<br>Join date: ".$player['joindate']."<br>Favoured team: ".$player['favteam']."<br>";
 if ($user->hasPermission('admin') || $_GET['user']->isLoggedIn()) { // ik gebruik hier || en && want Joppe is mijn grote voorbeeld
 echo "<i><a style=color:orange;font-size:16pt href=editdetails.php?user=".$_GET['user'].">edit details</a></i><br>";
 }
