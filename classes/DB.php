@@ -10,8 +10,8 @@
 
         public function __construct()
         {
-            echo "<script>console.log(\"XAMP proberem\")</script>";
-            $this->_db = mysqli_connect('localhost', 'root', 'usbw', 'fifa');
+            echo "<script>console.log(\"XAMP proberen\")</script>";
+            $this->_db = mysqli_connect('localhost', 'root', '', 'fifa');
             if (mysqli_connect_errno()) {
                 echo "<script>console.log(\"Usbwebserver proberen\")</script>";
                 $db = mysqli_connect('localhost', 'root', 'usbw', 'fifa');
