@@ -31,6 +31,11 @@ class Validate {
                                 $this->addError("{$item} must be a maximum of {$rule_value} characters.");
                             }
                         break;
+                        case 'contains':
+                            if(strpos($value,$rule_value) == false) {
+                                $this->addError("{$item} must contain {$rule_value}");
+                            }
+                        break;
                         case 'matches':
                             if($value != $input[$rule_value]) {
                                 $this->addError("{$rule_value} must match {$item}");

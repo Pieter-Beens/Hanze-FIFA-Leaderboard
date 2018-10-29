@@ -8,7 +8,7 @@
                 'username' => array(
                     'required' => true,
                     'min' => 3,
-                    'max' => 20,
+                    'max' => 14,
                     'unique' => 'users'
                 ),
                 'password' => array(
@@ -29,6 +29,7 @@
                     'required' => true,
                     'min' => 3,
                     'unique' => 'users',
+                    'contains' => '@st.hanze.nl',
                 ),
             ));
 

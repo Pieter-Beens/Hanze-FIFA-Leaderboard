@@ -35,7 +35,7 @@ else {$card = "";}
 
 echo "<title>Hanze FIFA Leaderboard - ".$player['name']."'s Profile</title>";
 
-$title = "<img height=80 align=center src=".$player['avatar']."> ".$player['name']." <font style=font-family:sans-serif;font-size:12pt><i>Profile</i><font>";
+$title = "<img height=80 align=center src=".$player['avatar']."> ".$player['name'];
 
 include('layouts/header.php');
 
@@ -43,8 +43,10 @@ echo "$card<br>";
 
 echo "<h1 style=font-color:gold;font-size:32pt>#".$ranking."</h1>";
 echo "Score: ".$player['score']."<br>Historic high: ".$player['highscore']."<br>Real name: ".$player['realname']."<br>Email: ".$player['email']."<br>Join date: ".$player['joindate']."<br>Favoured team: ".$player['favteam']."<br>";
-if ($user->hasPermission('admin') || $_GET['user']->isLoggedIn()) { // ik gebruik hier || en && want Joppe is mijn grote voorbeeld
-echo "<i><a style=color:orange;font-size:16pt href=editdetails.php?user=".$_GET['user'].">edit details</a></i><br>";
+if (Session::exists('user')) {
+  if ($user->hasPermission('admin') || $_GET['user']->isLoggedIn()) { // ik gebruik hier || en && want Joppe is mijn grote voorbeeld
+  echo "<i><a style=color:orange;font-size:16pt href=editdetails.php?user=".$_GET['user'].">edit details</a></i><br>";
+  }
 }
 
 $goalsfor = 0;
@@ -73,7 +75,7 @@ while ($gfa = mysqli_fetch_assoc($gfaresult)) {
 }
 
 echo "<font size=20><b>Record: <font color=green>".$wins."</font> - ".$draws." - <font color=red>".$losses."</font><br>";
-echo "<b>Goals: <font color=green>".$goalsfor."</font> for <font color=red>".$goalsagainst."</font> against<br>";
+echo "<b>Goals: <font color=green>".$goalsfor."</font> for <font color=red>".$goalsagainst."</font> against</font><br>";
 
 $query = "SELECT * ";
 $query .= "FROM results ";
@@ -115,4 +117,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 ?>
 </table>
 </div>
-<br><br><br><br>
+
+<?php
+include_once ('layouts/footer.html');
+?>
