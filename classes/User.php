@@ -148,7 +148,6 @@ class User
         if ($group) {
             $permissions = json_decode($group->name, true);
 
-            print_r($permissions);
             if ($permissions[$key] == true) {
                 return true;
             }
