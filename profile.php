@@ -21,9 +21,9 @@ include('fifadbconn.php');
 
 $query = "SELECT name, avatar, realname, email, highscore, joindate, favteam, score FROM users WHERE id = ".$_GET['user'];
 $result = mysqli_query($db,$query) or die ('Error finding username');
-$user = mysqli_fetch_assoc($result);
+$player = mysqli_fetch_assoc($result);
 
-$query = "SELECT score FROM users WHERE score > ".$user['score'];
+$query = "SELECT score FROM users WHERE score > ".$player['score'];
 $result = mysqli_query($db,$query) or die ('Error comparing user scores');
 $ranking = mysqli_num_rows($result) + 1;
 
@@ -33,22 +33,22 @@ if (mysqli_num_rows($cardresult) > 1) {$card = "<img align=right height=150px sr
 elseif (mysqli_num_rows($cardresult) == 1) {$card = "<img align=right height=150px src=layouts/images/yellowcard.png>";}
 else {$card = "";}
 
-echo "<title>Hanze FIFA Leaderboard - ".$user['name']."'s Profile</title>";
+echo "<title>Hanze FIFA Leaderboard - ".$player['name']."'s Profile</title>";
 
-$title = "<img height=80 align=center src=".$user['avatar']."> ".$user['name']." <font style=font-family:sans-serif;font-size:12pt><i>Profile</i><font>";
+$title = "<img height=80 align=center src=".$player['avatar']."> ".$player['name']." <font style=font-family:sans-serif;font-size:12pt><i>Profile</i><font>";
 
 include('layouts/header.php');
 
 echo "$card<br>";
 
-echo "<img height=100 src=".$user['avatar'].">";
-echo "<font style=color:white><font size=40><b>".$user['name']."</font> ";
+echo "<img height=100 src=".$player['avatar'].">";
+echo "<font style=color:white><font size=40><b>".$player['name']."</font> ";
 if (isset($_SESSION['id']) && isset($_SESSION['roles_id'])) {
 if ($_GET['user'] == $_SESSION['id'] || $_SESSION['roles_id'] == 2) // ik gebruik hier || en && want Joppe is mijn grote voorbeeld
 echo "<i><a style=color:orange href=editdetails.php?user=".$_GET['user'].">edit details</a></i>";
 }
 echo "<br>";
-echo "Ranking: #".$ranking."<br>Score: ".$user['score']."<br>Historic high: ".$user['highscore']."<br>Real name: ".$user['realname']."<br>Email: ".$user['email']."<br>Join date: ".$user['joindate']."<br>Favoured team: ".$user['favteam']."<br><br>";
+echo "Ranking: #".$ranking."<br>Score: ".$player['score']."<br>Historic high: ".$player['highscore']."<br>Real name: ".$player['realname']."<br>Email: ".$player['email']."<br>Join date: ".$player['joindate']."<br>Favoured team: ".$player['favteam']."<br><br>";
 
 $goalsfor = 0;
 $goalsagainst = 0;
