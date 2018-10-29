@@ -10,12 +10,19 @@
             ));
 
             if ($validation->passed()) {
+                echo "1. Validation passed<br>";
                 $user = new User();
 
+                echo "2. Remember dinges<br>";
                 $remember = (Input::get('remember') === 'on') ? true : false;
-                $login = $user->login(Input::get('username'), Input::get('password'), $remember);
 
+                echo "3. Login<br>";
+                $login = $user->login(Input::get('username'), Input::get('password'), $remember);
+                echo "Doet die het nog?";
+
+                echo "$login";
                 if($login) {
+                    echo "4. Redirect<br>";
                     Redirect::to('index.php');
                 } else {
                     echo 'login failed';
