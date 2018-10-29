@@ -74,6 +74,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registreer</title>
+        <link rel="stylesheet" type="text/css" href="layouts/style.css">
 </head>
 <style>
   input{
@@ -83,7 +84,7 @@
   .register{
      width:25%;
      margin: 90px auto;
-     background-color: white;
+      background-color: rgba(0, 0, 0, 0.50);
      padding: 20px;
      border-radius: 15px;
      border: 2px solid grey;

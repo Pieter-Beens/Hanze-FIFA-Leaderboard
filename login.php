@@ -36,6 +36,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="layouts/style.css">
 </head>
 <style>
   input{
@@ -45,16 +46,11 @@
   .login{
      width:25%;
      margin: 90px auto;
-      background-color: rgba(0, 0, 0, 0.30);
+      background-color: rgba(0, 0, 0, 0.50);
      padding: 20px;
      padding-bottom: 15%;
      border-radius: 15px;
      border: 2px solid grey;
-  }
-  body{
-    background-image: url(layouts/images/blue.png);
-    background-repeat: repeat;
-    color: white;
   }
 </style>
 <body>
