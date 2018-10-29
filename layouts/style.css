@@ -22,9 +22,6 @@ body{
   width: 100%;
   display: inline-block;
 }
-p{
-
-}
 
 @media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
     .header{

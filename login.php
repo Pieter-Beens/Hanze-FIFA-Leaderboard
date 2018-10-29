@@ -45,7 +45,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
 </head>
+<style>
+  input{
+    width: 100%;
+    margin-top: 5%;
+  }
+  .login{
+     width:25%;
+     margin: 90px auto;
+     background-color: white;
+     padding: 20px;
+     padding-bottom: 15%;
+     border-radius: 15px;
+     border: 2px solid grey;
+  }
+</style>
 <body>
+<div class="login">
 <form action="" method="post">
     <label for="username">Username</label><br>
     <input type="text" id="username" name="username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off"><br><br>
@@ -53,11 +69,10 @@
     <label for="password">Password</label><br>
     <input type="password" id="password" name="password"><br>
     <input type="hidden" name="token" value="<?php echo Token::generate() ?>">
-    <label for="remember">
-        <input type="checkbox" name="remember" id="remember"> Remember me
-    </label>
-    <hr>
-    <input type="submit" name="submit" value="submit">
+    <label for="remember"></label>
+    <br>Remember me<br><input style="width:0;"type="checkbox" name="remember" id="remember"><br>
+    <input style="height:30px;width:60px;"type="submit" name="submit" value="submit">
 </form>
+</div>
 </body>
 </html>
