@@ -72,7 +72,7 @@ class User
         }
 
         //De querry word hier uigevoerd en de user word in de database gezet
-        if (!$this->_db->query("INSERT INTO users (name, password, salt, realname, email, confirmation, roles_id, joindate) VALUES (" . $values . ")")) {
+        if (!$this->_db->query("INSERT INTO users (name, password, salt, score, highscore, realname, email, confirmation, roles_id, joindate) VALUES (" . $values . ")")) {
             throw new Exception('There was a problem creating an account');
         }
     }

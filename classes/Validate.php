@@ -43,6 +43,7 @@ class Validate {
                         break;
                         case 'unique':
                             $check = $this->_db->query("SELECT id FROM " .$rule_value. " WHERE " .$item. " = '$value'");
+                            echo $rule_value;
                             if($check->num_rows > 0){
                                 $this->addError("{$item} already exists");
                             }

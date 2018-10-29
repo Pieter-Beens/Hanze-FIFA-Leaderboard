@@ -5,7 +5,7 @@
         if(Token::check(Input::get('token'))){
             $validate = new Validate();
             $validation = $validate->check($_POST, array(
-                'username' => array(
+                'name' => array(
                     'required' => true,
                     'min' => 3,
                     'max' => 14,
@@ -20,7 +20,7 @@
                     'min' => 6,
                     'matches' => 'password'
                 ),
-                'name' => array(
+                'realname' => array(
                     'required' => true,
                     'min' => 3,
                     'max' => 50,
@@ -40,12 +40,12 @@
 
                 try {
                     $user->create(array(
-                        'username' => Input::get('username'),
+                        'name' => Input::get('name'),
                         'password' => Hash::make(Input::get('password'), $salt),
                         'salt' => $salt,
                         'score' => 100,
                         'highscore' => 100,
-                        'name' => Input::get('name'),
+                        'realname' => Input::get('realname'),
                         'email' => Input::get('email'),
                         'confirmation' => 0,
                         'roles_id' => 1,
@@ -94,8 +94,8 @@
 <body>
   <div class="register">
     <form action="" method="post">
-        <label for="username">Username</label><br>
-        <input type="text" id="username" name="username" value="<?php echo escape(Input::get('username')); ?>" autocomplete="off"><br><br>
+        <label for="name">Username</label><br>
+        <input type="text" id="name" name="name" value="<?php echo escape(Input::get('name')); ?>" autocomplete="off"><br><br>
 
         <label for="password">Password</label><br>
         <input type="password" id="password" name="password"><br><br>
@@ -103,8 +103,8 @@
         <label for="cpassword">Repeat password</label><br>
         <input type="password" id="cpassword" name="cpassword"><br><br>
 
-        <label for="name">Name</label><br>
-        <input type="text" id="name" name="name" value="<?php echo escape(Input::get('name')); ?>"><br><br>
+        <label for="realname">Name</label><br>
+        <input type="text" id="realname" name="realname" value="<?php echo escape(Input::get('realname')); ?>"><br><br>
 
         <label for="email">Email</label><br>
         <input type="email" id="email" name="email" value="<?php echo escape(Input::get('email')); ?>"><br><br>
