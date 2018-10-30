@@ -67,7 +67,7 @@ $rank++;
 <tr style="cursor:pointer;" onclick="document.location='profile.php?user=<?php echo $row['id']?>'">
 <td style="font-size:32pt;text-align:center"><?php echo $rank ?></font></td>
 <td ><b><img height=36px src=<?php echo $row['avatar']?>></td>
-<td style="text-align:left"><a style="font-size:28pt;color:orange;padding-left: 20px" href=profile.php?user=<?php echo $row['id']?>><?php echo $row['name']?><span style="float: right; padding-right: 20px"><?php echo $card ?></span></td>
+<td style="text-align:left"><a style="font-size:20pt;color:orange;padding-left: 20px" href=profile.php?user=<?php echo $row['id']?>><?php echo $row['name']?><span style="float: right; padding-right: 20px"><?php echo $card ?></span></td>
 <td style="color:green"><b><?php echo $goalsfor ?></b></td>
 <td style="color:red;"><b><?php echo $goalsagainst ?></b></td>
 <td style="font-size:16pt;"><b><?php echo round($row['score']) ?></b></td>
