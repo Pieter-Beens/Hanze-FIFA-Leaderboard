@@ -2,16 +2,17 @@
 
 <?php
 
+// PAGE SETUP
+
 $title = "ADD RESULTS";
-
 include('layouts/header.php');
-
 require_once 'core/init.php';
-
 include('fifadbconn.php');
 
+// query for dropdown selection of opponent
+
 $query = "SELECT `name`";
-$query .= "FROM `users`";
+$query .= "FROM `users` ORDER BY `name` ASC";
 $result = mysqli_query($db,$query) or die ('Error querying database');
 
 ?>
@@ -19,13 +20,12 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
 <html>
 <body>
 
-<form action="processresults.php" method="POST">
-<!-- <div align="center"><img height=150 src="layouts/images/awesomelogo.png"></div> -->
+<form action="results_confirm.php" method="POST">
 <br>
 <table style=margin:auto>
   <tr><td></td><td><div align="center"><h2>HOME</h2></div></td><td><div align="center"><h2>AWAY</h2></div></td></tr>
   <tr><td width=60>Players</td><td><input size=22 type="text" name='homeplayer' value=<?php echo escape($user->data()->name); ?> disabled></td>
-    <td><select name='awayplayer'><option value="">SELECT AN OPPONENT</option>
+    <td><select name='awayplayer' <?php if (isset($_POST['awayplayer'])) echo "value=".$_POST['awayplayer']; ?>>
     <?php
     while ($row = mysqli_fetch_assoc($result)) {
       if ($row['name'] != escape($user->data()->name)) {
@@ -38,15 +38,11 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
     }
     ?>
   </select></td><td width=60></td></tr>
-  <tr><td>Goals</td><td><div align=center><input min=0 max=99 value=0 style=width:100px;text-align:center;font-size:48pt type="number" name="homegoals"></div></td>
-    <td><div align=center><input min=0 max=99 value=0 style=width:100px;text-align:center;font-size:48pt type="number" name="awaygoals"></div></td></tr>
-  <tr><td></td><td colspan=2 style=text-align:center><font style=font-size:8pt;font-family:arial><i>Note that you will not receive any additional points for goal differences above 5.</i></font></td></tr>
-  <tr><td>Comment</td><td colspan=2><div align=center><input maxlength=55 style=width:350px type="text" name="description"></div></td><td><i>max. 55ch</i></td></tr>
+  <tr><td>Goals</td><td><div align=center><input min=0 max=99 value=<?php if (isset($_POST['homegoals'])) {echo $_POST['homegoals'];} else {echo "0";} ?> style=width:100px;text-align:center;font-size:48pt type="number" name="homegoals"></div></td>
+    <td><div align=center><input min=0 max=99 value=<?php if (isset($_POST['awaygoals'])) {echo $_POST['awaygoals'];} else {echo "0";} ?> style=width:100px;text-align:center;font-size:48pt type="number" name="awaygoals"></div></td></tr>
+  <tr><td>Comment</td><td colspan=2><div align=center><input maxlength=55 style=width:350px type="text" name="description" <?php if (isset($_POST['description'])) echo "value=".$_POST['description']; ?>></div></td><td></td></tr>
   <tr><td></td><td colspan=2><div align=center><input style=height:40px type="submit" value="That's the score!"></div></td></tr>
 </table>
 </form>
 </body>
 </html>
-<?php
-include ('layouts/footer.html');
-?>

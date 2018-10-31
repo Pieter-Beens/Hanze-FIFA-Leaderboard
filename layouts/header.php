@@ -109,7 +109,7 @@
     <a href="leaderboard.php">Leaderboard</a>
     <?php if ($user->isLoggedIn()) {
       echo "<a href=profile.php?user=" .escape($user->data()->id). ">My Profile</a>
-      <a href=addresultsform.php>Add Result</a>
+      <a href=results_add.php>Add Result</a>
       <a href=#idk>Award Card</a>";
     }
     if ($is_admin == false) {
@@ -137,7 +137,7 @@
     <div class="button">
         <a href="leaderboard.php">LEADERBOARD</a>
         <?php if ($user->isLoggedIn()) echo "
-          <a href=addresultsform.php>ADD RESULT</a>
+          <a href=results_add.php>ADD RESULT</a>
           <a href=#idk>AWARD CARD</a>";
         if ($is_admin == false) {
             echo "<a href=contact.php>CONTACT</a>";

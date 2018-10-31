@@ -16,8 +16,8 @@ include ('layouts/header.php');
 
 <p class="text"><font size=4><b>Philosophy blabla.</b></font></p><br>
 
-<p class="text">How does the scoring algorithm work?
-Every game, the winner takes 2 points plus 1 additional points for the goal difference. So, 1-0 adds 3 points to your Leaderboard Score, 2-0 adds 4, and 2-1 again adds 3. Of course these point will have to come from somewhere: the loser will lose Leaderboard Score at the same rate.</p><br><br><br>
+<h1 class="text">How does it work?the scoring algorithm work?</h1>
+<p>Every game, the winner takes 2 points plus 1 additional points for the goal difference. So, 1-0 adds 3 points to your Leaderboard Score, 2-0 adds 4, and 2-1 again adds 3. Of course these point will have to come from somewhere: the loser will lose Leaderboard Score at the same rate.</p><br>
 
 <p class="text"><font size=5><b><i>...however!</i></b></font></br><p><br>
 
