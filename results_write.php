@@ -33,7 +33,7 @@ $away = mysqli_fetch_assoc($result);
 
 <div border=1 align=center><h3><?php echo $_SESSION['homeplayer'] ?></h3>
 	<h1><?php if($_SESSION['change'] <= 0) {echo "<div style=color:red>".round($home['score'],1)."</style>";} else {echo "<div style=color:green>".round($home['score'],1)."</style>";}?></h1>
-	<div style=position:relative><img width=200px src=layouts/images/<?php if($_SESSION['change'] >= 0) {echo "arrowup";} else {echo "arrowdown";}?>.png><div style=font-size:70pt;color=black;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);><?php echo "<b>".abs(round($_SESSION['change'],1))."</b>"?></div></div>
+	<div style=position:relative><img width=200px src=layouts/images/<?php if($_SESSION['change'] > 0) {echo "arrowup";} elseif($_SESSION['change'] == 0) {echo "arrow0";} else {echo "arrowdown";}?>.png><div style=font-size:70pt;color=black;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);><?php echo "<b>".abs(round($_SESSION['change'],1))."</b>"?></div></div>
 	<h1><?php if($_SESSION['change'] >= 0) {echo "<div style=color:red>".round($away['score'],1)."</style>";} else {echo "<div style=color:green>".round($away['score'],1)."</style>";}?></h1>
 	<h3><?php echo $_SESSION['awayplayer']?></h3>
 	<a style=color:orange href=leaderboard.php>Return to the Leaderboard</a>

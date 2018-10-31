@@ -6,17 +6,19 @@ $win = 2;
 $loss = -2;
 $goaldif = $homegoals - $awaygoals;
 
-if ($homegoals > $awaygoals) {$change = $win + (sqrt($goaldif)) * ($awayscore/$homescore);}
-elseif ($homegoals < $awaygoals) {$change = $loss + (sqrt($goaldif)) * ($homescore/$awayscore);}
+if ($homegoals > $awaygoals) {$change = ($win + sqrt($goaldif)) * ($awayscore/$homescore);}
+elseif ($homegoals < $awaygoals) {$change = ($loss + sqrt($goaldif)) * ($homescore/$awayscore);}
 else { // points earned for draws
   If ($homescore < $awayscore) {
-    $change = (1 * $rate) * ($awayscore / $homescore);
+    $change = (($awayscore/$homescore) - 1) * 5;
   } Elseif ($homescore > $awayscore) {
-    $change = -(1 * $rate) * ($homescore / $awayscore);
+    $change = -(($homescore/$awayscore) - 1) * 5;
   } Else {
     $change = 0;
   };
 }
+
+$change = $change*$rate;
 
 $newhomescore = $homescore + $change;
 $newawayscore = $awayscore - $change;
