@@ -40,19 +40,19 @@ $_SESSION['awayplayer'] = $away['name'];
 
 include('algorithm.php'); // calculates score change
 
-$_SESSION['$change'] = $change; // binds to SESSION array for use in results_write.php
+$_SESSION['change'] = $change; // binds to SESSION array for use in results_write.php
 
 // prepares queries for PROCESS PHASE
 $_SESSION['matchquery'] = "INSERT INTO results (homeplayer,homegoals,awaygoals,awayplayer,scorechange,`datetime`,`description`)"; // query to INSERT new match details
 $_SESSION['matchquery'] .= "VALUES (".$home['id'].",".$homegoals.",".$awaygoals.",".$away['id'].",$change,now(),'".$_POST['description']."')";
 
-$_SESSION['$homequery'] = "UPDATE users SET score=".$newhomescore." WHERE id=".$home['id'];
-if ($newhomescore > $home['highscore']) {$_SESSION['$homequery'] .= ", highscore=".$newhomescore;}
-$_SESSION['$homequery'] .= " WHERE name='". $_SESSION['homeplayer'] ."'";
+$_SESSION['homequery'] = "UPDATE users SET score=".round($newhomescore,3);
+if ($newhomescore > $home['highscore']) {$_SESSION['$homequery'] .= ", highscore=".round($newhomescore);}
+$_SESSION['homequery'] .= " WHERE id=".$home['id'];
 
-$_SESSION['$awayquery'] = "UPDATE users SET score=".$newawayscore." WHERE id=".$away['id'];
-if ($newawayscore > $away['highscore']) {$_SESSION['$awayquery'] .= ", highscore=".$newawayscore;}
-$_SESSION['$awayquery'] .= " WHERE name='". $_SESSION['awayplayer'] ."'";
+$_SESSION['awayquery'] = "UPDATE users SET score=".round($newawayscore,3);
+if ($newawayscore > $away['highscore']) {$_SESSION['$awayquery'] .= ", highscore=".round($newawayscore);}
+$_SESSION['awayquery'] .= " WHERE id=".$away['id'];
 
 $_SESSION['homepass'] = $home['password'];
 $_SESSION['awaypass'] = $away['password'];
@@ -76,13 +76,13 @@ $_SESSION['awaypass'] = $away['password'];
 <?php
 // password validation
 
-$query = "SELECT password ";
+$query = "SELECT password, salt ";
 $query .= "FROM users ";
 $query .= "WHERE name = '".$_SESSION['homeplayer']."'";
 $result = mysqli_query($db,$query) or die ('Error querying database');
 $home = mysqli_fetch_assoc($result);
 
-$query = "SELECT password ";
+$query = "SELECT password, salt ";
 $query .= "FROM users ";
 $query .= "WHERE name = '".$_SESSION['awayplayer']."'";
 $result = mysqli_query($db,$query) or die ('Error querying database:'.$query);
@@ -92,8 +92,8 @@ $away = mysqli_fetch_assoc($result);
 
 if(!isset($_POST['homepass'])) {die();}
 
-$homehash = Hash::make($_POST['homepass']);
-$awayhash = Hash::make($_POST['awaypass']);
+$homehash = Hash::make($_POST['homepass'],$home['salt']);
+$awayhash = Hash::make($_POST['awaypass'],$away['salt']);
 
 if($homehash != $_SESSION['homepass']) {die('First password is not correct');}
 if($awayhash != $_SESSION['awaypass']) {die('Second password is not correct');}
