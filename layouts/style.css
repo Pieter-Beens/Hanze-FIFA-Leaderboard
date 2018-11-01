@@ -55,7 +55,7 @@ body{
 @media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
     .footer{
         height: auto;
-        font-size: 76px !important;
+        font-size: 22px;
     }
 }
 
@@ -74,7 +74,6 @@ body{
     top: 0;
 }
 
-/* mobile menu */
 .mobile-menu {
     display: none;
     background-color: white;
@@ -133,7 +132,6 @@ a {
         display: inline-block;
         width: auto;
         height: 10vh;
-        background-color: red;
     }
 }
 
@@ -150,7 +148,6 @@ a {
         display: inline-block;
         width: auto;
         height: 10vh;
-        background-color: red;
     }
 }
 

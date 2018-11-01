@@ -25,7 +25,7 @@ $query .= "FROM users ";
 $query .= "ORDER BY score DESC";
 $result = mysqli_query($db,$query) or die ('Error querying database');
 ?>
-<div style="margin: 40px; background-color: rgba(0, 0, 0, 0.30); padding: 20px; min-width: 500px">
+<div style="margin: 40px; background-color: rgba(0, 0, 0, 0.30); padding: 20px; min-width: 400px;">
 <table class="leaderboard">
 <tr style="background-color:white;color: black;">
   <th>Rank</th>
@@ -34,7 +34,7 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
   <th>GF</th>
   <th>GA</th>
   <th>Score</th>
-</tr></div>
+</tr>
 
 <?php
 $rank=0;
@@ -65,7 +65,7 @@ $rank++;
 
 ?>
 <tr style="cursor:pointer;" onclick="document.location='profile.php?user=<?php echo $row['id']?>'">
-<td style="font-size:32pt;text-align:center"><?php echo $rank ?></font></td>
+<td style="font-size:32pt;text-align:center"><?php echo $rank ?></td>
 <td ><b><img height=36px src=<?php echo $row['avatar']?>></td>
 <td style="text-align:left"><a style="font-size:20pt;color:orange;padding-left: 20px" href=profile.php?user=<?php echo $row['id']?>><?php echo $row['name']?><span style="float: right; padding-right: 20px"><?php echo $card ?></span></td>
 <td style="color:green"><b><?php echo $goalsfor ?></b></td>
@@ -82,5 +82,5 @@ $rank++;
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <?php
-include_once ('layouts/footer.html');
+include('layouts/footer.html');
 ?>

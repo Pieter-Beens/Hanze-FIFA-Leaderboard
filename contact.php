@@ -1,7 +1,8 @@
 <title>Hanze FIFA Leaderboard</title>
 
 <?php
-session_start();
+/* session al ergens anders opgestart
+session_start();   */
 $title = "CONTACT";
 include_once('layouts/header.php');
 include_once('fifadbconn.php');
@@ -105,12 +106,12 @@ include_once('fifadbconn.php');
              echo "
                  $result<br><br>
                  REDIRECTING IN <div id=\"rDSec\">8</div>
-                 
+
                  <script>
                  function sleep(ms) {
                   return new Promise(resolve => setTimeout(resolve, ms));
                 }
-                
+
                 async function startRedirect() {
                   for (var i = 7; i >0; i--){
                       await sleep(1000);
@@ -127,12 +128,12 @@ include_once('fifadbconn.php');
              echo "
                  reCAPTCHA HAS BEEN SKIPPED, MESSAGE HAS BEEN DROPPED!<br><br>
                  REDIRECTING IN <div id=\"rDSec\">30</div>
-                 
+
                  <script>
                  function sleep(ms) {
                   return new Promise(resolve => setTimeout(resolve, ms));
                 }
-                
+
                 async function startRedirect() {
                   for (var i = 29; i >0; i--){
                       await sleep(1000);
@@ -148,36 +149,36 @@ include_once('fifadbconn.php');
      } else {
          echo "
              <form method=\"post\" action=\"\">
-        
+
             First Name:
             <input type=\"text\" id=\"firstname\" name=\"firstname\" placeholder=\"First name\" maxlength=\"80\" required>
-        
+
             Last Name:
             <input type=\"text\" id=\"lastname\" name=\"lastname\" placeholder=\"Last name\" maxlength=\"80\" required>
-        
+
             E-mail:
             <input type=\"email\" id=\"email\" name=\"email\" placeholder=\"E-mail\" maxlength=\"150\" required>
-        
+
             Subject:
             <input type=\"text\" id=\"subject\" name=\"subject\" placeholder=\"Subject\" maxlength=\"100\" required>
-            
+
             Message:
             <textarea id=\"message\" name=\"message\" style=\"height:192px\" maxlength=\"500\" required></textarea>
-            
+
             <div class=\"g-recaptcha\" data-sitekey=\"6Lc7UXYUAAAAAOfs1OziuZBed-PJYAOYdpiTdrsQ\"></div>
-            
+
             <input type=\"submit\" id=\"sbmtform\" class='sButton' value=\"Send\">
-            
+
             </form>
             <script src='https://www.google.com/recaptcha/api.js'></script>
- 
+
             <script>
             document.getElementById(\"sbmtform\").addEventListener(\"click\", function(event){
             if(grecaptcha.getResponse().length == 0){
                 event.preventDefault();
 	            alert('Please click the reCAPTCHA checkbox');
 	        }
-            }); 
+            });
             </script>
         ";
      }

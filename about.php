@@ -2,11 +2,13 @@
 
 <?php
 
-session_start();
+include('layouts/header.php');
+
+/* session al ergens anders opgestart
+session_start();   */
 
 $title = "ABOUT";
 
-include ('layouts/header.php');
 ?>
 <head>
   <link rel="stylesheet" type="text/css" href="layouts/style.css">
