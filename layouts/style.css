@@ -51,6 +51,7 @@ body{
   text-align: center;
   font-family:FIFA16;
   padding: 20px;
+  min-width: 400px
 }
 @media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
     .footer{
@@ -177,7 +178,7 @@ a {
   margin: 40px;
   margin-top: 20px;
   background-color: rgba(0, 0, 0, 0.30);
-  min-width: 900px;
+
 }
 .leaderboard{
   font-size: 26px;
@@ -188,14 +189,15 @@ a {
 }
 @media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
     .leaderboard{
-      font-size: 40px;
+      font-size: 4vw;
     }
     .leaderboardTekst{
-      font-size: 68px;
-      height: 68px;
+      font-size: 6vw;
+      height: 6vw;
     }
     .leaderboardDiv{
       margin: 0px;
       margin-top: 40px;
+      min-width: 400px
     }
 }

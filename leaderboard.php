@@ -27,7 +27,7 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
 ?>
 <div class="leaderboardDiv">
 <table>
-<tr style="background-color:white;color: black;font-size:24px;">
+<tr class="leaderboard"style="background-color:white;color: black;">
   <th>Rank</th>
   <th></th>
   <th style="text-align:left">User</th>
