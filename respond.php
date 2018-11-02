@@ -72,7 +72,7 @@ include_once('fifadbconn.php');
  <div class="container">
 
      <?php
-     echo "Komt nog";
+     echo "Contact message id: " . $_GET["id"];
 
 
 

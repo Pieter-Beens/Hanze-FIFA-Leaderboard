@@ -130,8 +130,8 @@ include_once('fifadbconn.php');
               </tr>";
 
 
-            if ($result->num_rows > 50) {
-                $count = 50;
+            if ($result->num_rows > 100) {
+                $count = 100;
             } else {
                 $count = $result->num_rows;
             }
@@ -145,8 +145,14 @@ include_once('fifadbconn.php');
                 <td>" . $row["lastname"] . "</td>
                 <td>" . $row["email"] . "</td>
                 <td>" . $row["subject"] . "</td>
-                <td style='text-align: center'>" . date('[H:i:s] d-m-Y', $row["submit_date"]) . "</td>
-                <td style='text-align: center'><a href='respond.php?id=" . $row["ID"]. "'>" . "Read & respond" . "</a></td>
+                <td style='text-align: center'>" . date('[H:i:s] d-m-Y', $row["submit_date"]) . "</td>";
+
+                    if ($row["closed"] == 1) {
+                        echo "<td style='text-align: center'><a style='color: #00cb7f' href='respond.php?id=" . $row["ID"]. "'>" . "Read closed ticket" . "</a></td>";
+                    } else {
+                        echo "<td style='text-align: center'><a style='color: #ffd300' href='respond.php?id=" . $row["ID"]. "'>" . "Read & respond" . "</a></td>";
+                    }
+                echo "
                 </tr>
                 ";
             }
