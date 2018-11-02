@@ -146,7 +146,7 @@ include_once('fifadbconn.php');
                 <td>" . $row["email"] . "</td>
                 <td>" . $row["subject"] . "</td>
                 <td style='text-align: center'>" . date('[H:i:s] d-m-Y', $row["submit_date"]) . "</td>
-                <td style='text-align: center'><a href='respond.php'>" . "Read & respond" . "</a></td>
+                <td style='text-align: center'><a href='respond.php?id=" . $row["ID"]. "'>" . "Read & respond" . "</a></td>
                 </tr>
                 ";
             }
