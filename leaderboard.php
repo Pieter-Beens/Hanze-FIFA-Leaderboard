@@ -25,7 +25,7 @@ $query .= "FROM users ";
 $query .= "ORDER BY score DESC";
 $result = mysqli_query($db,$query) or die ('Error querying database');
 ?>
-<div style="margin: 40px; background-color: rgba(0, 0, 0, 0.30); padding: 20px; min-width: 900px;">
+<div class="leaderboardDiv">
 <table>
 <tr style="background-color:white;color: black;font-size:24px;">
   <th>Rank</th>
@@ -82,5 +82,6 @@ $rank++;
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <?php
+
 include('layouts/footer.html');
 ?>

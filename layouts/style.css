@@ -173,6 +173,12 @@ a {
         overflow: hidden;
     }
 }
+.leaderboardDiv{
+  margin: 40px;
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.30);
+  min-width: 900px;
+}
 .leaderboard{
   font-size: 26px;
 }
@@ -188,3 +194,8 @@ a {
       font-size: 68px;
       height: 68px;
     }
+    .leaderboardDiv{
+      margin: 0px;
+      margin-top: 40px;
+    }
+}
