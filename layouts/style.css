@@ -173,3 +173,18 @@ a {
         overflow: hidden;
     }
 }
+.leaderboard{
+  font-size: 26px;
+}
+.leaderboardTekst{
+  font-size: 44px;
+  height: 44px;
+}
+@media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
+    .leaderboard{
+      font-size: 40px;
+    }
+    .leaderboardTekst{
+      font-size: 68px;
+      height: 68px;
+    }

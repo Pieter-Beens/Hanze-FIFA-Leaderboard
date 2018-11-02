@@ -84,10 +84,11 @@
   .register{
      width:25%;
      margin: 90px auto;
-      background-color: rgba(0, 0, 0, 0.50);
+     background-color: rgba(0, 0, 0, 0.50);
      padding: 20px;
      border-radius: 15px;
      min-height: 200px;
+     min-width: 200px;
   }
 </style>
 <body>

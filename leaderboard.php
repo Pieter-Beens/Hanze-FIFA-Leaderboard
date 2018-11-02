@@ -25,9 +25,9 @@ $query .= "FROM users ";
 $query .= "ORDER BY score DESC";
 $result = mysqli_query($db,$query) or die ('Error querying database');
 ?>
-<div style="margin: 40px; background-color: rgba(0, 0, 0, 0.30); padding: 20px; min-width: 400px;">
-<table class="leaderboard">
-<tr style="background-color:white;color: black;">
+<div style="margin: 40px; background-color: rgba(0, 0, 0, 0.30); padding: 20px; min-width: 900px;">
+<table>
+<tr style="background-color:white;color: black;font-size:24px;">
   <th>Rank</th>
   <th></th>
   <th style="text-align:left">User</th>
@@ -65,12 +65,12 @@ $rank++;
 
 ?>
 <tr style="cursor:pointer;" onclick="document.location='profile.php?user=<?php echo $row['id']?>'">
-<td style="font-size:32pt;text-align:center"><?php echo $rank ?></td>
-<td ><b><img height=36px src=<?php echo $row['avatar']?>></td>
-<td style="text-align:left"><a style="font-size:20pt;color:orange;padding-left: 20px" href=profile.php?user=<?php echo $row['id']?>><?php echo $row['name']?><span style="float: right; padding-right: 20px"><?php echo $card ?></span></td>
-<td style="color:green"><b><?php echo $goalsfor ?></b></td>
-<td style="color:red;"><b><?php echo $goalsagainst ?></b></td>
-<td style="font-size:16pt;"><b><?php echo round($row['score']) ?></b></td>
+<td class="leaderboardTekst" style="text-align:center"><?php echo $rank ?></td>
+<td ><b><img class="leaderboardTekst" src=<?php echo $row['avatar']?>></td>
+<td style="text-align:left"><span class="leaderboard" style="color:orange;padding-left: 20px"><?php echo $row['name']?></span><span style="float: right; padding-top: 1px;padding-right: 20px;"><?php echo $card ?></span></td>
+<td class="leaderboard" style="color:green;padding:10px"><b><?php echo $goalsfor ?></b></td>
+<td class="leaderboard" style="color:red;padding:10px;"><b><?php echo $goalsagainst ?></b></td>
+<td class="leaderboard"><b><?php echo round($row['score']) ?></b></td>
 </tr>
 
 <?php

@@ -50,7 +50,7 @@
      padding: 20px;
      padding-bottom: 15%;
      border-radius: 15px;
-
+     min-width: 200px;
   }
 </style>
 <body>
