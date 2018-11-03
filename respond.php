@@ -72,10 +72,31 @@ include_once('fifadbconn.php');
  <div class="container">
 
      <?php
-     echo "Contact message id: " . $_GET["id"];
+     echo "Contact message id: " . $_GET["id"] . "<br><br>";
 
+     $user = new User;
+     if ($user->isLoggedIn() && $user->hasPermission('admin')) {
 
+         $conn = DB::conn();
+         $result = $conn->query("SELECT * FROM contact WHERE ID=". $_GET["id"] ." ORDER BY submit_date DESC");
 
+         /*if ($result->num_rows <= 0) {
+             die("Database is leeg");
+         }*/
+
+         $row = mysqli_fetch_assoc($result);
+         print_r($row);
+
+         echo "
+         <table>
+         </table>
+         ";
+
+         
+         
+     } else {
+        echo "You don't have permission to access this page";
+     }
      /*// recaptcha library
      require_once "recaptchalib.php";
      // captcha secret key

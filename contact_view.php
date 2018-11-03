@@ -78,22 +78,27 @@ include_once('fifadbconn.php');
         color: #aaffd9;
     }
 
+    #table-container {
+        min-width: 800px;
+    }
+
     @media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
         .sButton{
             width: 100%;
             margin-top: 16px;
         }
         input {
-            font-size: 76px;
+            font-size: 48px;
         }
         input[type=submit] {
-            font-size: 76px;
+            font-size: 48px;
          }
         .container {
              padding-bottom: 70px;
              width: 100%;
              max-width: 100%;
-             font-size: 76px;
+             font-size: 48px;
+            overflow: scroll;
          }
     }
 
@@ -119,7 +124,7 @@ include_once('fifadbconn.php');
 
 
              echo "
-             <table style=\"width:100%\">
+             <table id='table-container' style=\"width:100%\">
               <tr>
                 <th>Firstname</th>
                 <th>Lastname</th>
