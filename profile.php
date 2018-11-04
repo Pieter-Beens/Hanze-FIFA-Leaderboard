@@ -77,40 +77,34 @@ while ($gfa = mysqli_fetch_assoc($gfaresult)) {
 echo "<font size=20><b>Record: <font color=green>".$wins."</font> - ".$draws." - <font color=red>".$losses."</font><br>";
 echo "<b>Goals: <font color=green>".$goalsfor."</font> for <font color=red>".$goalsagainst."</font> against</font><br>";
 
-$query = "SELECT * ";
-$query .= "FROM results ";
-$query .= "WHERE homeplayer = ".$_GET['user']." OR awayplayer = ".$_GET['user'];
+$query = "SELECT `datetime`, scorechange, homeplayer, home.name AS homename, homegoals, awaygoals, awayplayer, away.name AS awayname, description";
+$query .= " FROM results JOIN users home ON homeplayer = home.id JOIN users away ON awayplayer = away.id";
+$query .= " WHERE homeplayer = ".$_GET['user']." OR awayplayer = ".$_GET['user'];
 $query .= " ORDER BY `datetime` DESC";
 $result = mysqli_query($db,$query) or die ('Error querying database');
 ?>
-<div style="margin: 40px; background-color: rgba(0, 0, 0, 0.30); padding: 20px; min-width: 1000px">
+<div style="margin: 40px; background-color: rgba(0, 0, 0, 0.30); padding: 20px">
 <table>
 <tr>
-<td style=font-size:22pt;text-align:center;background-color:green colspan=7>MATCH HISTORY</td>
+<td style=font-size:30pt;text-align:center;background-color:green colspan=7>MATCH HISTORY</td>
 </tr><tr style=background-color:black>
 <th>Date</th><th>Result</th><th>Home Side</th><th colspan=2>Score</th><th>Away Side</th><th>Comment</th></tr>
 <?php
 while ($row = mysqli_fetch_assoc($result)) {
-  $query = "SELECT `name`,`id` FROM `users` WHERE `id` = ".$row['homeplayer'];
-  $homeresult = mysqli_query($db,$query) or die ('Error finding home player name');
-  $homeplayer = mysqli_fetch_assoc($homeresult);
-  $query = "SELECT `name`,`id` FROM `users` WHERE `id` = ".$row['awayplayer'];
-  $awayresult = mysqli_query($db,$query) or die ('Error finding away player name');
-  $awayplayer = mysqli_fetch_assoc($awayresult);
-  if ($homeplayer['id'] == $_GET['user'] AND $row['homegoals'] > $row['awaygoals']) $wld = "<td style=background-color:green;text-align:center;font-size:28pt><b>W</b></td>";
-  elseif ($awayplayer['id'] == $_GET['user'] AND $row['homegoals'] < $row['awaygoals']) $wld = "<td style=background-color:green;text-align:center;font-size:28pt><b>W</b></td>";
-  elseif ($homeplayer['id'] == $_GET['user'] AND $row['homegoals'] < $row['awaygoals']) $wld = "<td style=background-color:red;text-align:center;font-size:28pt><b>L</b></td>";
-  elseif ($awayplayer['id'] == $_GET['user'] AND $row['homegoals'] > $row['awaygoals']) $wld = "<td style=background-color:red;text-align:center;font-size:28pt><b>L</b></td>";
+  if ($row['homeplayer'] == $_GET['user'] AND $row['homegoals'] > $row['awaygoals']) $wld = "<td width= 100 style=background-color:green;text-align:center;font-size:36pt><b>W</b></td>";
+  elseif ($row['awayplayer'] == $_GET['user'] AND $row['homegoals'] < $row['awaygoals']) $wld = "<td width= 100 style=background-color:green;text-align:center;font-size:36pt><b>W</b></td>";
+  elseif ($row['homeplayer'] == $_GET['user'] AND $row['homegoals'] < $row['awaygoals']) $wld = "<td width= 100 style=background-color:red;text-align:center;font-size:36pt><b>L</b></td>";
+  elseif ($row['awayplayer'] == $_GET['user'] AND $row['homegoals'] > $row['awaygoals']) $wld = "<td width= 100 style=background-color:red;text-align:center;font-size:36pt><b>L</b></td>";
   else $wld = "<td style=background-color:blue;text-align:center;font-size:28pt><b>D</b></td>";
   ?>
   <tr>
-  <td height=50><?php echo $row['datetime']?></td>
+  <td width=120 height=50><?php echo $row['datetime']?></td>
   <?php echo $wld ?>
-  <td><b><a style=color:orange href=profile.php?user=<?php echo $row['homeplayer']?>><?php echo $homeplayer['name']?></b></td>
-  <td style=text-align:center;><b><?php echo $row['homegoals']?></b></td>
-  <td style=text-align:center;><b><?php echo $row['awaygoals']?></b></td>
-  <td><b><a style=color:orange href=profile.php?user=<?php echo $row['awayplayer']?>><?php echo $awayplayer['name']?></b></td>
-  <td style=font-family:sans-serif;><?php echo $row['description']?></td>
+  <td><b><a style=color:orange;font-size:24pt href=profile.php?user=<?php echo $row['homeplayer']?>><?php echo $row['homename']?></b></td>
+  <td style=text-align:center;font-size:36pt><b><?php echo $row['homegoals']?></b></td>
+  <td style=text-align:center;font-size:36pt><b><?php echo $row['awaygoals']?></b></td>
+  <td><b><a style=color:orange;font-size:24pt href=profile.php?user=<?php echo $row['awayplayer']?>><?php echo $row['awayname']?></b></td>
+  <td style=font-family:sans-serif;max-width:300><?php echo $row['description']?></td>
   </tr>
 <?php
 }
