@@ -4,7 +4,7 @@ $rate = 1; // can be changed to increase or decrease rate at which score changes
 
 $win = 2;
 $loss = -2;
-$goaldif = $homegoals - $awaygoals;
+$goaldif = abs($homegoals - $awaygoals);
 
 if ($homegoals > $awaygoals) {$change = ($win + sqrt($goaldif)) * ($awayscore/$homescore);}
 elseif ($homegoals < $awaygoals) {$change = ($loss + sqrt($goaldif)) * ($homescore/$awayscore);}

@@ -57,10 +57,11 @@ $_SESSION['awayquery'] .= " WHERE id=".$away['id'];
 $_SESSION['homepass'] = $home['password'];
 $_SESSION['awaypass'] = $away['password'];
 
+echo $change;
+
 }
 
 // PASSWORD FORM
-
 ?>
 <div align=center>
 <h2>Please enter both players' passwords:</h2>
@@ -87,8 +88,6 @@ $query .= "FROM users ";
 $query .= "WHERE name = '".$_SESSION['awayplayer']."'";
 $result = mysqli_query($db,$query) or die ('Error querying database:'.$query);
 $away = mysqli_fetch_assoc($result);
-
-
 
 if(!isset($_POST['homepass'])) {die();}
 
