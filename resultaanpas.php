@@ -1,5 +1,5 @@
 <?php
-include('header/header.php');
+include('header.php');
 include('fifadbconn.php');
 
 $ID = $_POST["Wed_ID"];
