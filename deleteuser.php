@@ -1,4 +1,5 @@
 <?php
+include('header.php'); 
 include('fifadbconn.php');
 
 $query = "DELETE FROM users WHERE name = " . "'$_POST[name]'";
