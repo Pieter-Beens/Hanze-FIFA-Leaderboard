@@ -93,9 +93,12 @@
         if ($user->hasPermission('admin')) {
             ?>
                 <a href=contact_view.php>VIEW CONTACT FORMS</a>
-                <a style="color: red" href=profile.php?user=<?php echo escape($user->data()->id).">". escape($user->data()->name); ?></a>
-                <a href="logout.php">Logout</a>
-            <?php
+                <a href=zoekmatch.php>EDIT MATCH RESULTS </a>
+                <a href=zoekgebruiker.php>FIND USER ID</a>
+                <a href=maakgebruiker.html> CREATE USER </a>
+                <a href=zoekgebruiker2.php> EDIT USER </a>
+                <a href=verwijdergeb.html> DELETE USER</a>
+
           }
 
         else {
