@@ -1,6 +1,6 @@
 
 <?php
-include('header.php');
+include('layouts/header.php');
 include('fifadbconn.php');
 
 $user = $_POST["users"];

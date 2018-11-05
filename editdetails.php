@@ -26,7 +26,7 @@ $result = mysqli_query($db,$query);
 $row = mysqli_fetch_assoc($result);
 
 ?>
-<form method=POST action="">
+<form style=text-align:center method=POST action="">
   <b>USERNAME:<br>
   <input type=text value=<?php echo $row['name'] ?> name=name><br>
   Email:<br>
@@ -37,6 +37,7 @@ $row = mysqli_fetch_assoc($result);
   <input type=text value="<?php echo $row['favteam'] ?>" name=favteam><br>
   Avatar URL:<br>
   <input type=text value="<?php echo $row['avatar'] ?>" name=avatar><br>
-  <img height=100px src=<?php echo $row['avatar'] ?>><br>
+  <p style=font-size:10pt>Your avatar must be hosted on an outside domain that<br>allows hotlinking and end in .jpg,.png or .gif.<br>
+  <img height=100px src=<?php if ($row['avatar'] != NULL) {echo $row['avatar'];} else {echo "layouts/images/awesomelogo.png";} ?>><br>
   <input type=submit value="Save Changes">
 </form><br>

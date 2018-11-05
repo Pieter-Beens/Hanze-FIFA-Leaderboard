@@ -66,7 +66,7 @@ $rank++;
 ?>
 <tr style="cursor:pointer;" onclick="document.location='profile.php?user=<?php echo $row['id']?>'">
 <td class="leaderboardTekst" style="text-align:center"><?php echo $rank ?></td>
-<td ><b><img class="leaderboardTekst" src=<?php echo $row['avatar']?>></td>
+<td ><b><img class="leaderboardTekst" src="<?php if ($row['avatar'] != NULL) {echo $row['avatar'];} else {echo "layouts/images/awesomelogo.png";} ?>"></td>
 <td style="text-align:left"><span class="leaderboard" style="color:orange;padding-left: 20px"><?php echo $row['name']?></span><span style="float: right; padding-top: 1px;padding-right: 20px;"><?php echo $card ?></span></td>
 <td class="leaderboard" style="color:green;padding:10px"><b><?php echo $goalsfor ?></b></td>
 <td class="leaderboard" style="color:red;padding:10px;"><b><?php echo $goalsagainst ?></b></td>

@@ -93,11 +93,11 @@
         if ($user->hasPermission('admin')) {
             ?>
                 <a href=contact_view.php>VIEW CONTACT FORMS</a>
-                <a href=zoekmatch.php>EDIT MATCH RESULTS </a>
+                <a href=zoekmatch.php>EDIT MATCH RESULTS</a>
                 <a href=zoekgebruiker.php>FIND USER ID</a>
-                <a href=maakgebruiker.html> CREATE USER </a>
-                <a href=zoekgebruiker2.php> EDIT USER </a>
-                <a href=verwijdergeb.html> DELETE USER</a>
+                <a href=maakgebruiker.php>CREATE USER</a>
+                <a href=zoekgebruiker2.php>EDIT USER</a>
+                <a href=verwijdergeb.php>DELETE USER</a>
 
           }
 
@@ -135,14 +135,24 @@
         <a href="leaderboard.php">LEADERBOARD</a>
         <?php if ($user->isLoggedIn())
         echo "<a href=results_add.php>ADD RESULT</a><a href=#idk>AWARD CARD</a>";
-        if ($is_admin == false) {
-            echo "<a href=contact.php>CONTACT</a>";
-        } else {
-            echo "<a href=contact_view.php>VIEW CONTACT FORMS</a>";
-        }
+        if ($is_admin == false) { ?>
+            <a href=contact.php>CONTACT</a>
+<?php     }
         ?>
         <a href="about.php">ABOUT</a>
     </div>
+            <?php if ($user->isLoggedIn() and $is_admin == true) {?>
+    <div class="button" style="background-color: #ed3e00;width:100%">
+            <a href=contact_view.php>VIEW CONTACT FORMS</a>
+            <a href=zoekmatch.php>EDIT MATCH RESULTS</a>
+            <a href=zoekgebruiker.php>FIND USER ID</a>
+            <a href=maakgebruiker.php>CREATE USER</a>
+            <a href=zoekgebruiker2.php>EDIT USER</a>
+            <a href=verwijdergeb.php>DELETE USER</a>
+    </div>
+  <?php     }
+          ?>
 </div>
+
 <!-- einde header -->
 </body>

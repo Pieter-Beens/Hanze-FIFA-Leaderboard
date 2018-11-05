@@ -139,7 +139,7 @@ include_once('fifadbconn.php');
                       await sleep(1000);
                       document.getElementById('rDSec').innerText = i;
                   }
-                  window.location.replace(\"/FIFA-LEADERBOARD/leaderboard.php\");
+                  window.location.replace(\"/leaderboard.php\");
                 }
                 startRedirect();
                 </script>
@@ -161,7 +161,7 @@ include_once('fifadbconn.php');
                       await sleep(1000);
                       document.getElementById('rDSec').innerText = i;
                   }
-                  window.location.replace(\"/FIFA-LEADERBOARD/leaderboard.php\");
+                  window.location.replace(\"/leaderboard.php\");
                 }
                 startRedirect();
                 </script>

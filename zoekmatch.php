@@ -1,6 +1,6 @@
 <html>
  <head>
-   <?php include('header.php'); ?>
+   <?php include('layouts/header.php'); ?>
  </head>
 <body>
 <form action = "resultaatmatch.php" method = "post">

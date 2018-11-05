@@ -214,18 +214,18 @@ include_once('fifadbconn.php');
              echo "
                  $result<br><br>
                  REDIRECTING IN <div id=\"rDSec\">8</div>
-                 
+
                  <script>
                  function sleep(ms) {
                   return new Promise(resolve => setTimeout(resolve, ms));
                 }
-                
+
                 async function startRedirect() {
                   for (var i = 7; i >0; i--){
                       await sleep(1000);
                       document.getElementById('rDSec').innerText = i;
                   }
-                  window.location.replace(\"/FIFA-LEADERBOARD/leaderboard.php\");
+                  window.location.replace(\"leaderboard.php\");
                 }
                 startRedirect();
                 </script>
@@ -236,18 +236,18 @@ include_once('fifadbconn.php');
              echo "
                  reCAPTCHA HAS BEEN SKIPPED, MESSAGE HAS BEEN DROPPED!<br><br>
                  REDIRECTING IN <div id=\"rDSec\">30</div>
-                 
+
                  <script>
                  function sleep(ms) {
                   return new Promise(resolve => setTimeout(resolve, ms));
                 }
-                
+
                 async function startRedirect() {
                   for (var i = 29; i >0; i--){
                       await sleep(1000);
                       document.getElementById('rDSec').innerText = i;
                   }
-                  window.location.replace(\"/FIFA-LEADERBOARD/leaderboard.php\");
+                  window.location.replace(\"leaderboard.php\");
                 }
                 startRedirect();
                 </script>
@@ -257,36 +257,36 @@ include_once('fifadbconn.php');
      } else {
          echo "
              <form method=\"post\" action=\"\">
-        
+
             First Name:
             <input type=\"text\" id=\"firstname\" name=\"firstname\" placeholder=\"First name\" maxlength=\"80\" required>
-        
+
             Last Name:
             <input type=\"text\" id=\"lastname\" name=\"lastname\" placeholder=\"Last name\" maxlength=\"80\" required>
-        
+
             E-mail:
             <input type=\"email\" id=\"email\" name=\"email\" placeholder=\"E-mail\" maxlength=\"150\" required>
-        
+
             Subject title:
             <input type=\"text\" id=\"subject_topic\" name=\"subject_topic\" placeholder=\"Subject title\" maxlength=\"100\" required>
-            
+
             Subject:
             <textarea id=\"subject\" name=\"subject\" style=\"height:192px\" maxlength=\"500\" required></textarea>
-            
+
             <div class=\"g-recaptcha\" data-sitekey=\"6Lc7UXYUAAAAAOfs1OziuZBed-PJYAOYdpiTdrsQ\"></div>
-            
+
             <input type=\"submit\" id=\"sbmtform\" class='sButton' value=\"Send\">
-            
+
             </form>
             <script src='https://www.google.com/recaptcha/api.js'></script>
- 
+
             <script>
             document.getElementById(\"sbmtform\").addEventListener(\"click\", function(event){
             if(grecaptcha.getResponse().length == 0){
                 event.preventDefault();
 	            alert('Please click the reCAPTCHA checkbox');
 	        }
-            }); 
+            });
             </script>
         ";
      }

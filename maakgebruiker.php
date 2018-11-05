@@ -1,0 +1,17 @@
+<html>
+<head>
+   <?php include('layouts/header.php'); ?>
+</head>
+    <body>
+<form action = createuser.php method = "post">
+  Vul de username in <input type ="text" name = "name" required> * <br>
+  Vul de echte naam in <input type ="text" name ="realname"> <br>
+  Vul het wachtwoord in <input type ="text" name = "password" required> * <br>
+  Vul de score in (standaard 100.000) <input type = "text" name = "score" required> * <br>
+  Vul het email adres in: <input type = "text" name = "email" required> * <br>
+
+  Velden met een * moeten verplicht ingevuld worden.
+<input type = "submit">
+</form>
+    </body>
+</html>

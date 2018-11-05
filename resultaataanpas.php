@@ -1,6 +1,6 @@
 <html>
 <?php
-include('header.php');
+include('layouts/header.php');
 include('fifadbconn.php');
 
 $user = $_POST["username"];
@@ -49,8 +49,8 @@ Selecteer wat je wilt aanpassen en vul de nieuwe waarde in: <form action ="gebru
   <option value = "score"> Score </option>
   <option value = "highscore"> Highscore </option>
   <option value = "email"> Email </option>
-</select>
-<input name = "id" value = "<?php echo $user_id; ?>">
-<input type = "text" name = "update"><input type = "submit">
+</select> <br>
+Vul hier de ID van de gebruiker in: <input name = "id" value = "<?php echo $user_id; ?>"> <br>
+Vul hier de nieuwe waarde in: <input type = "text" name = "update"><input type = "submit">
 </form>
 </html>

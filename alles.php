@@ -1,6 +1,7 @@
 <html>
-<?php
-include('header/header.php');
+<head>
+   <?php include('layouts/header.php'); ?>
+</head><?php
 include('fifadbconn.php');
 
 $query = "SELECT id, name, realname FROM users ORDER BY name ASC";

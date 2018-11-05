@@ -1,8 +1,8 @@
 <?php
 include('fifadbconn.php');
-include('header.php'); 
+include('layouts/header.php');
 
-$query = "INSERT INTO users (name, realname, password, score, email, joindate) VALUES ('$_POST[name]', '$_POST[realname]', '$_POST[password]', '$_POST[score]', '$_POST[email]', '$_POST[joindate]') ";
+$query = "INSERT INTO users (name, realname, password, score, email, roles_id) VALUES ('$_POST[name]', '$_POST[realname]', '$_POST[password]', '$_POST[score]', '$_POST[email]', '1') ";
 $result = mysqli_query($db, $query);
 
 if (!$result) {
