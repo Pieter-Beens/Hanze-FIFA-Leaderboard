@@ -37,6 +37,8 @@ session_start();   */
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <img src="layouts/images/Dannis.bmp">
 
+<br></cr><a href="djurre_profile.php?user=<?php echo escape($user->data()->name); ?>"><?php echo escape($user->data()->name); ?></a>
+
 <?php
 include('layouts/footer.html');
 ?>
