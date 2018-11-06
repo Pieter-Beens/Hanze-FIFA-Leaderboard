@@ -1,6 +1,6 @@
 <?php
     require_once 'core/init.php';
-
+$merr="";
     if(Input::exists()) {
         if(Token::check(Input::get('token'))){
             $validate = new Validate();
@@ -59,7 +59,7 @@
                 }
             } else {
                 foreach ($validation->errors() as $error){
-                    echo $error .'<br>';
+                    $merr .= $error .'<br>';
                 }
             }
         }
@@ -139,7 +139,20 @@
 
         <input type="hidden" name="token" value="<?php echo Token::generate() ?>">
         <hr>
-        <input style="height:30px;width:80px;"type="submit" name="submit" value="Register">
+        <input style="height:30px; width:80px;"type="submit" name="submit" value="Register">
+        <br><br>
     </form>
+      <?php
+      /*if (isset($validation) && $validation->passed() == false) {
+          foreach ($validation->errors() as $error){
+              echo "$error<br>";
+          }
+      }*/
+      if (isset($merr)) {
+          echo "$merr<br>";
+      }
+
+      ?>
+
 </body>
 </html>
