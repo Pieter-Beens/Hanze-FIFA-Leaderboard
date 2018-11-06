@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2018 at 03:44 PM
+-- Generation Time: Nov 06, 2018 at 09:25 PM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -60,15 +60,21 @@ CREATE TABLE `contact` (
   `email` varchar(150) NOT NULL,
   `subject` varchar(100) NOT NULL,
   `message` varchar(500) NOT NULL,
-  `submit_date` int(14) NOT NULL
+  `submit_date` int(14) NOT NULL,
+  `note` varchar(500) NOT NULL,
+  `closed` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `contact`
 --
 
-INSERT INTO `contact` (`ID`, `firstname`, `lastname`, `email`, `subject`, `message`, `submit_date`) VALUES
-(1, 'Jongeman', 'Badpak', 'badpack@gov.ru', 'First!', 'Hallo jongeman', 1540823212);
+INSERT INTO `contact` (`ID`, `firstname`, `lastname`, `email`, `subject`, `message`, `submit_date`, `note`, `closed`) VALUES
+(1, 'test', 'Badpak', 'badpack@gov.com', 'First!', 'TEST TEST TEST TEST ', 1540823212, 'testnotitie', 1),
+(2, 'testuser', '2222222222', '32323123@gov.ru', 'Fi4214213123123', '4123123123123312', 1540803212, 'test2', 0),
+(3, 'Dennis', 'Smid', 'dennis@st.hanze.nl', 'TITLE VAN BERICHTJES', 'TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST', 1540503212, 'test string', 1),
+(4, 'Peter', 'BE', 'peter@peter.be', 'Peters vraag', 'TEST TEST TEST TEST TEST TEST TEST TEST ', 1540853553, 'testnotitie', 1),
+(8, 'Daniel', 'Windstra', 'd.windstra@st.hanze.nl', 'Broem broem', 'Ik hou van motors. Wat vind jij?', 1541535614, '', 0);
 
 -- --------------------------------------------------------
 
@@ -86,6 +92,16 @@ CREATE TABLE `results` (
   `description` varchar(60) DEFAULT NULL,
   `datetime` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `results`
+--
+
+INSERT INTO `results` (`id`, `homeplayer`, `awayplayer`, `homegoals`, `awaygoals`, `scorechange`, `description`, `datetime`) VALUES
+(1, 2, 5, 2, 0, '3.414', 'Bedankt voor het eigen doelpunt', '2018-11-06 21:12:52'),
+(2, 2, 4, 0, 0, '-0.171', 'Bij elk balcontact de bal wegwerken, werkt best', '2018-11-06 21:14:14'),
+(3, 2, 4, 5, 0, '4.110', 'Zoals voorspeld. Groeten van Ronaldo.', '2018-11-06 21:16:13'),
+(4, 6, 5, 1, 0, '2.898', 'Zieke passeerbeweging in de 16!', '2018-11-06 21:17:44');
 
 -- --------------------------------------------------------
 
@@ -133,11 +149,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `realname`, `password`, `score`, `highscore`, `email`, `confirmation`, `avatar`, `favteam`, `roles_id`, `joindate`, `salt`) VALUES
-(2, 'KabouterKlop77', 'Pieter Beens', 'quidproquo', '100.000', 100, 'p.beens@st.hanze.nl', '1', 'https://argylesuperstore.co.uk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/f/o/football_gnome_web_only.jpg', 'Arsenal', 2, '2018-10-18 11:58:40', NULL),
-(3, 'TheMenace', 'Dennis Smid', '1337', '100.000', 100, 'd.smid@st.hanze.nl', '1', 'https://t6.rbxcdn.com/1c725527bf7cbabb9c1202e090c8bf88', 'VV Musselkanaal', 1, '2018-10-18 11:58:40', NULL),
-(4, 'Hayonnaise', 'Hayo Riem', 'sinatra', '100.000', 100, 'h.riem@st.hanze.nl', '1', 'https://vignette.wikia.nocookie.net/r2da/images/2/24/Zilla_mayonnaise_transparent.png', 'Ajax', 1, '2018-10-18 11:58:40', NULL),
-(5, 'Aikematig', 'Djurre Aikema', 'ladygaga', '100.000', 100, 'd.aikema@st.hanze.nl', '1', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Illuminati_triangle_eye.png/576px-Illuminati_triangle_eye.png', 'SC Heerenveen', 1, '2018-10-18 11:58:40', NULL),
-(6, 'DoelpuntjesDamien', 'Daniel Windstra', 'ultimarulez', '100.000', 100, 'd.windstra@st.hanze.nl', '1', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Pompebled.svg/600px-Pompebled.svg.png', 'Lokomotiv Moscow', 1, '2018-10-18 11:58:40', NULL);
+(1, 'Pinguin', 'Pinguin', '50133fdf49057c29f86dab8cbc7356b43a7ddb0e', '100.000', 100, 'pinguin@st.hanze.nl', '1', 'https://fanon.clubpenguinwiki.info/static/images/fanon/thumb/a/a8/DictatorPingu.png/250px-DictatorPingu.png', 'FC Visby', 2, '2018-11-06 20:52:32', 'efe73ee68b83fd02d36d03fbcc8e15ca1e520e7d20e1135d7318c91dd77cb646'),
+(2, 'KabouterKlop77', 'Pieter Beens', '5960a2405d21bf76c2de30cedc19b4229221a0f2', '107.353', 100, 'p.beens@st.hanze.nl', '0', 'https://argylesuperstore.co.uk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/f/o/football_gnome_web_only.jpg', 'Juventus', 1, '2018-11-06 20:55:20', '5c5df2f7523675892851d4be3d6cb61bb14de5ad1c806e4761174594b186e3f9'),
+(3, 'TheMenace', 'Dannis Smid', 'd92660b8225e3693bcf7582cb584264a65682723', '100.000', 100, 'd.smid@st.hanze.nl', '0', 'https://t6.rbxcdn.com/1c725527bf7cbabb9c1202e090c8bf88', 'VV Musselkanaal', 1, '2018-11-06 20:56:21', '3c4e2e78384a038ded2d401372ad196f9b317971a95161193e830d25934bbd29'),
+(4, 'Hayonnaise', 'Hayo Riem', '807cfeee879a2d922ab64bea544f651a459b714b', '96.061', 100, 'h.riem@st.hanze.nl', '0', 'https://vignette.wikia.nocookie.net/r2da/images/2/24/Zilla_mayonnaise_transparent.png', 'Bayern MÃ¼nchen', 1, '2018-11-06 20:58:46', '3a4c66012845b15ff8b7a4910f02f61c2a64fa9118d45df95029d073fb8e8a71'),
+(5, 'Aikematig', 'Joppe Aikema', '301d6988bf6447985736fceaa24b1578052394f7', '93.688', 100, 'd.aikema@st.hanze.nl', '0', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Illuminati_triangle_eye.png/576px-Illuminati_triangle_eye.png', 'ik snap die knopjes toch nie', 1, '2018-11-06 20:59:43', '38a9c8417c4967cb1139d57650a5b57c271e805fc8267117177518b1c0b6a13b'),
+(6, 'DoeltjesDamien', 'DaniÃ«l Windstra', '648572e3d7a62ed4bea8a023be4962e03c783e94', '102.898', 100, 'd.windstra@st.hanze.nl', '0', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Pompebled.svg/600px-Pompebled.svg.png', 'Lokomotiv Moscow', 1, '2018-11-06 21:00:51', '61333ad6ae457b4bbf9a80fda6fcbedb2f47c0ceb597fbc16144488ff4cf47cb');
 
 -- --------------------------------------------------------
 
@@ -209,13 +226,13 @@ ALTER TABLE `cards`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -227,7 +244,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
