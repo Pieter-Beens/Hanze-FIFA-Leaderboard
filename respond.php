@@ -94,6 +94,19 @@ include_once('fifadbconn.php');
      if ($user->isLoggedIn() && $user->hasPermission('admin')) {
 
          $conn = DB::conn();
+
+
+         if (isset($_GET["message"])){
+            // set state
+            $query = "UPDATE contact ";
+            $query .= "SET note='".$_GET["message"]."' WHERE ID=" . $_GET["id"];
+            $result = $conn->query($query);
+        }
+
+
+
+
+
          $result = $conn->query("SELECT * FROM contact WHERE ID=". $_GET["id"] ." ORDER BY submit_date DESC");
 
          /*if ($result->num_rows <= 0) {
@@ -109,7 +122,7 @@ include_once('fifadbconn.php');
          }
 
          echo "
-         <table>
+         <table width='100%'>
          <tr>
             <td><div style='color: #b7ff99;'> Firstname:</div> " . $row["firstname"] . "</td>
          </tr>

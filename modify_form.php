@@ -139,7 +139,7 @@ include_once('fifadbconn.php');
          }
 
          echo "
-         <table>
+         <table width='100%'>
          <tr>
             <td><div style='color: #b7ff99;'>Subject:</div> " . $row["subject"] . "</td>
          </tr>
@@ -157,19 +157,28 @@ include_once('fifadbconn.php');
             
          </tr>
          
+         <form method=\"get\" action=\"respond.php?id=".$_GET["id"]."\">
          <tr>
             <td style='border-bottom: solid 0px white !important;'>
-            
+            <input type='hidden' id='id' name='id' value='". $_GET["id"] ."'>
             <br><br><div style='color: #b7ff99;'>Note:</div> 
             <textarea id=\"message\" name=\"message\" style=\"height:192px\" maxlength=\"500\">".$row["note"]. "</textarea>
             
             </td>
          </tr>
          
-         <!-- save changes-->
-         <tr><td style='float:right; border-bottom: solid 0px white !important;'><div style='color: #b7ff99;'><br>
-         <a class='update-form' href='respond.php?id=" . $row["ID"]. "'>" . "Save changes & return" . "</a><br><br>
+ 
+         
+                  <!--save changes-->
+         <tr><td style='float:right; border-bottom: solid 0px white !important;'>
+            <!-- close ticket or reopen-->
+            <input type='hidden' id='switch_ticket_state' name='switch_ticket_state'>
+            
+         <input type=\"submit\" class='update-form' style='float:right; margin-bottom: 8px'  value=\"Save changes & return\">
+            </form><br><br>
          </td></tr>
+         
+         
          
          
          <tr>
