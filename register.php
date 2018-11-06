@@ -77,19 +77,47 @@
         <link rel="stylesheet" type="text/css" href="layouts/style.css">
 </head>
 <style>
-  input{
-    width: 100%;
-    margin-top: 5%;
-  }
-  .register{
-     width:25%;
-     margin: 90px auto;
-     background-color: rgba(0, 0, 0, 0.50);
-     padding: 20px;
-     border-radius: 15px;
-     min-height: 200px;
-     min-width: 200px;
-  }
+    body{
+        color: #383838;
+    }
+    input{
+        width: 100%;
+        margin-top: 5%;
+    }
+    .register{
+        width:25%;
+        margin: 90px auto;
+        background-color: rgba(234, 234, 234, 0.91);
+        padding: 20px;
+        border-radius: 2px;
+        border-style: dashed;
+        min-width: 256px;
+        height: auto;
+    }
+    input[type=submit] {
+        /*background-color: rgba(0, 136, 175, 1);
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;*/
+        font-size: 16px;
+        color: white;
+        border: solid 1px purple;
+        padding: 8px;
+        background-color: purple;
+        padding-bottom: 24px;
+        border-radius: 4px;
+        float:right;
+    }
+
+    input[type=submit]:hover {
+        /*background-color: #2389a0;*/
+        color: purple;
+        border: solid 1px purple;
+        background-color: white;
+    }
 </style>
 <body>
   <div class="register">
@@ -111,7 +139,7 @@
 
         <input type="hidden" name="token" value="<?php echo Token::generate() ?>">
         <hr>
-        <input style="height:30px;width:60px;"type="submit" name="submit" value="submit">
+        <input style="height:30px;width:80px;"type="submit" name="submit" value="Register">
     </form>
 </body>
 </html>
