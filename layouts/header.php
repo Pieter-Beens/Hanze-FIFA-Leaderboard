@@ -98,10 +98,10 @@
                 <a href=maakgebruiker.php>CREATE USER</a>
                 <a href=zoekgebruiker2.php>EDIT USER</a>
                 <a href=verwijdergeb.php>DELETE USER</a>
-
+          <?php
           }
 
-        else {
+          else {
             ?>
                 <a href=contact.php>CONTACT</a>
                 <a style="color: green" href=profile.php?user=<?php echo escape($user->data()->id).">". escape($user->data()->name); ?></a>
