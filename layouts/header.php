@@ -135,7 +135,7 @@
     <div class="button">
         <a href="leaderboard.php">LEADERBOARD</a>
         <?php if ($user->isLoggedIn())
-        echo "<!--a href=results_add.php>ADD RESULT</a><a href=#idk>AWARD CARD</a-->";
+        echo "<a href=results_add.php>ADD RESULT</a><!--a href=#idk>AWARD CARD</a-->";
         /*if ($is_admin == false) {*/ ?>
             <a href=contact.php>CONTACT</a>
 <?php     //}
