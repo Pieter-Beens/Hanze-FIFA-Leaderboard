@@ -13,12 +13,20 @@ if (!$result) {
 }
 
 ?>
-<text >
+
+
+<link rel="stylesheet" type="text/css" href="DennisGlobalCSSFIXER.css">
+<br><br>
+<div class="center-wrapper" style="width: 512px;">
+
 <form style=text-align:center action = "resultaatgebruiker.php" method = "post"><br>
 <h2>Input name to find player ID</h2>
 <input type="text" name = "users"><br>
-<input type = "submit" value = "Find ID">
+<input type = "submit" value = "Find ID" style="float: none;">
 </form>
+</div>
+<br>
+
 <hr>
 <p style=color:orange;font-size:18pt;text-align:center>
 <a style=color:orange href=maakgebruiker.php>CREATE USER</a><br>
