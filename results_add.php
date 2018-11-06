@@ -9,7 +9,7 @@ include('layouts/header.php');
 require_once 'core/init.php';
 include('fifadbconn.php');
 
-// TIMER ATTEMPTS:
+// TIMER ATTEMPTS: (find a way to convert database string to datetime format)
 
 //$query = "SELECT max(`datetime`) AS lasttime FROM results WHERE homeplayer = ".escape($user->data()->id)." OR awayplayer = ".escape($user->data()->id);
 //$result = mysqli_query($db,$query) or die ('Error checking recent matches');

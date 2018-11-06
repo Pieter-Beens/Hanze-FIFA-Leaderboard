@@ -35,7 +35,9 @@ else {$card = "";}
 
 echo "<title>Hanze FIFA Leaderboard - ".$player['name']."'s Profile</title>";
 
-$title = "<img height=80 align=center src=".$player['avatar']."> ".$player['name'];
+$title = "<img height=80 align=center";
+if (isset($player['avatar']) AND $player['avatar'] != '') {$title .= " src=".$player['avatar'];}
+$title .= ">".$player['name'];
 
 include('layouts/header.php');
 
