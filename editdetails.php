@@ -38,7 +38,7 @@ $row = mysqli_fetch_assoc($result);
   <input type=text value="<?php echo $row['favteam'] ?>" name=favteam><br>
   Avatar URL:<br>
   <input type=text value="<?php echo $row['avatar'] ?>" name=avatar><br>
-  <p style=font-size:10pt>Your avatar must be hosted on an outside domain that<br>allows hotlinking and end in .jpg,.png or .gif.<br>
+  <p style=font-size:10pt>Your avatar must be hosted on an outside<br>domain that allows hotlinking.<br>
   <img height=100px src=<?php if ($row['avatar'] != NULL) {echo $row['avatar'];} else {echo "layouts/images/awesomelogo.png";} ?>><br>
   <input type=submit value="Save Changes">
 </form><br>

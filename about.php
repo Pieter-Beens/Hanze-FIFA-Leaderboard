@@ -11,6 +11,8 @@ session_start();   */
   <link rel="stylesheet" type="text/css" href="layouts/style.css">
 </head>
 
+<body style=font-family:sans>
+
 <h1 class="text">Welcome to the Hanze FIFA Leaderboard!</h1><hr>
 
 <p class="text"><font size=4>Philosophy blabla.</font></p>
@@ -24,8 +26,10 @@ session_start();   */
 
 <h1 class="text">House Rules:</h1><hr>
 <p class="text">> Be gracious in victory, humble in defeat.</p>
+<p class="text">> Please do not post pornography, it will distract our code monkey Dannis from constantly repairing the header. Also, it will get you banned.</p>
 <p class="text">> ???</p>
-<p class="text">> Please do not post pornography, it will distract our code monkey Dannis from constantly repairing the header. Also, it will get you banned.</p><hr>
+<p class="text">> PROFIT!!!</p>
+<hr>
 
 <h1 style=color:red;padding-left:20px>FAQs</h1><hr>
 <p class="text" style=background-color:#ed3e00>Q: Cool. How do I sign up?<br></p>
@@ -40,10 +44,7 @@ session_start();   */
 <p class="text">A: That's up to you and your opponent! For all we care you play FIFA '94 on the Super Nintendo and enter those scores. It's just that it might be hard to find other players willing to play you in that particular game...</p>
 <p class="text" style=background-color:#ed3e00>Q: I have more questions.<br></p>
 <p class="text">A: The contact form is <a href=contact.php style=color:orange>right here</a>! We'll be happy to answer any question you might still have. Suggestions are also welcome!</p><hr>
-<br><br><br>
-<img src="layouts/images/Dannis.bmp">
-
-<br></cr><a href="djurre_profile.php?user=<?php echo escape($user->data()->name); ?>"><?php echo escape($user->data()->name); ?></a>
+<a href="layouts/images/Dannis.bmp">o</a>
 
 <?php
 include('layouts/footer.html');
