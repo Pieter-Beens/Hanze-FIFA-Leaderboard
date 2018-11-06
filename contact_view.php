@@ -2,7 +2,7 @@
 
 <?php
 session_start();
-$title = "CONTACT";
+$title = "MANAGE CONTACT MESSAGES";
 include_once('layouts/header.php');
 include_once('fifadbconn.php');
 ?>
@@ -120,7 +120,7 @@ include_once('fifadbconn.php');
                  die("Database is leeg");
              }
 
-             echo "<h3>Aantal contact formulieren: " . $result->num_rows . "</h3>";
+             echo "<h3>Number of Contact Messages: " . $result->num_rows . "</h3>";
 
 
              echo "

@@ -92,13 +92,10 @@
       <?php
         if ($user->hasPermission('admin')) {
             ?>
-                <a href=contact_view.php>VIEW CONTACT FORMS</a>
-                <a href=zoekmatch.php>EDIT RESULTS</a>
-                <a href=zoekgebruiker.php>FIND USER ID</a>
-                <a href=maakgebruiker.php>CREATE USER</a>
-                <a href=zoekgebruiker2.php>EDIT USER</a>
-                <a href=verwijdergeb.php>DELETE USER</a>
-                <a href=cardsformHayo.php>CARDS</a>    
+            <a href=zoekgebruiker.php>MANAGE USERS</a>
+            <a href=zoekmatch.php>MANAGE RESULTS</a>
+            <a href=cardsformHayo.php>MANAGE CARDS</a>
+            <a href=contact_view.php>MANAGE CONTACT MESSAGES</a>
           <?php
           }
 
@@ -144,13 +141,10 @@
     </div>
             <?php if ($user->isLoggedIn() and $is_admin == true) {?>
     <div class="button" style="background-color: #ed3e00;width:100%">
-            <a href=contact_view.php>VIEW CONTACT FORMS</a>
-            <a href=zoekmatch.php>EDIT RESULTS</a>
-            <a href=zoekgebruiker.php>FIND USER ID</a>
-            <a href=maakgebruiker.php>CREATE USER</a>
-            <a href=zoekgebruiker2.php>EDIT USER</a>
-            <a href=verwijdergeb.php>DELETE USER</a>
-            <a href=cardsformHayo.php>CARDS</a>
+            <a href=zoekgebruiker.php>MANAGE USERS</a>
+            <a href=zoekmatch.php>MANAGE RESULTS</a>
+            <a href=cardsformHayo.php>MANAGE CARDS</a>
+            <a href=contact_view.php>MANAGE CONTACT MESSAGES</a>
     </div>
   <?php     }
           ?>
