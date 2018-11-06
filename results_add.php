@@ -32,7 +32,28 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="DennisGlobalCSSFIXER.css">
+    <style>
+    @media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
+        *{
+            font-size: 40px;
+        }
+        input[type=text], input[type=email], select, textarea {
+            border: 2px solid rgba(0, 0, 0, 0.56);
+            border-radius: 4px;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+            font-size: 20px !important;
+            font-family:FIFA16;
+        }
+    }
 
+    tbody{
+        width:100%;
+    }
+    </style>
 
 </head>
 <body>
@@ -41,7 +62,7 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
 <div class="center-wrapper" style="min-width: 600px;">
 <form action="results_confirm.php" method="POST">
 <br>
-<table style=margin:auto>
+<table style="margin:auto; width=100%;">
   <tr><td></td><td><div align="center"><h2>HOME</h2></div></td><td><div align="center"><h2>AWAY</h2></div></td></tr>
   <tr><td width=60>Players</td><td><input size=22 type="text" name='homeplayer' value=<?php echo escape($user->data()->name); ?> disabled></td>
     <td><select name='awayplayer' <?php if (isset($_POST['awayplayer'])) echo "value=".$_POST['awayplayer']; ?>>
