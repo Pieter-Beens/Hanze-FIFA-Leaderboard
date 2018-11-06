@@ -20,18 +20,26 @@ include_once('fifadbconn.php');
     }
 
     input[type=submit] {
-        background-color: rgba(0, 136, 175, 1);
+        /*background-color: rgba(0, 136, 175, 1);
         color: white;
         padding: 12px 20px;
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        float: right;
+        float: right;*/
         font-size: 20px;
+        color: white;
+        border: solid 1px purple;
+        padding: 8px;
+        background-color: transparent;
     }
 
     input[type=submit]:hover {
-        background-color: #2389a0;
+        /*background-color: #2389a0;*/
+        color: purple;
+        border: solid 1px purple;
+        padding: 8px;
+        background-color: white;
     }
 
     .container {
@@ -90,10 +98,32 @@ include_once('fifadbconn.php');
      <?php
      echo "Contact message id: " . $_GET["id"] . "<br><br>";
 
+
+
      $user = new User;
      if ($user->isLoggedIn() && $user->hasPermission('admin')) {
 
          $conn = DB::conn();
+
+         if (isset($_POST['switch_ticket_state']) && $_POST['switch_ticket_state'] == "switch_ticket_state"){
+             unset($_POST['switch_ticket_state']);
+
+             // check state
+             $query = "SELECT closed ";
+             $query .= "FROM contact WHERE ID=". $_GET["id"];
+             $result = $conn->query($query);
+             $row = mysqli_fetch_assoc($result);
+
+             // set state
+             $query = "UPDATE contact ";
+             if ($row['closed'] == 1) {
+                 $query .= "SET closed=0 WHERE ID=" . $_GET["id"];
+             } else {
+                 $query .= "SET closed=1 WHERE ID=" . $_GET["id"];
+             }
+             $result = $conn->query($query);
+         }
+
          $result = $conn->query("SELECT * FROM contact WHERE ID=". $_GET["id"] ." ORDER BY submit_date DESC");
 
          /*if ($result->num_rows <= 0) {
@@ -103,51 +133,68 @@ include_once('fifadbconn.php');
          $row = mysqli_fetch_assoc($result);
 
          if ($row["closed"] == 1) {
-             $ticketDiv = "style=\"color: #00cb7f\">This ticket has been closed";
+             $ticketDiv = "style=\"color: #00cb7f; border-top: solid 1px white !important;\"><br>This ticket has been closed";
          } else {
-             $ticketDiv = "style=\"color: #ffd300\">This ticket is not solved yet";
+             $ticketDiv = "style=\"color: #ffd300; border-top: solid 1px white !important;\"><br>This ticket is not solved yet";
          }
 
          echo "
          <table>
          <tr>
-            <td><div style='color: #b7ff99;'> Firstname:</div> " . $row["firstname"] . "</td>
-         </tr>
-         <tr>
-            <td><div style='color: #b7ff99;'>Lastname:</div> " . $row["lastname"] . "</td>
-         </tr>
-         <tr>
-            <td><div style='color: #b7ff99;'>E-mail:</div> " . $row["email"] . "</td>
-         </tr>
-         <tr>
             <td><div style='color: #b7ff99;'>Subject:</div> " . $row["subject"] . "</td>
          </tr>
          <tr>
-            <td><div style='color: #b7ff99;'>Message:</div> " . $row["message"] . "</td>
-         </tr>
-         <tr>
-            <td><div style='color: #b7ff99;'>Submit date:</div> " . gmdate("d-m-Y [H:i:s]", $row["submit_date"]) . "</td>
+            <td><div style='color: #b7ff99;'>Message:</div> " . $row["message"] . "
+            
+            </td>
          </tr>
          
          <tr>
-            <td style='border-bottom: solid 0px white !important;'><br><br><div style='color: #b7ff99;'>
             
-            <a class='update-form' href='modify_form.php?id=" . $row["ID"]. "'>" . "Modify" . "</a>
+            
+            
             
             
          </tr>
          
          <tr>
-            <td><br><br><div style='color: #b7ff99;'>Note:</div> " . $row["note"] . "</td>
+            <td style='border-bottom: solid 0px white !important;'>
+            
+            <br><br><div style='color: #b7ff99;'>Note:</div> 
+            <textarea id=\"message\" name=\"message\" style=\"height:192px\" maxlength=\"500\">".$row["note"]. "</textarea>
+            
+            </td>
          </tr>
+         
+         <!-- save changes-->
+         <tr><td style='float:right; border-bottom: solid 0px white !important;'><div style='color: #b7ff99;'><br>
+         <a class='update-form' href='respond.php?id=" . $row["ID"]. "'>" . "Save changes & return" . "</a><br><br>
+         </td></tr>
+         
+         
          <tr>
-            <td $ticketDiv</td>
+            <td $ticketDiv
+            
+            <form method=\"post\" action=\"\">
+            <!-- close ticket or reopen-->
+            <input type='hidden' id='switch_ticket_state' name='switch_ticket_state' value='switch_ticket_state'>
+            
+         
+         <input type=\"submit\" class='update-form' style='float:right; margin-bottom: 8px'  value=\"Switch ticket state\">
+            </form>
+            </td>
          </tr>
+         
+         
          
          </table>
          ";
+         /*
+          * <a type='submit' style='float:right; margin-bottom: 8px' class='update-form' href='modify_form.php?id=" . $row["ID"]. "'>" . "Reopen ticket" . "</a>
+          * */
 
-         
+
+
          
      } else {
         echo "You don't have permission to access this page";

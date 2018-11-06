@@ -100,6 +100,7 @@ body{
     overflow: visible;
     height: 60px;
 	width: auto;
+    overflow: hidden; /*laat troep wat mooier lijken*/
 }
 .button a{
     float: left;
