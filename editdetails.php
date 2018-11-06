@@ -27,6 +27,7 @@ $row = mysqli_fetch_assoc($result);
 
 ?>
 <form style=text-align:center method=POST action="">
+  <br>
   <b>USERNAME:<br>
   <input type=text value=<?php echo $row['name'] ?> name=name><br>
   Email:<br>
