@@ -11,7 +11,7 @@ session_start();   */
   <link rel="stylesheet" type="text/css" href="layouts/style.css">
 </head>
 
-<body style=font-family:sans>
+<body style=font-family:arial>
 
 <h1 class="text">Welcome to the Hanze FIFA Leaderboard!</h1><hr>
 

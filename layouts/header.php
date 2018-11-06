@@ -92,7 +92,7 @@
       <?php
         if ($user->hasPermission('admin')) {
             ?>
-            <a href=zoekgebruiker.php>MANAGE USERS</a>
+            <a href=alles.php>MANAGE USERS</a>
             <a href=zoekmatch.php>MANAGE RESULTS</a>
             <a href=cardsformHayo.php>MANAGE CARDS</a>
             <a href=contact_view.php>MANAGE CONTACT MESSAGES</a>
@@ -141,7 +141,7 @@
     </div>
             <?php if ($user->isLoggedIn() and $is_admin == true) {?>
     <div class="button" style="background-color: #ed3e00;width:100%">
-            <a href=zoekgebruiker.php>MANAGE USERS</a>
+            <a href=alles.php>MANAGE USERS</a>
             <a href=zoekmatch.php>MANAGE RESULTS</a>
             <a href=cardsformHayo.php>MANAGE CARDS</a>
             <a href=contact_view.php>MANAGE CONTACT MESSAGES</a>
