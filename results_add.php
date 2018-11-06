@@ -11,6 +11,17 @@ include('fifadbconn.php');
 
 // query for dropdown selection of opponent
 
+$query = "SELECT max(`datetime`) AS lasttime FROM results WHERE homeplayer = ".escape($user->data()->id)." OR awayplayer = ".escape($user->data()->id);
+$result = mysqli_query($db,$query) or die ('Error checking recent matches');
+$matchtime = mysqli_fetch_assoc($result);
+
+$date = date('m/d/Y h:i:s a', time());
+echo $date;
+$lastmatch = $matchtime['lasttime'];
+$datediff = date_diff($lastmatch,$date);
+
+echo "You last match was $datediff days ago.";
+
 $query = "SELECT `name`";
 $query .= "FROM `users` ORDER BY `name` ASC";
 $result = mysqli_query($db,$query) or die ('Error querying database');
