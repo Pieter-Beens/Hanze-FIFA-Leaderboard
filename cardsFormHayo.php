@@ -8,9 +8,11 @@ $query2 = "SELECT `name`";
 $query2 .= "FROM `users` ORDER BY `name` ASC";
 $result2 = mysqli_query($db,$query2) or die ('Error querying database');
 ?>
-
+<br>
+<br>
+<div class="center-wrapper" style="width: 512px;">
 <form class="" action="" method="post">
-Find cards awarded to:</br></br>
+    <h3>Find cards awarded to:</h3>
 <select name="geval">
   <?php
   while ($row = mysqli_fetch_assoc($result2)) {
@@ -24,8 +26,13 @@ Find cards awarded to:</br></br>
   }
   ?>
 </select>
-  <input type="submit" name="submit" value="submit">
+  <input type="submit" name="submit" value="Submit">
 </form>
+</div>
+<link rel="stylesheet" type="text/css" href="DennisGlobalCSSFIXER.css">
+
+<br>
+<br>
 <style>
 table{
   border-collapse: collapse;
@@ -38,7 +45,9 @@ td,tr {
 tr:nth-child(even){
   background-color: rgba(0, 0, 0, 0.40);
 }
+
 </style>
+
 <table>
 <tr style="background-color:white; color: black;"><th>card id</th><th>Accused</th><th>Accuser</th><th>Description</th><th>Date and time</th>
 <?php
