@@ -13,9 +13,9 @@ session_start();   */
 
 <body style=font-family:arial>
 
-<h1 class="text">Welcome to the Hanze FIFA Leaderboard!</h1><hr>
+<!--h1 class="text">Welcome to the Hanze FIFA Leaderboard!</h1><hr-->
 
-<p class="text"><font size=4>Philosophy blabla.</font></p>
+<!--p class="text"><font size=4>Philosophy blabla.</font></p-->
 
 <hr><h1 class="text">How does the scoring algorithm work?</h1><hr>
 <p class="text">You gain a base Leaderboard Score of 2 for every victory. The more humiliating the victory, the more Score you will gain: 10-0 is worth significantly more points than 1-0.</p>
