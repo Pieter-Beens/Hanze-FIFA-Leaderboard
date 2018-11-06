@@ -38,6 +38,7 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
 
 <?php
 $rank=0;
+$abovescore=1000;
 while ($row = mysqli_fetch_assoc($result)) { // Uitlezen van data opgehaald uit database
 
   $goalsfor=0;
@@ -65,7 +66,7 @@ $rank++;
 
 ?>
 <tr style="cursor:pointer;" onclick="document.location='profile.php?user=<?php echo $row['id']?>'">
-<td class="leaderboardTekst" style="text-align:center"><?php echo $rank ?></td>
+<td class="leaderboardTekst" style="text-align:center"><?php if ($row['score'] != $abovescore) {echo $rank; $lastrank = $rank;} else {echo $lastrank;} ?></td>
 <td ><b><img class="leaderboardTekst" src="<?php if ($row['avatar'] != NULL) {echo $row['avatar'];} else {echo "layouts/images/awesomelogo.png";} ?>"></td>
 <td style="text-align:left"><span class="leaderboard" style="color:orange;padding-left: 20px"><?php echo $row['name']?></span>
 <span style="float: right; padding-top: 1px;padding-right: 20px;">
@@ -80,7 +81,7 @@ $rank++;
 </tr>
 
 <?php
-};
+$abovescore = $row['score'] ;};
 ?>
 
 </table>
