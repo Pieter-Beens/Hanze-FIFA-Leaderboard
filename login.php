@@ -17,13 +17,13 @@
                 if($login) {
                     Redirect::to('index.php');
                 } else {
-                    echo 'login failed';
+                    $err = 'Login failed';
                 }
-            } else {
+            }/* else {
                 foreach ($validation->errors() as $error){
-                    echo $error, '<br>';
+                    showError($error);
                 }
-            }
+            }*/
         }
     }
 ?>
@@ -39,18 +39,45 @@
         <link rel="stylesheet" type="text/css" href="layouts/style.css">
 </head>
 <style>
-  input{
+  body{
+      color: #383838;
+  }
+    input{
     width: 100%;
     margin-top: 5%;
   }
   .login{
      width:25%;
      margin: 90px auto;
-      background-color: rgba(0, 0, 0, 0.50);
+      background-color: rgba(234, 234, 234, 0.91);
      padding: 20px;
-     padding-bottom: 15%;
-     border-radius: 15px;
-     min-width: 200px;
+     border-radius: 2px;
+      border-style: dashed;
+     min-width: 256px;
+	 height: auto;
+  }
+  input[type=submit] {
+      /*background-color: rgba(0, 136, 175, 1);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;*/
+      font-size: 16px;
+      color: white;
+      border: solid 1px purple;
+      padding: 8px;
+      background-color: purple;
+      padding-bottom: 24px;
+      float:right;
+  }
+
+  input[type=submit]:hover {
+      /*background-color: #2389a0;*/
+      color: purple;
+      border: solid 1px purple;
+      background-color: white;
   }
 </style>
 <body>
@@ -62,10 +89,21 @@
     <label for="password">Password</label><br>
     <input type="password" id="password" name="password"><br>
     <input type="hidden" name="token" value="<?php echo Token::generate() ?>">
-    <label for="remember"></label>
-    <br>Remember me<br><input style="width:0;"type="checkbox" name="remember" id="remember"><br>
-    <input style="height:30px;width:60px;"type="submit" name="submit" value="submit">
+    <label for="remember"></label><br>
+    <input style="width: auto;" type="checkbox" name="remember" id="remember">Remember me
+    <input style="height:30px;width:60px;"type="submit" name="submit" value="Login">
 </form>
+    <?php
+    if (isset($validation) && $validation->passed() == false) {
+        foreach ($validation->errors() as $error){
+            echo "$error<br>";
+        }
+    }
+    if (isset($err)) {
+        echo "$err<br>";
+    }
+
+    ?>
 </div>
 </body>
 </html>
