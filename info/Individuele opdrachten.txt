@@ -26,4 +26,4 @@ Dennis
 Formulier: Contact
 Overzicht: Contact
 Formulier: Klachten aanpassen (admin)
-Overzicht: Klachten selectie
+Overzicht: Klachten selectie...
