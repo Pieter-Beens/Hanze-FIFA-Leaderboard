@@ -1,6 +1,6 @@
 <html>
 <?php
-$title = "Math results editor";
+$title = "MANAGE RESULTS";
 include('layouts/header.php');
 include('fifadbconn.php');
 
@@ -17,16 +17,16 @@ if (!$result) {
 }
 echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"DennisGlobalCSSFIXER.css\">";
 
-$printMessage .= "Selecteer de wedstrijd die die speler heeft gespeeld:" ;
+$printMessage .= "<h2>RESULT EDITOR</h2>" ;
 echo "</br>";
 ?>
 <br>
 <div class="center-wrapper" style="width: 512px;">
-    <?php echo "$printMessage<br><br>" ?>
+    <?php echo $printMessage ?>
     <form action = "resultaanpas.php" method = "post">
-        Vul de ID van de wedstrijd in:<br> <input type="text" name = "Wed_ID"><br>
-        Vul de Nieuwe score van Homeplayer in<br> <input type="text" name = "Nieuw_Home"><br>
-        Vul de Nieuwe score van Awayplayer in<br> <input type="text" name= "Nieuw_Away" ><br>
+        ID van de wedstrijd:<br> <input type="text" name = "Wed_ID"><br>
+        Nieuw aantal doelpunten voor Home: <br> <input type="text" name = "Nieuw_Home"><br>
+        Nieuw aantal doelpunten voor Away: <br> <input type="text" name= "Nieuw_Away" ><br>
         <input type = "submit" style="float: none;">
     </form>
 </div>

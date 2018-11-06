@@ -1,6 +1,7 @@
 <html>
  <head>
-   <?php include('layouts/header.php'); ?>
+   <?php $title = "MANAGE RESULTS";
+   include('layouts/header.php'); ?>
      <link rel="stylesheet" type="text/css" href="DennisGlobalCSSFIXER.css">
  </head>
 <body>
