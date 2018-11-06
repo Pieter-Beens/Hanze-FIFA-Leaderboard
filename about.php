@@ -18,11 +18,10 @@ session_start();   */
 <p class="text"><font size=4>Philosophy blabla.</font></p>
 
 <hr><h1 class="text">How does the scoring algorithm work?</h1><hr>
-<p class="text">Every game, the winner takes 2 points plus 1 additional points for the goal difference. So, 1-0 adds 3 points to your Leaderboard Score, 2-0 adds 4, and 2-1 again adds 3. Of course these point will have to come from somewhere: the loser will lose Leaderboard Score at the same rate.</p>
+<p class="text">You gain a base Leaderboard Score of 2 for every victory. The more humiliating the victory, the more Score you will gain: 10-0 is worth significantly more points than 1-0.</p>
+<p class="text">The number of points you gain is also affected by the opponent's Leaderboard Score. When it is lower than yours, your gains will be lower. If they have significantly more score than you, however, that's your chance to rack up some serious Leaderboard Score! Even drawing a stronger opponent can net you some points...</p>
 
-<p class="text"><font size=5><i>...however!</i></font></p>
-
-<p class="text">Not all players are equal. Beating up on players with a low Leaderboard Score will not help you, as the number of points you earn is further affected by the difference between your Scores. A player at 150 Score who beats a player at 75 Score will only receive half the usual number of points. Conversely, the number of points the player at 75 Score would take by beating the player at 150 Score is doubled! That means the only way to climb to the top is to find high-ranking players and defeat them!</p><hr>
+<hr>
 
 <h1 class="text">House Rules:</h1><hr>
 <p class="text">> Be gracious in victory, humble in defeat.</p>
