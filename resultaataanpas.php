@@ -4,6 +4,7 @@
 </head>
 
 <?php
+$title =  "MANAGE RESULTS";
 include('layouts/header.php');
 include('fifadbconn.php');
 echo "<div class=\"center-wrapper\" style=\"width: 512px;\">";
