@@ -1,7 +1,6 @@
 <style>
 table{
   border-collapse: collapse;
-  width: 100% ;
 }
 td,tr {
     text-align:center;
@@ -29,20 +28,37 @@ $ranking = mysqli_num_rows($result) + 1;
 
 $query = "SELECT id FROM cards WHERE accused = ".$_GET['user'];
 $cardresult = mysqli_query($db,$query) or die ('Error counting cards');
-if (mysqli_num_rows($cardresult) > 1) {$card = "<img align=right height=150px src=layouts/images/redcard.png>";}
-elseif (mysqli_num_rows($cardresult) == 1) {$card = "<img align=right height=150px src=layouts/images/yellowcard.png>";}
+if (mysqli_num_rows($cardresult) > 1) {$card = "layouts/images/redcard.png";}
+elseif (mysqli_num_rows($cardresult) == 1) {$card = "layouts/images/yellowcard.png";}
 else {$card = "";}
 
 echo "<title>Hanze FIFA Leaderboard - ".$player['name']."'s Profile</title>";
 
-$title = "<img height=80 align=center src=".$player['avatar']."> ".$player['name'];
+$title = $player['name'];
 
 include('layouts/header.php');
 
-echo "$card<br>";
+?>
+<div class="leaderboardDiv" style="max-width:40%; border-radius:20px">
+  <?php
+  if ($card == "layouts/images/redcard.png" OR $card == "layouts/images/yellowcard.png"){
+  ?>
+  <img style="float:right;margin:20px;" class="leaderboardTekst" src="<?php echo $card?>">
+<?php } ?>
+  <div style="background-color:red;width:100%;border-radius:20px">
+<table>
 
-echo "<h1 style=font-color:gold;font-size:32pt>#".$ranking."</h1>";
+
+
+  <td style="font-size:120px"><?php echo $ranking ?></td></tr>
+
+</table>
+</div>
+
+
+<?php
 echo "Score: ".$player['score']."<br>Historic high: ".$player['highscore']."<br>Real name: ".$player['realname']."<br>Email: ".$player['email']."<br>Join date: ".$player['joindate']."<br>Favoured team: ".$player['favteam']."<br>";
+
 if (Session::exists('user')) {
   if ($user->hasPermission('admin') || $_GET['user'] == escape($user->data()->id)) { // ik gebruik hier || en && want Joppe is mijn grote voorbeeld
   echo "<i><a style=color:orange;font-size:16pt href=editdetails.php?user=".$_GET['user'].">edit details</a></i><br>";
@@ -74,7 +90,7 @@ while ($gfa = mysqli_fetch_assoc($gfaresult)) {
   else $draws++;
 }
 
-echo "<font size=20><b>Record: <font color=green>".$wins."</font> - ".$draws." - <font color=red>".$losses."</font><br>";
+echo "<td><font size=20><b>Record: <font color=green>".$wins."</font> - ".$draws." - <font color=red>".$losses."</font><br><td>";
 echo "<b>Goals: <font color=green>".$goalsfor."</font> for <font color=red>".$goalsagainst."</font> against</font><br>";
 
 $query = "SELECT `datetime`, scorechange, homeplayer, home.name AS homename, homegoals, awaygoals, awayplayer, away.name AS awayname, description";
@@ -83,8 +99,16 @@ $query .= " WHERE homeplayer = ".$_GET['user']." OR awayplayer = ".$_GET['user']
 $query .= " ORDER BY `datetime` DESC";
 $result = mysqli_query($db,$query) or die ('Error querying database');
 ?>
-<div style="margin: 40px; background-color: rgba(0, 0, 0, 0.30); padding: 20px">
-<table>
+
+
+
+</div>
+
+
+
+
+<div style="margin: 40px; background-color: rgba(0, 0, 0, 0.30)">
+<table style="width:100%">
 <tr>
 <td style=font-size:30pt;text-align:center;background-color:green colspan=7>MATCH HISTORY</td>
 </tr><tr style=background-color:black>
