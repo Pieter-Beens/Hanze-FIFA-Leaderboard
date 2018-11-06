@@ -96,7 +96,7 @@ include_once('fifadbconn.php');
              $tnow = time();
              // Submit message
              $query = "INSERT INTO contact ";
-             $query .= "VALUES(NULL, '" . $_POST["firstname"] . "', '" . $_POST["lastname"] . "', '". $_POST["email"] . "', '" .  $_POST["subject"] ."', '" .  $_POST["message"] . "', $tnow)";
+             $query .= "VALUES(NULL, '" . $_POST["firstname"] . "', '" . $_POST["lastname"] . "', '". $_POST["email"] . "', '" .  $_POST["subject"] ."', '" .  $_POST["message"] . "', $tnow, \"\", 0)";
              mysqli_query($db, $query) or ($result = "ERROR: Can't Connect to database");
              /*while (mysqli_fetch_assoc($query_result)) {
                  echo "$query_result";

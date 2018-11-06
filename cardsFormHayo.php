@@ -1,5 +1,5 @@
 <?php
-$title = 'hoihoi';
+$title = 'Manage Cards';
 Include_once('layouts/header.php');
 include_once('core/init.php');
 include_once('fifadbconn.php');
@@ -10,7 +10,7 @@ $result2 = mysqli_query($db,$query2) or die ('Error querying database');
 ?>
 
 <form class="" action="" method="post">
-Zoeken:</br></br>
+Find cards awarded to:</br></br>
 <select name="geval">
   <?php
   while ($row = mysqli_fetch_assoc($result2)) {
