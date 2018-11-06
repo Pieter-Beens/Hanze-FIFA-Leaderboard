@@ -9,16 +9,20 @@ $player = $_POST["players"];
 $query = "SELECT id, homeplayer, awayplayer, homegoals, awaygoals FROM results WHERE homeplayer = '".$player."' ORDER BY id asc";
 $result = mysqli_query($db, $query);
 
+// Message
+$printMessage = "";
+
 if (!$result) {
-    die("Er zijn geen wedstrijden gevonden.");
+    $printMessage = "Er zijn geen wedstrijden gevonden.<br>";
 }
 echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"DennisGlobalCSSFIXER.css\">";
 
-echo "Selecteer de wedstrijd die die speler heeft gespeeld:" ;
+$printMessage .= "Selecteer de wedstrijd die die speler heeft gespeeld:" ;
 echo "</br>";
 ?>
-
+<br>
 <div class="center-wrapper" style="width: 512px;">
+    <?php echo "$printMessage<br><br>" ?>
     <form action = "resultaanpas.php" method = "post">
         Vul de ID van de wedstrijd in:<br> <input type="text" name = "Wed_ID"><br>
         Vul de Nieuwe score van Homeplayer in<br> <input type="text" name = "Nieuw_Home"><br>

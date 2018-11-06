@@ -1,8 +1,12 @@
 <html>
+<head>
+<link rel="stylesheet" type="text/css" href="DennisGlobalCSSFIXER.css">
+</head>
+
 <?php
 include('layouts/header.php');
 include('fifadbconn.php');
-
+echo "<div class=\"center-wrapper\" style=\"width: 512px;\">";
 $user = $_POST["username"];
 $query = "SELECT * FROM users WHERE name = '".$user."'";
 $result = mysqli_query($db, $query);
@@ -14,6 +18,7 @@ if (!$result) {
 echo "De volgende waarden zijn bij deze speler gevonden: " ;
 echo "</br>";
 ?>
+
 <table border ="1" width="30%">
 <tr>
     <th>ID</th>
@@ -24,6 +29,7 @@ echo "</br>";
     <th>Highscore</th>
     <th>Email</th>
 </tr>
+
 <?php
 while ($row = $result->fetch_assoc()){
     echo "<tr>";
@@ -53,4 +59,5 @@ Selecteer wat je wilt aanpassen en vul de nieuwe waarde in: <form action ="gebru
 Vul hier de ID van de gebruiker in: <input name = "id" value = "<?php echo $user_id; ?>"> <br>
 Vul hier de nieuwe waarde in: <input type = "text" name = "update"><input type = "submit">
 </form>
+</div>
 </html>
