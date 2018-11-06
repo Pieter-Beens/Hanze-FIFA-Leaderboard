@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="DennisGlobalCSSFIXER.css">
 <?php
 
 // PAGE SETUP
@@ -6,6 +7,7 @@ $title = "ADD RESULTS";
 include('layouts/header.php');
 require_once 'core/init.php';
 include('fifadbconn.php');
+echo "<br><br><div class=\"center-wrapper\" style=\"width: 512px;\">";
 
 if (isset($_POST['awayplayer'])) $_SESSION['awayplayer'] = $_POST['awayplayer'];
 
@@ -69,7 +71,7 @@ $_SESSION['awaypass'] = $away['password'];
 <input type=password name=homepass value=<?php if(isset($_POST['homepass'])) echo $_POST['homepass'] ?>><br>
 <?php echo $_SESSION['awayplayer'] ?><br>
 <input type=password name=awaypass value=<?php if(isset($_POST['awaypass'])) echo $_POST['awaypass'] ?>><br>
-<input type=submit value="CONFIRM RESULT">
+    <br><input style="float: none;" type=submit value="CONFIRM RESULT">
 </form>
 </div>
 
@@ -99,3 +101,4 @@ if($awayhash != $_SESSION['awaypass']) {die('Second password is not correct');}
 Redirect::to("results_write.php");
 
 ?>
+</div>
