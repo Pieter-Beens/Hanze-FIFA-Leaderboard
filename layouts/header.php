@@ -84,36 +84,39 @@
 <!-- menu mobile -->
 <div class="mobile-menu" id="mobile-menu">
     <a href="leaderboard.php">LEADERBOARD</a>
+    <a href=contact.php>CONTACT</a>
     <?php
     if ($user->isLoggedIn()) {
       ?>
       <a href=results_add.php>ADD RESULT</a>
       <a href=#idk>AWARD CARD</a>
+    <a href="about.php">ABOUT</a>
       <?php
         if ($user->hasPermission('admin')) {
             ?>
-            <a href=alles.php>MANAGE USERS</a>
-            <a href=zoekmatch.php>MANAGE RESULTS</a>
-            <a href=cardsformHayo.php>MANAGE CARDS</a>
-            <a href=contact_view.php>MANAGE CONTACT MESSAGES</a>
+    <a style="color: red" href=profile.php?user=<?php echo escape($user->data()->id).">". escape($user->data()->name); ?></a>
+        <a style="background-color:orange;" href="logout.php">LOGOUT</a>
+        <a style="background-color:red;" href=alles.php>MANAGE USERS</a>
+            <a style="background-color:red;" href=zoekmatch.php>MANAGE RESULTS</a>
+            <a style="background-color:red;" href=cardsformHayo.php>MANAGE CARDS</a>
+            <a style="background-color:red;" href=contact_view.php>MANAGE CONTACT MESSAGES</a>
+
           <?php
           }
 
           else {
             ?>
-                <a href=contact.php>CONTACT</a>
                 <a style="color: green" href=profile.php?user=<?php echo escape($user->data()->id).">". escape($user->data()->name); ?></a>
-                <a href="logout.php">LOGOUT</a>
+                <a style="background-color:orange;" href="logout.php">LOGOUT</a>
             <?php
         }
 
     }
 
     else {
-        echo '<a href="login.php">Login</a><a href="register.php">Register</a>';
+        echo '<a href="login.php">LOGIN</a><a href="register.php">REGISTER</a>';
     }
     ?>
-        <a href="about.php">ABOUT</a>
 </div>
 
 
