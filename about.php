@@ -40,7 +40,7 @@ session_start();   */
 <p class="text">A: That's up to you and your opponent! For all we care you play FIFA '94 on the Super Nintendo and enter those scores. It's just that it might be hard to find other players willing to play you in that particular game...</p>
 <p class="text" style=background-color:#ed3e00><b>Q: I have more questions.</b><br></p>
 <p class="text">A: The contact form is <a href=contact.php style=color:orange>right here</a>! We'll be happy to answer any question you might still have. Suggestions are also welcome!</p><hr>
-<br><br>
+<br><br><br>
 <img src="layouts/images/Dannis.bmp">
 
 <br></cr><a href="djurre_profile.php?user=<?php echo escape($user->data()->name); ?>"><?php echo escape($user->data()->name); ?></a>

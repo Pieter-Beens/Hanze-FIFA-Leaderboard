@@ -104,7 +104,7 @@ while ($row = mysqli_fetch_assoc($result)) {
   <td style=text-align:center;font-size:36pt><b><?php echo $row['homegoals']?></b></td>
   <td style=text-align:center;font-size:36pt><b><?php echo $row['awaygoals']?></b></td>
   <td><b><a style=color:orange;font-size:24pt href=profile.php?user=<?php echo $row['awayplayer']?>><?php echo $row['awayname']?></b></td>
-  <td style=font-family:sans-serif;max-width:300><?php echo $row['description']?></td>
+  <td style=font-family:sans-serif;max-width:300><?php echo htmlspecialchars_decode($row['description'])?></td>
   </tr>
 <?php
 }

@@ -43,8 +43,10 @@ include('algorithm.php'); // calculates score change
 $_SESSION['change'] = $change; // binds to SESSION array for use in results_write.php
 
 // prepares queries for PROCESS PHASE
+echo htmlspecialchars($_POST['description'],ENT_QUOTES);
+
 $_SESSION['matchquery'] = "INSERT INTO results (homeplayer,homegoals,awaygoals,awayplayer,scorechange,`datetime`,`description`)"; // query to INSERT new match details
-$_SESSION['matchquery'] .= "VALUES (".$home['id'].",".$homegoals.",".$awaygoals.",".$away['id'].",$change,now(),'".$_POST['description']."')";
+$_SESSION['matchquery'] .= "VALUES (".$home['id'].",".$homegoals.",".$awaygoals.",".$away['id'].",$change,now(),'".htmlspecialchars($_POST['description'],ENT_QUOTES)."')";
 
 $_SESSION['homequery'] = "UPDATE users SET score=".round($newhomescore,3);
 if ($newhomescore > $home['highscore']) {$_SESSION['$homequery'] .= ", highscore=".round($newhomescore);}
@@ -56,8 +58,6 @@ $_SESSION['awayquery'] .= " WHERE id=".$away['id'];
 
 $_SESSION['homepass'] = $home['password'];
 $_SESSION['awaypass'] = $away['password'];
-
-echo $change;
 
 }
 
