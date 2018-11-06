@@ -93,11 +93,12 @@
         if ($user->hasPermission('admin')) {
             ?>
                 <a href=contact_view.php>VIEW CONTACT FORMS</a>
-                <a href=zoekmatch.php>EDIT MATCH RESULTS</a>
+                <a href=zoekmatch.php>EDIT RESULTS</a>
                 <a href=zoekgebruiker.php>FIND USER ID</a>
                 <a href=maakgebruiker.php>CREATE USER</a>
                 <a href=zoekgebruiker2.php>EDIT USER</a>
                 <a href=verwijdergeb.php>DELETE USER</a>
+                <a href=cardsformHayo.php>CARDS</a>    
           <?php
           }
 
@@ -144,11 +145,12 @@
             <?php if ($user->isLoggedIn() and $is_admin == true) {?>
     <div class="button" style="background-color: #ed3e00;width:100%">
             <a href=contact_view.php>VIEW CONTACT FORMS</a>
-            <a href=zoekmatch.php>EDIT MATCH RESULTS</a>
+            <a href=zoekmatch.php>EDIT RESULTS</a>
             <a href=zoekgebruiker.php>FIND USER ID</a>
             <a href=maakgebruiker.php>CREATE USER</a>
             <a href=zoekgebruiker2.php>EDIT USER</a>
             <a href=verwijdergeb.php>DELETE USER</a>
+            <a href=cardsformHayo.php>CARDS</a>
     </div>
   <?php     }
           ?>
