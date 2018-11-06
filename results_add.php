@@ -30,6 +30,43 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
 ?>
 
 <html>
+<head>
+    <style>
+        input[type=submit] {
+            /*background-color: rgba(0, 136, 175, 1);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;*/
+            font-size: 16px;
+            color: white;
+            border: solid 1px purple;
+            padding: 8px;
+            background-color: purple;
+            padding-bottom: 24px;
+            float:right;
+        }
+
+        input[type=submit]:hover {
+            /*background-color: #2389a0;*/
+            color: purple;
+            border: solid 1px purple;
+            background-color: white;
+        }
+        input[type=text], input[type=email], select, textarea {
+             border: 2px solid rgba(0, 0, 0, 0.56);
+             border-radius: 4px;
+             width: 100%;
+             padding: 10px;
+             box-sizing: border-box;
+             margin-top: 6px;
+             margin-bottom: 16px;
+             resize: vertical;
+         }
+    </style>
+</head>
 <body>
 
 <form action="results_confirm.php" method="POST">
