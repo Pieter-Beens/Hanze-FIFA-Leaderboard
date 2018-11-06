@@ -7,7 +7,7 @@
 <br>
 <br>
 <div class="center-wrapper">
-    <div action = "resultaatmatch.php" method = "post">
+    <form action = "resultaatmatch.php" method = "post">
         <h2>Vul de ID van de home player in:</h2> <input type="text" name = "players"><br>
     <input type = "submit">
     </form>
