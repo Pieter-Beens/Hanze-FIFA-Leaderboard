@@ -39,7 +39,7 @@ session_start();   */
 <p class="text" style=background-color:#ed3e00><b>Q: What version of the game am I supposed to play?</b><br></p>
 <p class="text">A: That's up to you and your opponent! For all we care you play FIFA '94 on the Super Nintendo and enter those scores. It's just that it might be hard to find other players willing to play you in that particular game...</p>
 <p class="text" style=background-color:#ed3e00><b>Q: I have more questions.</b><br></p>
-<p class="text">A: The contact form is <a href=contactform.php style=color:orange>right here</a>! We'll be happy to answer any question you might still have. Suggestions are also welcome!</p><hr>
+<p class="text">A: The contact form is <a href=contact.php style=color:orange>right here</a>! We'll be happy to answer any question you might still have. Suggestions are also welcome!</p><hr>
 <br><br>
 <img src="layouts/images/Dannis.bmp">
 
