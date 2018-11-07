@@ -72,7 +72,7 @@ $rank++;
 <span style="float: right; padding-top: 1px;padding-right: 20px;">
   <?php
   if ($card == "layouts/images/redcard.png" OR $card == "layouts/images/yellowcard.png")
-  echo '<img class=leaderboardTekst src="'.$card.'">';
+  echo '<img class=cards src="'.$card.'">';
   ?>
 </span></td>
 <td class="leaderboard" style="color:green;padding:10px"><b><?php echo $goalsfor ?></b></td>

@@ -201,9 +201,12 @@ body{
 .leaderboard{
   font-size: 26px;
 }
+.cards{
+  height: 30px;
+}
 .leaderboardTekst{
   font-size: 44px;
-  height: 30px;
+  height: 44px;
 }
 @media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
     .leaderboard{
@@ -211,6 +214,9 @@ body{
     }
     .leaderboardTekst{
       font-size: 6vw;
+      height: 6vw;
+    }
+    .cards{
       height: 5vw;
     }
     .leaderboardDiv{
