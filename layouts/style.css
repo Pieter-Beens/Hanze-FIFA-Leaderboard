@@ -181,6 +181,17 @@ body{
         overflow: hidden;
     }
 }
+.profileRank{
+  font-size: 70;
+}
+.profileBig{
+  font-size: 26px;
+
+}
+.profile{
+  font-size: 18px;
+  width: 28vw;
+}
 .leaderboardDiv{
   margin: 40px;
   margin-top: 20px;
@@ -192,7 +203,7 @@ body{
 }
 .leaderboardTekst{
   font-size: 44px;
-  height: 44px;
+  height: 30px;
 }
 @media only screen and (max-width: 800px), (-moz-touch-enabled: 1), (pointer:coarse) {
     .leaderboard{
@@ -200,11 +211,20 @@ body{
     }
     .leaderboardTekst{
       font-size: 6vw;
-      height: 6vw;
+      height: 5vw;
     }
     .leaderboardDiv{
       margin: 0px;
       margin-top: 40px;
-      min-width: 400px
+      min-width: 400px;
+    }
+    .profile{
+      font-size: 3vw;
+    }
+    .profileBig{
+      font-size: 3vw;
+    }
+    .profileRank{
+      font-size: 10vw;
     }
 }
