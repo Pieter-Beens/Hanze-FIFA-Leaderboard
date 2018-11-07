@@ -104,7 +104,7 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
       <td><?php
       if ($card == "layouts/images/redcard.png" OR $card == "layouts/images/yellowcard.png"){
       ?>
-      <img style="" class="leaderboardTekst" src="<?php echo $card?>">
+      <img style="" class="cards" src="<?php echo $card?>">
       <?php } ?></td>
       <td class="profile"><?php echo "Join date: $player[joindate]"?></td>
     </tr>
@@ -128,7 +128,7 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
 
 
 <div style="margin: 20px;margin-bottom: 50px;background-color: rgba(0, 0, 0, 0.30)">
-<table style="width:100%">
+<table class="profileTable" style="width:100%">
 <tr><td class="profile" style="background-color:green" colspan=7>MATCH HISTORY</td></tr>
 <tr class="profile" style=background-color:black><th>Date</th><th>Result</th><th>Home Side</th><th colspan=2>Score</th><th>Away Side</th><th>Comment</th></tr>
 
