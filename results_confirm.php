@@ -61,7 +61,7 @@ $_SESSION['homepass'] = $home['password'];
 $_SESSION['awaypass'] = $away['password'];
 
 }
-echo $_SESSION['homequery']."/".$_SESSION['awayquery'];
+
 // PASSWORD FORM
 ?>
 <div align=center>

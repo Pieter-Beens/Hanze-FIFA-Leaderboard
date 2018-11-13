@@ -89,7 +89,7 @@
     if ($user->isLoggedIn()) {
       ?>
       <a href=results_add.php>ADD RESULT</a>
-      <!--a href=#idk>AWARD CARD</a-->
+      <a href=card_award.php>AWARD CARD</a>
     <a href="about.php">ABOUT</a>
       <?php
         if ($user->hasPermission('admin')) {
@@ -98,7 +98,7 @@
         <a style="background-color:orange;" href="logout.php">LOGOUT</a>
         <a style="background-color:red;" href=alles.php>MANAGE USERS</a>
             <a style="background-color:red;" href=zoekmatch.php>MANAGE RESULTS</a>
-            <a style="background-color:red;" href=cardsformHayo.php>MANAGE CARDS</a>
+            <a style="background-color:red;" href=card_manage.php>MANAGE CARDS</a>
             <a style="background-color:red;" href=contact_view.php>MANAGE CONTACT MESSAGES</a>
 
           <?php
@@ -135,7 +135,7 @@
     <div class="button">
         <a href="leaderboard.php">LEADERBOARD</a>
         <?php if ($user->isLoggedIn())
-        echo "<a href=results_add.php>ADD RESULT</a><!--a href=#idk>AWARD CARD</a-->";
+        echo "<a href=results_add.php>ADD RESULT</a><a href=card_award.php>AWARD CARD</a>";
         /*if ($is_admin == false) {*/ ?>
             <a href=contact.php>CONTACT</a>
 <?php     //}
@@ -146,7 +146,7 @@
     <div class="button" style="background-color: #ed3e00;width:100%">
             <a href=alles.php>MANAGE USERS</a>
             <a href=zoekmatch.php>MANAGE RESULTS</a>
-            <a href=cardsformHayo.php>MANAGE CARDS</a>
+            <a href=card_manage.php>MANAGE CARDS</a>
             <a href=contact_view.php>MANAGE CONTACT MESSAGES</a>
     </div>
   <?php     }

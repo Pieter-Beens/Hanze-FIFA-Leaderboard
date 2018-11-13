@@ -70,9 +70,6 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
 ?>
 
 
-
-
-
 <div style="border-radius:20px;max-width:100%;margin:20px;padding: 20px;min-height: 30%;background-color: rgba(0, 0, 0, 0.30);">
 <table style="width:100%;">
 

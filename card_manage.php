@@ -16,13 +16,11 @@ $result2 = mysqli_query($db,$query2) or die ('Error querying database');
 <select name="geval">
   <?php
   while ($row = mysqli_fetch_assoc($result2)) {
-    if ($row['name'] != escape($user->data()->name)) {
       echo "<option value=";
       echo $row['name'];
       echo ">";
       echo $row['name'];
       echo "</option>";
-    };
   }
   ?>
 </select>
@@ -39,8 +37,13 @@ table{
   font-family: sans-serif;
   width: 100%;
 }
-td,tr {
-    text-align:center;
+td {
+  text-align:left;
+  vertical-align:top;
+  padding: 4px;
+}
+th{
+  font-size:14pt;
 }
 tr:nth-child(even){
   background-color: rgba(0, 0, 0, 0.40);
@@ -49,7 +52,7 @@ tr:nth-child(even){
 </style>
 
 <table>
-<tr style="background-color:white; color: black;"><th>card id</th><th>Accused</th><th>Accuser</th><th>Description</th><th>Date and time</th>
+<tr style="background-color:white; color: black;"><th>#</th><th>Accused</th><th>Accuser</th><th>Complaint</th><th>Date and time</th>
 <?php
 
 $query = "select c.id As 'Cardid' , u.name as Accused , u2.name as Accuser, c.description, c.datetime as 'time'";
@@ -59,7 +62,7 @@ if (isset($_POST["submit"])) {
 }
 $result = mysqli_query($db,$query) OR die("Query failed");
 while ($row = mysqli_fetch_assoc($result)) {
-  echo "<tr><th>$row[Cardid]</th><th>$row[Accused]</th><th>$row[Accuser]</th><th>$row[description]</th><th>$row[time]</th>";
+  echo "<tr><th><form method=POST action=card_delete.php><input style=width:20px name=cardid value=$row[Cardid]></th><th>$row[Accused]</th><th>$row[Accuser]</th><td>$row[description]</td><th>$row[time]</th><td><input type=submit value=Delete></form>";
 }
 echo "</table>";
 ?>
