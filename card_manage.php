@@ -62,7 +62,7 @@ if (isset($_POST["submit"])) {
 }
 $result = mysqli_query($db,$query) OR die("Query failed");
 while ($row = mysqli_fetch_assoc($result)) {
-  echo "<tr><th><form method=POST action=card_delete.php><input style=width:20px name=cardid value=$row[Cardid]></th><th>$row[Accused]</th><th>$row[Accuser]</th><td>$row[description]</td><th>$row[time]</th><td><input type=submit value=Delete></form>";
+  echo "<tr><td><form method=POST action=card_delete.php><input style=width:20px name=cardid value=$row[Cardid]></td><th>$row[Accused]</th><th>$row[Accuser]</th><td>$row[description]</td><th>$row[time]</th><td><input type=submit value=Delete></form>";
 }
 echo "</table>";
 ?>
