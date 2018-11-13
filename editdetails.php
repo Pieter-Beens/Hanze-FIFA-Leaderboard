@@ -13,12 +13,17 @@ include('fifadbconn.php');
 if (!($user->hasPermission('admin') || $_GET['user'] == escape($user->data()->id))) die('You do not have permission to view this page.');
 
 if (isset($_POST['name'])) {
+$query = "SELECT * FROM users WHERE name = '".$_POST['name']."' AND id != ".escape($user->data()->id);
+$result = mysqli_query($db,$query) or die('Error checking duplicate names');
+if (mysqli_num_rows($result) >= 1) {echo '<p style=color:red;text-align:center>That name is already taken! Changes were not saved.</p>';}
+else {
 $query = "UPDATE users ";
 $query .= "SET name = '".$_POST['name']."', realname = '".$_POST['realname']."', avatar = '".$_POST['avatar']."', favteam = '".$_POST['favteam']."'";
 $query .= "WHERE id = ".$_GET['user'];
 mysqli_query($db,$query) or die ('Error writing to database. Changes were not saved.');
 
-echo "Changes were saved successfully!<br><a style=color:orange href=profile.php?user=".escape($user->data()->id).">Return to your Profile.</a>";
+echo "<p style=text-align:center>Changes were saved successfully!<br><a style=color:orange href=profile.php?user=".escape($user->data()->id).">Return to your Profile.</a></p>";
+}
 }
 
 $query = "SELECT `name`, email, `realname`, favteam, avatar FROM users WHERE id =".$_GET['user'];

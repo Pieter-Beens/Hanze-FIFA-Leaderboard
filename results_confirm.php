@@ -50,18 +50,18 @@ $_SESSION['matchquery'] = "INSERT INTO results (homeplayer,homegoals,awaygoals,a
 $_SESSION['matchquery'] .= "VALUES (".$home['id'].",".$homegoals.",".$awaygoals.",".$away['id'].",$change,now(),'".htmlspecialchars($_POST['description'],ENT_QUOTES)."')";
 
 $_SESSION['homequery'] = "UPDATE users SET score=".round($newhomescore,3);
-if ($newhomescore > $home['highscore']) {$_SESSION['$homequery'] .= ", highscore=".round($newhomescore);}
+if ($newhomescore > $home['highscore']) {$_SESSION['homequery'] .= ", highscore=".round($newhomescore,3);}
 $_SESSION['homequery'] .= " WHERE id=".$home['id'];
 
 $_SESSION['awayquery'] = "UPDATE users SET score=".round($newawayscore,3);
-if ($newawayscore > $away['highscore']) {$_SESSION['$awayquery'] .= ", highscore=".round($newawayscore);}
+if ($newawayscore > $away['highscore']) {$_SESSION['awayquery'] .= ", highscore=".round($newawayscore,3);}
 $_SESSION['awayquery'] .= " WHERE id=".$away['id'];
 
 $_SESSION['homepass'] = $home['password'];
 $_SESSION['awaypass'] = $away['password'];
 
 }
-
+echo $_SESSION['homequery']."/".$_SESSION['awayquery'];
 // PASSWORD FORM
 ?>
 <div align=center>

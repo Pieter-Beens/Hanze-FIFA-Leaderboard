@@ -77,7 +77,7 @@ $result = mysqli_query($db,$query) or die ('Error querying database');
 <table style="width:100%;">
 
   <tr>
-    <td style="width: 28vw" rowspan="6"><img style="width:20vw;" src="
+    <td style=width:28vw rowspan="6"><img style="max-width:20vw;max-height:32vh" src="
       <?php if ($player['avatar'] == NULL)
       echo "layouts/images/awesomelogo.png";
             else
