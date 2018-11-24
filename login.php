@@ -10,13 +10,19 @@
             ));
 
             if ($validation->passed()) {
+                /*include('fifadbconn.php'); //mijn poging login te fiksen
+                $query = "SELECT `id` FROM `users` WHERE `name` = 'KabouterKlop77'";
+                $result = mysqli_query($db,$query) or die('Error querying DB.');
+                while ($row = mysqli_fetch_assoc($result)) {
+                  $_SESSION['user'] = $row['id']; //row[id] geeft niets terug, waarom??
+                }; //einde van mijn poging*/
                 $user = new User();
                 $remember = (Input::get('remember') === 'on') ? true : false;
                 $login = $user->login(Input::get('username'), Input::get('password'), $remember);
                 echo "$login";
                 if($login) {
-                    echo "About to redirect...";
-                    header('Location: leaderboard.php');
+                    echo "User ".$row['id']." has successfully logged in, <a href=leaderboard.php>click here to return to the leaderboard</a>.";
+                    Redirect::to("leaderboard.php");
                 } else {
                     $err = 'Login failed';
                 }
