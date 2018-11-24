@@ -21,7 +21,7 @@
                 $login = $user->login(Input::get('username'), Input::get('password'), $remember);
                 echo "$login";
                 if($login) {
-                    echo "User ".$row['id']." has successfully logged in, <a href=leaderboard.php>click here to return to the leaderboard</a>.";
+                    echo "User ".$_SESSION['user']." has successfully logged in, <a href=leaderboard.php>click here to return to the leaderboard</a>.";
                     Redirect::to("leaderboard.php");
                 } else {
                     $err = 'Login failed';

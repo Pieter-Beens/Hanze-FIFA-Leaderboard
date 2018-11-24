@@ -20,6 +20,8 @@ $title = "LEADERBOARD";
 include('layouts/header.php');
 include('fifadbconn.php');
 
+echo "logged in user: ".$_SESSION['user'];
+
 $query = "SELECT * ";
 $query .= "FROM users ";
 $query .= "ORDER BY score DESC";
