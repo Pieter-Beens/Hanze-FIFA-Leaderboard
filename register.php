@@ -51,7 +51,7 @@ $merr="";
                         'roles_id' => 1,
                         'joindate' => date("Y-m-d H:i:s"),
                     ));
-
+//email goes HERE
                     Session::flash('home', 'You have been registered');
                     Redirect::to('index.php');
                 } catch (Exception $e) {

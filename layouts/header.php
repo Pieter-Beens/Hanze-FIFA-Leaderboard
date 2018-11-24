@@ -83,7 +83,7 @@
 
 <!-- menu mobile -->
 <div class="mobile-menu" id="mobile-menu">
-    <a href="leaderboard.php">LEADERBOARD</a>
+    <a href="index.php">LEADERBOARD</a>
     <a href=contact.php>CONTACT</a>
     <?php
     if ($user->isLoggedIn()) {
@@ -133,7 +133,7 @@
 
 <div class="menuWrapper">
     <div class="button">
-        <a href="leaderboard.php">LEADERBOARD</a>
+        <a href="index.php">LEADERBOARD</a>
         <?php if ($user->isLoggedIn())
         echo "<a href=results_add.php>ADD RESULT</a><a href=card_award.php>AWARD CARD</a>";
         /*if ($is_admin == false) {*/ ?>

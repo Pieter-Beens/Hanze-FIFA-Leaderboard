@@ -10,12 +10,12 @@
 
         public function __construct()
         {
-            echo "<script>console.log(\"XAMP proberen\")</script>";
-            $this->_db = mysqli_connect('localhost', 'root', '', 'fifa');
+            echo "<script>console.log(\"Strato server proberen\")</script>";
+            $this->_db = mysqli_connect('rdbms.strato.de', 'U3571439', 'Myx0mat0s!s', 'DB3571439');
             if (mysqli_connect_errno()) {
-                echo "<script>console.log(\"Usbwebserver proberen\")</script>";
-                $this->_db = mysqli_connect('localhost', 'root', 'usbw', 'fifa');
-                if (mysqli_connect_errno()) {
+              echo "<script>console.log(\"XAMPP proberen\")</script>";
+              $this->_db = mysqli_connect('localhost', 'root', '', 'fifa');
+              if (mysqli_connect_errno()) {
                     echo "<script>console.log(\"Niks werkt :(\")</script>";
                 };
             };

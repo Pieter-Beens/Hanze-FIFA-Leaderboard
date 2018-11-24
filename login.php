@@ -15,7 +15,8 @@
                 $login = $user->login(Input::get('username'), Input::get('password'), $remember);
                 echo "$login";
                 if($login) {
-                    Redirect::to('index.php');
+                    echo "About to redirect...";
+                    header('Location: leaderboard.php');
                 } else {
                     $err = 'Login failed';
                 }
