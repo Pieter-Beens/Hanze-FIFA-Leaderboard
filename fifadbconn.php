@@ -1,20 +1,19 @@
 <?php
-// Database connectie met localhost
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = ""; //alleen als er een wachtwoord is toegepast
-$dbname = "fifa"; //naam van de database
+// Database connectie met STRATO server
+$dbhost = "rdbms.strato.de";
+$dbuser = "U3571439";
+$dbpass = "Myx0mat0s!s"; //alleen als er een wachtwoord is toegepast
+$dbname = "DB3571439"; //naam van de database
 $db = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
-// Test of de verbinding werkt! (Voor die smerige XAMP)
+// Test of de verbinding werkt!
 if (mysqli_connect_errno()) {
-	// Als dat niet werkt probeert hij mijn settings zodat mijn database ook werkt niet aanpassen A U B -Dennis
+	// Als dat niet werkt probeert hij de localhost
 
-	// Database connectie met localhost
-	$dbhost = "rdbms.strato.de";
-	$dbuser = "U3571439";
-	$dbpass = "Myx0mat0s!s"; //alleen als er een wachtwoord is toegepast
-	$dbname = "DB3571439"; //naam van de database
+	$dbhost = "localhost";
+	$dbuser = "root";
+	$dbpass = ""; //alleen als er een wachtwoord is toegepast
+	$dbname = "fifa"; //naam van de database
 	$db = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
 	if (mysqli_connect_errno()) {

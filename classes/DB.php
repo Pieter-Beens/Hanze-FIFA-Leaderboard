@@ -16,7 +16,7 @@
               echo "<script>console.log(\"XAMPP proberen\")</script>";
               $this->_db = mysqli_connect('localhost', 'root', '', 'fifa');
               if (mysqli_connect_errno()) {
-                    echo "<script>console.log(\"Niks werkt :(\")</script>";
+                    die('Geen enkele DB verbinding werkt');
                 };
             };
         }
