@@ -1,3 +1,3 @@
 <?php
-header("location: leaderboard.php");
+header("location: leaderboard.php"); exit();
 ?>

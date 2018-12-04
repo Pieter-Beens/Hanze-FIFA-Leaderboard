@@ -1,9 +1,9 @@
 <?php
 // Database connectie met STRATO server
-$dbhost = "rdbms.strato.de";
-$dbuser = "U3571439";
-$dbpass = "Myx0mat0s!s"; //alleen als er een wachtwoord is toegepast
-$dbname = "DB3571439"; //naam van de database
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = ""; //alleen als er een wachtwoord is toegepast
+$dbname = "fifa"; //naam van de database
 $db = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
 // Test of de verbinding werkt!

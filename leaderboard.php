@@ -20,6 +20,8 @@ $title = "LEADERBOARD";
 include('layouts/header.php');
 include('fifadbconn.php');
 
+echo session_save_path();
+
 echo "logged in user: ".$_SESSION['user'];
 
 $query = "SELECT * ";
